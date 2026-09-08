@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Mockup — Proyectos · Irene Mahugo Amaro (preview)</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --accent:#1c3556;
+  --muted:#6b6b6b;
+  --max-width:1100px;
+  --gutter:5%;
+  --baseline:8px;
+  --serif:'Cormorant Garamond', serif;
+  --sans:'Inter', sans-serif;
+  --bg:#fafafa;
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family:var(--sans);
+  background:var(--bg);
+  color:#222;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  line-height:1.65;
+}
+
+.container{
+  max-width:var(--max-width);
+  margin:0 auto;
+  padding:48px var(--gutter);
+}
+
+.header h1{
+  margin:0 0 6px;
+  font-family:var(--serif);
+  font-size:2.8rem;
+  font-weight:600;
+}
+.header p.lead{margin:6px 0 0;color:var(--muted)}
+
+.section-label{
+  display:inline-block;
+  margin:28px 0 18px;
+  font-family:var(--serif);
+  font-size:0.86rem;
+  text-transform:uppercase;
+  letter-spacing:1px;
+  color:var(--muted);
+}
+
+.projects{display:block;margin-top:8px}
+.project{margin:46px 0;padding:0}
+.project h3{margin:0 0 6px;font-family:var(--serif);font-weight:600;font-size:1.45rem;line-height:1.12}
+.project .meta{font-size:0.95rem;color:var(--muted);margin-bottom:14px}
+.project figure{margin:0}
+.project img{width:100%;height:420px;object-fit:cover;display:block;border-radius:4px;border:1px solid rgba(0,0,0,0.04)}
+figcaption{margin-top:10px;font-size:0.92rem;color:var(--muted)}
+.project p{margin:14px 0 0;font-size:1.02rem}
+.more{display:inline-block;margin-top:8px;color:var(--accent);text-decoration:none;font-weight:500;font-size:0.97rem}
+.rule{height:1px;background:linear-gradient(90deg, transparent, rgba(0,0,0,0.04), transparent);margin:36px 0}
+
+/* responsive alternation */
+@media (min-width:880px){
+  .project.text-image{display:grid;grid-template-columns:1fr 420px;gap:34px;align-items:start}
+  .project.image-text{display:grid;grid-template-columns:420px 1fr;gap:34px;align-items:start}
+  .project .side-img{height:300px}
+}
+
+.footer{margin:60px 0 20px;color:var(--muted);font-size:0.95rem;text-align:center}
+
+.visually-hidden{position:absolute!important;height:1px;width:1px;overflow:hidden;clip:rect(1px,1px,1px,1px);white-space:nowrap}
+
+</style>
+</head>
+<body>
+
+<div class="container">
+  <header class="header" role="banner">
+    <h1>Irene Mahugo Amaro</h1>
+    <p class="lead">Artista escenógrafa e investigadora — investigación en artes vivas, escritura y prácticas curatoriales.</p>
+  </header>
+
+  <main role="main">
+    <div class="section-label">Proyectos</div>
+
+    <section class="projects" id="projects">
+      <!-- Projects will be rendered here by the script -->
+    </section>
+
+    <footer class="footer" role="contentinfo">
+      © Irene Mahugo Amaro
+    </footer>
+  </main>
+</div>
+
+<script>
+(async function(){
+  // Load the projects JSON from this branch (absolute raw URL ensures it fetches from the preview branch)
+  const baseRaw = 'https://raw.githubusercontent.com/Irene-mahugo-amaro/irene-mahugo-amaro.github.io/preview/projects-mockup/';
+  const projectsJsonUrl = baseRaw + 'projects/projects.json';
+  let projects = [];
+  try{
+    const res = await fetch(projectsJsonUrl);
+    projects = await res.json();
+  }catch(e){
+    console.error('Could not load projects.json from preview branch, falling back to relative /projects/projects.json', e);
+    try{
+      const r = await fetch('/projects/projects.json');
+      projects = await r.json();
+    }catch(e2){console.error('fallback failed',e2)}
+  }
+
+  const container = document.getElementById('projects');
+  if (!projects || !projects.length) {
+    container.innerHTML = '<p style="color:var(--muted)">No projects found in the dataset.</p>';
+    return;
+  }
+
+  // Render each project with editorial flexibility — don't invent content
+  projects.forEach((p, i) => {
+    const article = document.createElement('article');
+    article.className = 'project';
+
+    // alternate layout pattern for variety
+    const pattern = i % 3;
+    if (pattern === 0) {
+      // visual-first
+      article.classList.add('layout-visual-first');
+      article.innerHTML = `
+        <figure>
+          <img src="${p.thumbnail}" alt="${escapeHtml(p.title)} thumbnail">
+          <figcaption>${i+1}. ${escapeHtml(p.title)}${p.summary ? ' — ' + escapeHtml(truncate(p.summary,120)) : ''}</figcaption>
+        </figure>
+        <h3>${escapeHtml(p.title)}</h3>
+        <div class="meta">${p.date ? escapeHtml(p.date) : ''} ${p.tags? ' · ' + escapeHtml((p.tags||[]).join(' · ')) : ''}</div>
+        <p>${p.summary ? escapeHtml(truncate(p.summary,220)) : ''}</p>
+        <p><a class="more" href="/projects/${p.slug}/">[Más…]</a></p>
+      `;
+    } else if (pattern === 1) {
+      // text first with side image
+      article.classList.add('text-image');
+      article.innerHTML = `
+        <div class="text">
+          <h3>${escapeHtml(p.title)}</h3>
+          <div class="meta">${p.date ? escapeHtml(p.date) : ''} ${p.tags? ' · ' + escapeHtml((p.tags||[]).join(' · ')) : ''}</div>
+          <p>${p.summary ? escapeHtml(truncate(p.summary,240)) : ''}</p>
+          <p><a class="more" href="/projects/${p.slug}/">[Más…]</a></p>
+        </div>
+        <figure>
+          <img class="side-img" src="${p.thumbnail}" alt="${escapeHtml(p.title)} image">
+          <figcaption>${escapeHtml(p.title)}</figcaption>
+        </figure>
+      `;
+    } else {
+      // image-left, text-right
+      article.classList.add('image-text');
+      article.innerHTML = `
+        <figure>
+          <img class="side-img" src="${p.thumbnail}" alt="${escapeHtml(p.title)} image">
+          <figcaption>${escapeHtml(p.title)}</figcaption>
+        </figure>
+        <div class="text">
+          <h3>${escapeHtml(p.title)}</h3>
+          <div class="meta">${p.date ? escapeHtml(p.date) : ''} ${p.tags? ' · ' + escapeHtml((p.tags||[]).join(' · ')) : ''}</div>
+          <p>${p.summary ? escapeHtml(truncate(p.summary,200)) : ''}</p>
+          <p><a class="more" href="/projects/${p.slug}/">[Más…]</a></p>
+        </div>
+      `;
+    }
+
+    container.appendChild(article);
+    if (i < projects.length - 1) {
+      const r = document.createElement('div'); r.className = 'rule'; container.appendChild(r);
+    }
+  });
+
+  // utility
+  function escapeHtml(s){ if(!s) return ''; return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+  function truncate(s,n){ if(!s) return ''; return s.length>n? s.slice(0,n-1).trim() + '…': s; }
+
+})();
+</script>
+
+</body>
+</html>
