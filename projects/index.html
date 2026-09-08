@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Projects — Archive</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="brand">
+      <a href="/" class="home-link">Irene Mahugo Amaro</a>
+      <span class="sub">— research archive</span>
+    </div>
+    <nav class="top-nav" aria-label="Primary">
+      <a href="/">Home</a>
+      <a href="/projects/">Projects</a>
+      <a href="/lab/">Lab Notebook</a>
+      <a href="/about/">About</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="lead">
+      <h1>Projects Archive</h1>
+      <p class="lead-text">A living collection of experiments, images and materials. Click into a research space to read methods, see process documentation and explore media.</p>
+    </section>
+
+    <section class="controls" aria-hidden="false">
+      <div id="tag-bar" class="tag-bar" aria-hidden="false"></div>
+    </section>
+
+    <section id="masonry" class="masonry" aria-live="polite">
+      <!-- image-led cards injected by projects.js -->
+    </section>
+
+    <p id="no-results" class="muted" hidden>No results</p>
+  </main>
+
+  <footer class="site-footer">
+    <p>Source · <a href="https://github.com/Irene-mahugo-amaro/irene-mahugo-amaro.github.io">GitHub</a> · <span id="last-updated">—</span></p>
+  </footer>
+
+  <script src="projects.js" defer></script>
+</body>
+</html>

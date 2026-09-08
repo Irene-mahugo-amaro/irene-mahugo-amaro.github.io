@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Project — Material Traces</title>
+  <link rel="stylesheet" href="../styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="brand"><a href="/" class="home-link">Irene Mahugo Amaro</a><span class="sub">— research archive</span></div>
+    <nav class="top-nav" aria-label="Primary"><a href="/projects/">Projects</a><a href="/lab/">Lab Notebook</a></nav>
+  </header>
+
+  <main>
+    <article id="project-root" class="project-root container" aria-live="polite">
+      <div class="project-hero" id="hero">
+        <div class="nav-inline"><a href="/projects/">← Back to projects</a></div>
+        <h1 id="title">Loading…</h1>
+        <p id="subtitle" class="project-meta"></p>
+        <div class="hero-media" id="hero-media"></div>
+      </div>
+
+      <div class="project-grid">
+        <section class="panel" id="left-column">
+          <div id="intro-area"></div>
+
+          <h3>Process & Notebook</h3>
+          <div id="notes">Loading process notes…</div>
+
+          <h3>Gallery</h3>
+          <div id="gallery" class="gallery-row"></div>
+        </section>
+
+        <aside class="panel" id="right-column">
+          <div id="editorial-area"></div>
+          <h4>Materials & Methods</h4>
+          <div id="methods"></div>
+
+          <h4>Downloads</h4>
+          <div id="downloads"></div>
+        </aside>
+      </div>
+    </article>
+  </main>
+
+  <footer class="site-footer"><p><a href="https://github.com/Irene-mahugo-amaro/irene-mahugo-amaro.github.io">View source</a></p></footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script>
+  (async function() {
+    const slug = location.pathname.replace(/\\/|\/$/g,'').split('/').pop();
+    const projects = await fetch('../projects.json').then(r=>r.json());
+    const p = projects.find(x => x.slug === slug);
+    if (!p) {
+      document.getElementById('title').innerText = 'Project not found';
+      document.getElementById('notes').innerText = '';
+      return;
+    }
+    document.title = p.title + ' — Project';
+    document.getElementById('title').innerText = p.title;
+    document.getElementById('subtitle').innerText = (p.date ? p.date + ' · ' : '') + (p.tags || []).join(' · ');
+
+    // hero media (image-forward)
+    const hero = document.getElementById('hero-media');
+    const img = document.createElement('img');
+    img.src = p.thumbnail;
+    img.alt = p.title + ' hero';
+    img.style.width = '100%';
+    img.style.display = 'block';
+    hero.appendChild(img);
+
+    // editorial intro area (flexible, allow short html)
+    const intro = document.getElementById('intro-area');
+    if (p.intro_html) intro.innerHTML = p.intro_html; else if (p.summary) intro.innerHTML = '<p>' + p.summary + '</p>';
+
+    // methods & editorial notes
+    document.getElementById('methods').innerText = p.methods || '';
+
+    const meta = document.getElementById('editorial-area');
+    meta.innerHTML = '';
+    const artists = (p.collaborators || []).map(c=>c.name).join(', ');
+    meta.innerHTML = '<div><strong>Collaborators:</strong> ' + (artists || '—') + '</div>';
+
+    // downloads & files
+    const dl = document.getElementById('downloads');
+    (p.files || []).forEach(f => {
+      const a = document.createElement('a');
+      a.href = f.url;
+      a.innerText = f.label || 'file';
+      a.style.display = 'block';
+      dl.appendChild(a);
+    });
+
+    // notes (markdown) — editorial, not technical
+    const notesEl = document.getElementById('notes');
+    const noteFile = (p.files || []).find(x => x.url && x.url.toLowerCase().endsWith('.md'));
+    if (noteFile) {
+      try {
+        const txt = await fetch(noteFile.url).then(r => r.text());
+        notesEl.innerHTML = marked.parse(txt);
+      } catch (e) {
+        notesEl.innerText = 'Could not load notes.';
+      }
+    } else {
+      notesEl.innerText = p.summary || '';
+    }
+
+    // gallery
+    const gallery = document.getElementById('gallery');
+    const galleryImgs = p.gallery || [];
+    if (galleryImgs.length) {
+      galleryImgs.forEach(u => {
+        const i = document.createElement('img'); i.src = u; i.loading='lazy'; i.alt='';
+        gallery.appendChild(i);
+      });
+    }
+  })();
+  </script>
+</body>
+</html>
