@@ -1,0 +1,21 @@
+[
+  {
+    "id": "example-01",
+    "title": "Material Traces — ink experiments",
+    "slug": "material-traces-ink-experiments",
+    "date": "2026-09-08",
+    "status": "active",
+    "tags": ["ink", "materiality", "drawing", "process"],
+    "collaborators": [
+      {"name": "Irene Mahugo Amaro", "link": "https://irene-mahugo-amaro.github.io"}
+    ],
+    "thumbnail": "https://via.placeholder.com/900x600.png?text=Material+Traces",
+    "summary": "A set of experimental drawings exploring ink absorption on different papers and surfaces. Documents process, failures, and iterations.",
+    "methods": "Hand drawing with sumi ink; variations in paper porosity; scanning and layering in Photoshop. Notes capture materials, times, and environmental conditions.",
+    "files": [
+      {"label": "Project notes (Markdown)", "url": "./example-project/notes.md"}
+    ],
+    "repo_link": "",
+    "license": "CC BY-SA 4.0"
+  }
+]
