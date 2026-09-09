@@ -1,533 +1,634 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Irene Mahugo Amaro</title>
+    <title>Irene Mahugo Amaro</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
-<style>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Inter', sans-serif;
+            background: #ffffff;
+            color: #2c2c2c;
+        }
 
-body{
-    margin:0;
-    font-family:'Inter',sans-serif;
-    background:#ffffff;
-    color:#2c2c2c;
-}
+        /* Navigation */
+        .site-header {
+            padding: 40px 12% 20px 12%;
+            background: #ffffff;
+            border-bottom: 1px solid #e0d4c8;
+        }
 
-/* Navigation */
-.site-header{
-    padding:40px 12% 20px 12%;
-    background:#ffffff;
-    border-bottom:1px solid #e0d4c8;
-}
+        .navbar {
+            display: flex;
+            gap: 18px;
+            align-items: center;
+            justify-content: flex-end;
+            margin-bottom: 18px;
+        }
 
-.navbar{
-    display:flex;
-    gap:18px;
-    align-items:center;
-    justify-content:flex-end;
-    margin-bottom:18px;
-}
+        .navbar ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
 
-.navbar ul{
-    list-style:none;
-    margin:0;
-    padding:0;
-    display:flex;
-    gap:12px;
-    align-items:center;
-}
+        .navbar a {
+            text-decoration: none;
+            color: #5a4a42;
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-weight: 500;
+            transition: 0.2s;
+        }
 
-.navbar a{ 
-    text-decoration:none;
-    color:#5a4a42;
-    padding:8px 12px;
-    border-radius:6px;
-    font-weight:500;
-    transition:0.2s;
-}
+        .navbar a:hover,
+        .navbar a:focus-visible {
+            background: #e8dcd1;
+            color: #3d2817;
+        }
 
-.navbar a:hover{ 
-    background:#e8dcd1;
-    color:#3d2817;
-}
+        .nav-item {
+            position: relative;
+        }
 
-.nav-item{ 
-    position:relative;
-}
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            top: calc(100% + 6px);
+            left: 0;
+            background: #ffffff;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            padding: 8px 6px;
+            min-width: 220px;
+            z-index: 100;
+            border: 1px solid #e0d4c8;
+        }
 
-.dropdown-content{
-    display:none;
-    position:absolute;
-    top:calc(100% + 6px);
-    left:0;
-    background:white;
-    box-shadow:0 6px 18px rgba(0,0,0,0.1);
-    border-radius:8px;
-    padding:8px 6px;
-    min-width:220px;
-    z-index:100;
-    border:1px solid #e0d4c8;
-}
+        .dropdown-content a {
+            display: block;
+            padding: 10px 14px;
+            color: #5a4a42;
+            transition: 0.2s;
+        }
 
-.dropdown-content a{
-    display:block;
-    padding:10px 14px;
-    color:#5a4a42;
-    transition:0.2s;
-}
+        .dropdown-content a:hover,
+        .dropdown-content a:focus-visible {
+            background: #f5ede4;
+            color: #3d2817;
+        }
 
-.dropdown-content a:hover{
-    background:#f5ede4;
-    color:#3d2817;
-}
+        .nav-item:hover .dropdown-content,
+        .nav-item:focus-within .dropdown-content {
+            display: block;
+        }
 
-.nav-item:hover .dropdown-content{
-    display:block;
-}
+        header {
+            padding: 40px 12% 60px 12%;
+            background: #ffffff;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+        }
 
-header{
-    padding:40px 12% 60px 12%;
-    background:#ffffff;
-    display:flex;
-    flex-direction:column;
-    justify-content:flex-start;
-}
+        h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3.5rem;
+            font-weight: 600;
+            margin: 20px 0 10px 0;
+            color: #2c2c2c;
+        }
 
-h1{
-    font-family:'Cormorant Garamond',serif;
-    font-size:3.5rem;
-    font-weight:600;
-    margin:20px 0 10px 0;
-    color:#2c2c2c;
-}
+        .subtitulo {
+            font-size: 1.15rem;
+            color: #7a6a62;
+            margin-bottom: 24px;
+            font-weight: 300;
+        }
 
-.subtitulo{
-    font-size:1.15rem;
-    color:#7a6a62;
-    margin-bottom:24px;
-    font-weight:300;
-}
+        .descripcion {
+            max-width: 700px;
+            font-size: 1rem;
+            line-height: 1.8;
+            margin-bottom: 24px;
+            color: #4a4a4a;
+        }
 
-.descripcion{
-    max-width:700px;
-    font-size:1rem;
-    line-height:1.8;
-    margin-bottom:24px;
-    color:#4a4a4a;
-}
+        .keywords {
+            max-width: 700px;
+            font-size: 0.9rem;
+            color: #7a6a62;
+            margin-bottom: 24px;
+            line-height: 1.6;
+            font-weight: 300;
+        }
 
-.keywords{
-    max-width:700px;
-    font-size:0.9rem;
-    color:#7a6a62;
-    margin-bottom:24px;
-    line-height:1.6;
-    font-weight:300;
-}
+        /* Carousel / Destacados */
+        .carousel-container {
+            position: relative;
+            width: 100%;
+            height: 500px;
+            overflow: hidden;
+            background: #f5ede4;
+        }
 
-/* Carousel / Destacados */
-.carousel-container{
-    position:relative;
-    width:100%;
-    height:500px;
-    overflow:hidden;
-    background:#f5ede4;
-}
+        .carousel-wrapper {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
 
-.carousel-wrapper{
-    position:relative;
-    width:100%;
-    height:100%;
-}
+        .carousel-slide {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+            pointer-events: none;
+        }
 
-.carousel-slide{
-    position:absolute;
-    width:100%;
-    height:100%;
-    opacity:0;
-    transition:opacity 1s ease-in-out;
-}
+        .carousel-slide.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
 
-.carousel-slide.active{
-    opacity:1;
-}
+        .carousel-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
 
-.carousel-slide img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-}
+        .carousel-controls {
+            position: absolute;
+            bottom: 20px;
+            right: 40px;
+            display: flex;
+            gap: 12px;
+            z-index: 10;
+        }
 
-.carousel-controls{
-    position:absolute;
-    bottom:20px;
-    right:40px;
-    display:flex;
-    gap:12px;
-    z-index:10;
-}
+        .carousel-dot {
+            width: 12px;
+            height: 12px;
+            border: 0;
+            padding: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: 0.3s;
+        }
 
-.carousel-dot{
-    width:12px;
-    height:12px;
-    border-radius:50%;
-    background:rgba(255,255,255,0.5);
-    cursor:pointer;
-    transition:0.3s;
-}
+        .carousel-dot.active {
+            background: #ffffff;
+        }
 
-.carousel-dot.active{
-    background:white;
-}
+        .carousel-dot:hover,
+        .carousel-dot:focus-visible {
+            background: rgba(255, 255, 255, 0.8);
+            outline: 2px solid rgba(255, 255, 255, 0.8);
+            outline-offset: 3px;
+        }
 
-.carousel-dot:hover{
-    background:rgba(255,255,255,0.8);
-}
+        section {
+            padding: 80px 12%;
+        }
 
-section{
-    padding:80px 12%;
-}
+        section:nth-child(odd) {
+            background: #ffffff;
+        }
 
-section:nth-child(odd){
-    background:#ffffff;
-}
+        section:nth-child(even) {
+            background: #faf8f3;
+        }
 
-section:nth-child(even){
-    background:#faf8f3;
-}
+        h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            color: #2c2c2c;
+        }
 
-h2{
-    font-family:'Cormorant Garamond',serif;
-    font-size:2.5rem;
-    margin-bottom:30px;
-    color:#2c2c2c;
-}
+        h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            color: #3d2817;
+        }
 
-h3{
-    font-family:'Cormorant Garamond',serif;
-    font-size:1.5rem;
-    margin-top:30px;
-    margin-bottom:15px;
-    color:#3d2817;
-}
+        .tarjetas {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
 
-.tarjetas{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-    gap:30px;
-}
+        .tarjeta {
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+            transition: 0.3s;
+            border: 1px solid #e0d4c8;
+        }
 
-.tarjeta{
-    background:white;
-    padding:20px;
-    border-radius:8px;
-    box-shadow:0 2px 12px rgba(0,0,0,0.08);
-    transition:0.3s;
-    border:1px solid #e0d4c8;
-}
+        .tarjeta:hover {
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+            transform: translateY(-4px);
+        }
 
-.tarjeta:hover{
-    box-shadow:0 8px 24px rgba(0,0,0,0.12);
-    transform:translateY(-4px);
-}
+        .tarjeta img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 6px;
+            margin-bottom: 15px;
+            display: block;
+        }
 
-.tarjeta img{
-    width:100%;
-    height:200px;
-    object-fit:cover;
-    border-radius:6px;
-    margin-bottom:15px;
-}
+        .tarjeta h3 {
+            margin-top: 0;
+        }
 
-.tarjeta h3{
-    margin-top:0;
-}
+        .tarjeta p,
+        section p {
+            line-height: 1.7;
+        }
 
-footer{
-    padding:50px 12%;
-    text-align:center;
-    color:#7a6a62;
-    background:#ffffff;
-    border-top:1px solid #e0d4c8;
-}
+        footer {
+            padding: 50px 12%;
+            text-align: center;
+            color: #7a6a62;
+            background: #ffffff;
+            border-top: 1px solid #e0d4c8;
+        }
 
-/* Responsive adjustments */
-@media (max-width:800px){
-    .navbar{ justify-content:flex-start; }
-    header{ padding:30px 6% 40px 6%; }
-    section{ padding:40px 6%; }
-    h1{ font-size:2.5rem; }
-    .carousel-container{ height:300px; }
-}
+        a {
+            color: #5a4a42;
+        }
 
-</style>
+        a:focus-visible {
+            outline: 2px solid #7a6a62;
+            outline-offset: 3px;
+            border-radius: 3px;
+        }
 
+        /* Responsive adjustments */
+        @media (max-width: 800px) {
+            .site-header {
+                padding: 25px 6% 15px 6%;
+            }
+
+            .navbar {
+                justify-content: flex-start;
+                overflow-x: auto;
+                padding-bottom: 5px;
+            }
+
+            .navbar ul {
+                gap: 4px;
+                flex-wrap: wrap;
+            }
+
+            .navbar a {
+                display: inline-block;
+                padding: 8px 9px;
+                font-size: 0.9rem;
+            }
+
+            .dropdown-content {
+                position: static;
+                min-width: 0;
+                margin-top: 4px;
+                box-shadow: none;
+            }
+
+            header {
+                padding: 30px 6% 40px 6%;
+            }
+
+            section {
+                padding: 40px 6%;
+            }
+
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            h2 {
+                font-size: 2.1rem;
+            }
+
+            .carousel-container {
+                height: 300px;
+            }
+
+            .carousel-controls {
+                right: 20px;
+                bottom: 15px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .carousel-slide,
+            .tarjeta,
+            .navbar a,
+            .dropdown-content a {
+                transition: none;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-<header class="site-header">
+    <header class="site-header">
 
-    <nav class="navbar" aria-label="Navegación principal">
-        <ul>
-            <li class="nav-item">
-                <a href="#sobremi">Sobre mí</a>
-            </li>
+        <nav class="navbar" aria-label="Navegación principal">
+            <ul>
+                <li class="nav-item">
+                    <a href="#sobremi">Sobre mí</a>
+                </li>
 
-            <li class="nav-item">
-                <a href="#artistica">Actividad Artística</a>
-            </li>
+                <li class="nav-item">
+                    <a href="#artistica">Actividad Artística</a>
+                </li>
 
-            <li class="nav-item">
-                <a href="#cv" aria-haspopup="true">CV ▾</a>
-                <div class="dropdown-content" role="menu" aria-label="CV subsecciones">
-                    <a href="#education" role="menuitem">Formación</a>
-                    <a href="#project-organization" role="menuitem">Organización y Gestión de Proyectos</a>
-                    <a href="#awards" role="menuitem">Premios y Estancias de Investigación</a>
-                    <a href="#teaching" role="menuitem">Docencia</a>
-                </div>
-            </li>
+                <li class="nav-item">
+                    <a href="#cv" aria-haspopup="true">CV ▾</a>
+                    <div class="dropdown-content" role="menu" aria-label="CV subsecciones">
+                        <a href="#education" role="menuitem">Formación</a>
+                        <a href="#project-organization" role="menuitem">Organización y Gestión de Proyectos</a>
+                        <a href="#awards" role="menuitem">Premios y Estancias de Investigación</a>
+                        <a href="#teaching" role="menuitem">Docencia</a>
+                    </div>
+                </li>
 
-            <li class="nav-item">
-                <a href="#investigadora" aria-haspopup="true">Actividad Investigadora ▾</a>
-                <div class="dropdown-content" role="menu" aria-label="Investigación subsecciones">
-                    <a href="#publications" role="menuitem">Publicaciones</a>
-                    <a href="#conferences" role="menuitem">Comunicaciones y Ponencias</a>
-                </div>
-            </li>
+                <li class="nav-item">
+                    <a href="#investigadora" aria-haspopup="true">Actividad Investigadora ▾</a>
+                    <div class="dropdown-content" role="menu" aria-label="Investigación subsecciones">
+                        <a href="#publications" role="menuitem">Publicaciones</a>
+                        <a href="#conferences" role="menuitem">Comunicaciones y Ponencias</a>
+                    </div>
+                </li>
 
-            <li class="nav-item">
-                <a href="#contacto">Contacto</a>
-            </li>
-        </ul>
-    </nav>
+                <li class="nav-item">
+                    <a href="#contacto">Contacto</a>
+                </li>
+            </ul>
+        </nav>
 
-    <h1>Irene Mahugo Amaro</h1>
+        <h1>Irene Mahugo Amaro</h1>
 
-    <p class="subtitulo">
-        Artista escenógrafa e investigadora predoctoral
-    </p>
+        <p class="subtitulo">
+            Artista escenógrafa e investigadora predoctoral
+        </p>
 
-</header>
+    </header>
 
-<div class="carousel-container">
-    <div class="carousel-wrapper">
-        <div class="carousel-slide active">
-            <img src="images/destacado-1.JPG" alt="Destacado 1">
+    <div class="carousel-container" aria-label="Proyectos destacados">
+        <div class="carousel-wrapper">
+
+            <div class="carousel-slide active">
+                <img src="images/destacado-1.JPG" alt="Destacado 1">
+            </div>
+
+            <div class="carousel-slide">
+                <img src="images/destacado-2.JPG" alt="Destacado 2">
+            </div>
+
+            <div class="carousel-slide">
+                <img src="images/destacado-3.JPG" alt="Destacado 3">
+            </div>
+
+            <div class="carousel-slide">
+                <img src="images/destacado-4.JPG" alt="Destacado 4">
+            </div>
+
         </div>
 
-        <div class="carousel-slide">
-            <img src="images/destacado-2.JPG" alt="Destacado 2">
-        </div>
-
-        <div class="carousel-slide">
-            <img src="images/destacado-3.JPG" alt="Destacado 3">
-        </div>
-
-        <div class="carousel-slide">
-            <img src="images/destacado-4.JPG" alt="Destacado 4">
+        <div class="carousel-controls" aria-label="Controles del carrusel">
+            <button class="carousel-dot active" type="button" data-slide="0" aria-label="Mostrar destacado 1" aria-current="true"></button>
+            <button class="carousel-dot" type="button" data-slide="1" aria-label="Mostrar destacado 2" aria-current="false"></button>
+            <button class="carousel-dot" type="button" data-slide="2" aria-label="Mostrar destacado 3" aria-current="false"></button>
+            <button class="carousel-dot" type="button" data-slide="3" aria-label="Mostrar destacado 4" aria-current="false"></button>
         </div>
     </div>
 
-    <div class="carousel-controls">
-        <div class="carousel-dot active" data-slide="0"></div>
-        <div class="carousel-dot" data-slide="1"></div>
-        <div class="carousel-dot" data-slide="2"></div>
-        <div class="carousel-dot" data-slide="3"></div>
-    </div>
-</div>
+    <section id="sobremi">
+        <h2>Sobre mí</h2>
 
-<section id="sobremi">
-    <h2>Sobre mí</h2>
-
-    <p class="descripcion">
-        Soy investigadora predoctoral en la Facultad de Bellas Artes de Cuenca (UCLM) y formo parte del grupo de investigación ARTEA. Desde 
-        2022 desarrollo mi tesis doctoral como personal investigador en formación, en el marco del Plan Propio I+D+i, cofinanciado por el 
-        Fondo Social Europeo Plus (FSE+).
-    </p>
-
-    <p class="descripcion">
-        Mi investigación se sitúa en el cruce entre las artes vivas, la curaduría, la escritura y los estudios de la discapacidad, desde un 
-        compromiso con el activismo anticapacitista. Trabajo desde el propio cuerpo y en relación con otros cuerpos para explorar cómo la 
-        enfermedad, el trauma, la vulnerabilidad y la diferencia transforman nuestras formas de estar, participar y producir conocimiento.
-    </p>
-
-     <p class="descripcion">
-        A lo largo de estos años he ido reuniendo intuiciones, escrituras, movimientos, conversaciones y experiencias compartidas. 
-        Trabajo desde metodologías situadas, colaborativas y experimentales, generando espacios donde diferentes cuerpos, capacidades y formas 
-        de relación puedan encontrarse.
-    </p>
-
-    <p class="keywords">
-        Artes vivas · curaduría · escritura · activismo anticapacitista
-    </p>
-</section>
-
-<section id="artistica">
-    <h2>Actividad Artística</h2>
-
-    <div class="tarjetas">
-
-        <div class="tarjeta">
-            <img src="images/la-poetica-del-agua.jpg" alt="La poética del agua">
-            <h3>La poética del agua, un experimento sonoro</h3>
-            <p>
-                Irene Mahugo, Romina Casile y Tzu-Han Hung
-                </p>
-                Podcast en Radio Experimenta (ReX)
-            </p>
-                La Casa Encendida, Madrid, 2026
-            </p>
-        </div>
-
-        <div class="tarjeta">
-            <img src="images/comunidades-sonantes.jpg" alt="Comunidades Sonantes">
-            <h3>Nana, injerto, susurro: entre el sueño y la vigilia</h3>
-            <p>
-                Irene Mahugo, Esther Rodríguez-Barbero y Tzu-Han Hung
-                </p>
-                Taller en el marco del II Seminario de Investigación Experimenta: Comunidades Soñantes
-            </p>
-                Facultad de Bellas Artes, UCLM, 2026
-            </p>
-        </div>
-
-        <div class="tarjeta">
-            <img src="images/casaco.JPG" alt="Casaco">
-            <h3>CASA & CO</h3>
-            <p>
-                Exposición colectiva 
-                </p>
-                Casa de Velázquez, Madrid
-            </p>
-                13 noviembre 2024 - 9 febrero 2025
-            </p>
-        </div>
-
-        <div class="tarjeta">
-            <img src="images/nenhures.JPG" alt="Nenhures">
-            <h3>Nenhures</h3>
-            <p>
-                Lectura performativa  
-                </p>
-                Experimenta: I Seminario de investigación
-            </p>
-                Fundación Antonio Pérez, Cuenca, 2025
-            </p>
-        </div>
-
-    </div>
-</section>
-
-<section id="cv">
-    <h2>Currículum (CV)</h2>
-
-    <h3 id="education">Formación</h3>
-    <p>Doctorado en Arte, Humanidades y Educación
+        <p class="descripcion">
+            Soy investigadora predoctoral en la Facultad de Bellas Artes de Cuenca (UCLM) y formo parte del grupo de investigación ARTEA.
+            Desde 2022 desarrollo mi tesis doctoral como personal investigador en formación, en el marco del Plan Propio I+D+i,
+            cofinanciado por el Fondo Social Europeo Plus (FSE+).
         </p>
-    Facultad de Bellas Artes, UCLM · 2022 - Actualmente
-    </p>
-    MicroCredencial universitaria en coordinación de acceso
+
+        <p class="descripcion">
+            Mi investigación se sitúa en el cruce entre las artes vivas, la curaduría, la escritura y los estudios de la discapacidad,
+            desde un compromiso con el activismo anticapacitista. Trabajo desde el propio cuerpo y en relación con otros cuerpos para
+            explorar cómo la enfermedad, el trauma, la vulnerabilidad y la diferencia transforman nuestras formas de estar, participar
+            y producir conocimiento.
         </p>
-    UVigo · 2026 
-    </p>
-    Máster Universitario en Investigación en Arte y Creación
+
+        <p class="descripcion">
+            A lo largo de estos años he ido reuniendo intuiciones, escrituras, movimientos, conversaciones y experiencias compartidas.
+            Trabajo desde metodologías situadas, colaborativas y experimentales, generando espacios donde diferentes cuerpos, capacidades
+            y formas de relación puedan encontrarse.
         </p>
-    Facultad de Bellas Artes · UCM 2020 - 2021
-    </p>
-    Grado en Arte Dramático, especialidad Escenografía
+
+        <p class="keywords">
+            Artes vivas · curaduría · escritura · activismo anticapacitista
         </p>
-    RESAD · 2016 - 2020
+    </section>
 
-</p>
+    <section id="artistica">
+        <h2>Actividad Artística</h2>
 
-    <h3 id="project-organization">Organización y Gestión de Proyectos</h3>
-    <p>Artes Vivas y Prácticas Expandidas de Investigación-Creación: experimentalidad y genealogía / Live Arts and Expanded Practices for Artistic Research: 
-        Experiment and Genealogy. (EXPERIMENTA / ECLAR). IP: José A. Sánchez. PID2023-148236NB-C21. Financiado por MICIU/AEI/10.13039/501100011033 y por FEDER,UE.
-    </p>
-01/09/2024 - 31/08/2028.
-    </p>
-    (Más...) Y aquí indicar la URL
-        
-    </p>
+        <div class="tarjetas">
 
-    <h3 id="awards">Premios y Estancias de Investigación</h3>
-    <p>Listado de premios, becas y estancias realizadas.</p>
+            <article class="tarjeta">
+                <img src="images/la-poetica-del-agua.jpg" alt="La poética del agua">
+                <h3>La poética del agua, un experimento sonoro</h3>
+                <p>Irene Mahugo, Romina Casile y Tzu-Han Hung</p>
+                <p>Podcast en Radio Experimenta (ReX)</p>
+                <p>La Casa Encendida, Madrid, 2026</p>
+            </article>
 
-    <h3 id="teaching">Docencia</h3>
-    <p>Actividades docentes, seminarios y talleres impartidos.</p>
-</section>
+            <article class="tarjeta">
+                <img src="images/comunidades-sonantes.jpg" alt="Comunidades Sonantes">
+                <h3>Nana, injerto, susurro: entre el sueño y la vigilia</h3>
+                <p>Irene Mahugo, Esther Rodríguez-Barbero y Tzu-Han Hung</p>
+                <p>Taller en el marco del II Seminario de Investigación Experimenta: Comunidades Soñantes</p>
+                <p>Facultad de Bellas Artes, UCLM, 2026</p>
+            </article>
 
-<section id="investigadora">
-    <h2>Actividad Investigadora</h2>
+            <article class="tarjeta">
+                <img src="images/casaco.JPG" alt="CASA &amp; CO">
+                <h3>CASA &amp; CO</h3>
+                <p>Exposición colectiva</p>
+                <p>Casa de Velázquez, Madrid</p>
+                <p>13 noviembre 2024 - 9 febrero 2025</p>
+            </article>
 
-    <p>
-        Actualmente desarrollo la tesis doctoral <strong>Revolución Horizontal</strong>
-        en la Facultad de Bellas Artes de Cuenca (UCLM), dentro del programa de Doctorado
-        en Humanidades, Artes y Educación.
-    </p>
+            <article class="tarjeta">
+                <img src="images/nenhures.JPG" alt="Nenhures">
+                <h3>Nenhures</h3>
+                <p>Lectura performativa</p>
+                <p>Experimenta: I Seminario de investigación</p>
+                <p>Fundación Antonio Pérez, Cuenca, 2025</p>
+            </article>
 
-    <h3 id="publications">Publicaciones</h3>
-    <p>Aquí puedes añadir la lista de publicaciones, capítulos y artículos.</p>
+        </div>
+    </section>
 
-    <h3 id="conferences">Comunicaciones y Ponencias</h3>
-    <p>Listado de comunicaciones en congresos, ponencias y presentaciones.</p>
-</section>
+    <section id="cv">
+        <h2>Currículum (CV)</h2>
 
-<section id="contacto">
-    <h2>Contacto</h2>
+        <h3 id="education">Formación</h3>
 
-    <p>
-        📧 <a href="mailto:irene.mahugo@uclm.es">irene.mahugo@uclm.es</a>
-    </p>
+        <p>
+            <strong>Doctorado en Arte, Humanidades y Educación</strong><br>
+            Facultad de Bellas Artes, UCLM · 2022 - Actualmente
+        </p>
 
-    <p>
-        <a href="https://orcid.org/0000-0001-9866-7599">ORCID</a>
-    </p>
+        <p>
+            <strong>MicroCredencial universitaria en coordinación de acceso</strong><br>
+            UVigo · 2026
+        </p>
 
-    <p>
-        <a href="https://instagram.com/ire.amaro">Instagram</a>
-    </p>
-</section>
+        <p>
+            <strong>Máster Universitario en Investigación en Arte y Creación</strong><br>
+            Facultad de Bellas Artes · UCM · 2020 - 2021
+        </p>
 
-<footer>
-    © Irene Mahugo Amaro
-</footer>
+        <p>
+            <strong>Grado en Arte Dramático, especialidad Escenografía</strong><br>
+            RESAD · 2016 - 2020
+        </p>
 
-<script>
-// Carousel functionality
-let currentSlide = 0;
-const slides = document.querySelectorAll('.carousel-slide');
-const dots = document.querySelectorAll('.carousel-dot');
+        <h3 id="project-organization">Organización y Gestión de Proyectos</h3>
 
-function showSlide(n) {
-    slides.forEach(slide => slide.classList.remove('active'));
-    dots.forEach(dot => dot.classList.remove('active'));
-    
-    slides[n].classList.add('active');
-    dots[n].classList.add('active');
-}
+        <p>
+            <strong>Artes Vivas y Prácticas Expandidas de Investigación-Creación: experimentalidad y genealogía /
+            Live Arts and Expanded Practices for Artistic Research: Experiment and Genealogy.</strong>
+            (EXPERIMENTA / ECLAR). IP: José A. Sánchez. PID2023-148236NB-C21.
+            Financiado por MICIU/AEI/10.13039/501100011033 y por FEDER, UE.
+        </p>
 
-function nextSlide() {
-    currentSlide = (currentSlide + 1) % slides.length;
-    showSlide(currentSlide);
-}
+        <p>
+            01/09/2024 - 31/08/2028.
+        </p>
 
-// Auto-rotate every 5 seconds
-setInterval(nextSlide, 5000);
+        <p>
+            (Más...) Y aquí indicar la URL
+        </p>
 
-// Click dots to navigate
-dots.forEach((dot, index) => {
-    dot.addEventListener('click', () => {
-        currentSlide = index;
-        showSlide(currentSlide);
-    });
-});
-</script>
+        <h3 id="awards">Premios y Estancias de Investigación</h3>
+        <p>
+            Listado de premios, becas y estancias realizadas.
+        </p>
+
+        <h3 id="teaching">Docencia</h3>
+        <p>
+            Actividades docentes, seminarios y talleres impartidos.
+        </p>
+    </section>
+
+    <section id="investigadora">
+        <h2>Actividad Investigadora</h2>
+
+        <p>
+            Actualmente desarrollo la tesis doctoral <strong>Revolución Horizontal</strong>
+            en la Facultad de Bellas Artes de Cuenca (UCLM), dentro del programa de Doctorado
+            en Humanidades, Artes y Educación.
+        </p>
+
+        <h3 id="publications">Publicaciones</h3>
+        <p>
+            Aquí puedes añadir la lista de publicaciones, capítulos y artículos.
+        </p>
+
+        <h3 id="conferences">Comunicaciones y Ponencias</h3>
+        <p>
+            Listado de comunicaciones en congresos, ponencias y presentaciones.
+        </p>
+    </section>
+
+    <section id="contacto">
+        <h2>Contacto</h2>
+
+        <p>
+            📧 <a href="mailto:irene.mahugo@uclm.es">irene.mahugo@uclm.es</a>
+        </p>
+
+        <p>
+            <a href="https://orcid.org/0000-0001-9866-7599" target="_blank" rel="noopener noreferrer">ORCID</a>
+        </p>
+
+        <p>
+            <a href="https://instagram.com/ire.amaro" target="_blank" rel="noopener noreferrer">Instagram</a>
+        </p>
+    </section>
+
+    <footer>
+        © Irene Mahugo Amaro
+    </footer>
+
+    <script>
+        // Carousel functionality
+        let currentSlide = 0;
+
+        const slides = document.querySelectorAll('.carousel-slide');
+        const dots = document.querySelectorAll('.carousel-dot');
+
+        function showSlide(n) {
+            if (!slides.length) return;
+
+            currentSlide = (n + slides.length) % slides.length;
+
+            slides.forEach((slide, index) => {
+                slide.classList.toggle('active', index === currentSlide);
+            });
+
+            dots.forEach((dot, index) => {
+                const isActive = index === currentSlide;
+                dot.classList.toggle('active', isActive);
+                dot.setAttribute('aria-current', isActive ? 'true' : 'false');
+            });
+        }
+
+        function nextSlide() {
+            showSlide(currentSlide + 1);
+        }
+
+        // Auto-rotate every 5 seconds
+        let carouselInterval = setInterval(nextSlide, 5000);
+
+        // Click dots to navigate
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                showSlide(index);
+
+                clearInterval(carouselInterval);
+                carouselInterval = setInterval(nextSlide, 5000);
+            });
+        });
+
+        // Respect users who prefer reduced motion
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+            clearInterval(carouselInterval);
+        }
+    </script>
 
 </body>
 </html>
