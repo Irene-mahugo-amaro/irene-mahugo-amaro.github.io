@@ -8,409 +8,527 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
-    <style>
-        body {
-            margin: 0;
-            font-family: 'Inter', sans-serif;
-            background: #ffffff;
-            color: #2c2c2c;
-        }
+<style>
+    /* =========================================================
+       BASE
+       ========================================================= */
 
-        /* Navigation */
-        .site-header {
-            padding: 40px 12% 20px 12%;
-            background: #ffffff;
-            border-bottom: 1px solid #e0d4c8;
-        }
+    body {
+        margin: 0;
+        font-family: 'Inter', sans-serif;
+        background: #ffffff;
+        color: #2c2c2c;
+    }
 
-        .navbar {
-            display: flex;
-            gap: 18px;
-            align-items: center;
-            justify-content: flex-end;
-            margin-bottom: 18px;
-        }
 
-        .navbar ul {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            gap: 12px;
-            align-items: center;
-        }
+    /* =========================================================
+       NAVEGACIÓN
+       ========================================================= */
 
-        .navbar a {
-            text-decoration: none;
-            color: #5a4a42;
-            padding: 8px 12px;
-            border-radius: 6px;
-            font-weight: 500;
-            transition: 0.2s;
-        }
+    .site-header {
+        padding: 40px 12% 20px;
+        background: #ffffff;
+        border-bottom: 1px solid #e0d4c8;
+    }
 
-        .navbar a:hover,
-        .navbar a:focus-visible {
-            background: #e8dcd1;
-            color: #3d2817;
-        }
+    .navbar {
+        display: flex;
+        gap: 18px;
+        align-items: center;
+        justify-content: flex-end;
+        margin-bottom: 18px;
+    }
 
-        .nav-item {
-            position: relative;
-        }
+    .navbar ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        gap: 12px;
+        align-items: center;
+    }
 
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            top: calc(100% + 6px);
-            left: 0;
-            background: #ffffff;
-            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
-            border-radius: 8px;
-            padding: 8px 6px;
-            min-width: 220px;
-            z-index: 100;
-            border: 1px solid #e0d4c8;
-        }
+    .navbar a {
+        text-decoration: none;
+        color: #5a4a42;
+        padding: 8px 12px;
+        border-radius: 6px;
+        font-weight: 500;
+        transition: 0.2s;
+    }
 
-        .dropdown-content a {
-            display: block;
-            padding: 10px 14px;
-            color: #5a4a42;
-            transition: 0.2s;
-        }
+    .navbar a:hover,
+    .navbar a:focus-visible {
+        background: #e8dcd1;
+        color: #3d2817;
+    }
 
-        .dropdown-content a:hover,
-        .dropdown-content a:focus-visible {
-            background: #f5ede4;
-            color: #3d2817;
-        }
+    .nav-item {
+        position: relative;
+    }
 
-        .nav-item:hover .dropdown-content,
-        .nav-item:focus-within .dropdown-content {
-            display: block;
-        }
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        top: calc(100% + 6px);
+        left: 0;
+        background: #ffffff;
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        padding: 8px 6px;
+        min-width: 220px;
+        z-index: 100;
+        border: 1px solid #e0d4c8;
+    }
 
-        header {
-            padding: 40px 12% 60px 12%;
-            background: #ffffff;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-        }
+    .dropdown-content a {
+        display: block;
+        padding: 10px 14px;
+        color: #5a4a42;
+        transition: 0.2s;
+    }
 
-        h1 {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 3.5rem;
-            font-weight: 600;
-            margin: 20px 0 10px 0;
-            color: #2c2c2c;
-        }
+    .dropdown-content a:hover,
+    .dropdown-content a:focus-visible {
+        background: #f5ede4;
+        color: #3d2817;
+    }
 
-        .subtitulo {
-            font-size: 1.15rem;
-            color: #7a6a62;
-            margin-bottom: 24px;
-            font-weight: 300;
-        }
+    .nav-item:hover .dropdown-content,
+    .nav-item:focus-within .dropdown-content {
+        display: block;
+    }
 
-        .descripcion {
-            max-width: 700px;
-            font-size: 1rem;
-            line-height: 1.8;
-            margin-bottom: 24px;
-            color: #4a4a4a;
-        }
 
-        .keywords {
-            max-width: 700px;
-            font-size: 0.9rem;
-            color: #7a6a62;
-            margin-bottom: 24px;
-            line-height: 1.6;
-            font-weight: 300;
-        }
+    /* =========================================================
+       CABECERA / PRESENTACIÓN
+       ========================================================= */
 
-        .publicaciones {
+    header {
+        padding: 40px 12% 60px;
+        background: #ffffff;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+
+    h1 {
+        font-family: 'Cormorant Garamond', serif;
+        font-size: 3.5rem;
+        font-weight: 600;
+        margin: 20px 0 10px;
+        color: #2c2c2c;
+    }
+
+    .subtitulo {
+        font-size: 1.15rem;
+        color: #7a6a62;
+        margin-bottom: 24px;
+        font-weight: 300;
+    }
+
+    .descripcion {
+        max-width: 700px;
+        font-size: 1rem;
+        line-height: 1.8;
+        margin-bottom: 24px;
+        color: #4a4a4a;
+    }
+
+    .keywords {
+        max-width: 700px;
+        font-size: 0.9rem;
+        color: #7a6a62;
+        margin-bottom: 24px;
+        line-height: 1.6;
+        font-weight: 300;
+    }
+
+
+    /* =========================================================
+       SECCIONES
+       ========================================================= */
+
+    section {
+        padding: 80px 12%;
+    }
+
+    section:nth-child(odd) {
+        background: #ffffff;
+    }
+
+    section:nth-child(even) {
+        background: #faf8f3;
+    }
+
+    h2 {
+        font-family: 'Cormorant Garamond', serif;
+        font-size: 2.5rem;
+        margin-bottom: 30px;
+        color: #2c2c2c;
+    }
+
+    h3 {
+        font-family: 'Cormorant Garamond', serif;
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin-top: 42px;
+        margin-bottom: 20px;
+        color: #3d2817;
+    }
+
+    section p {
+        line-height: 1.7;
+    }
+
+    /*
+       Anchura de lectura para textos académicos.
+       Evita que los textos se extiendan demasiado
+       en pantallas grandes.
+    */
+    section > p,
+    #cv ul,
+    .publicaciones,
+    .comunicaciones {
+        max-width: 900px;
+    }
+
+
+    /* =========================================================
+       PRESENTACIÓN / TEXTO
+       ========================================================= */
+
+    .tarjetas {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 30px;
+    }
+
+    .tarjeta {
+        background: #ffffff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+        transition: 0.3s;
+        border: 1px solid #e0d4c8;
+    }
+
+    .tarjeta:hover {
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+        transform: translateY(-4px);
+    }
+
+    .tarjeta img {
         width: 100%;
-        }
+        height: 200px;
+        object-fit: cover;
+        border-radius: 6px;
+        margin-bottom: 15px;
+        display: block;
+    }
 
-        .publicacion { 
-        display: grid; 
-        grid-template-columns: 95px 1fr; 
-        gap: 16px; 
-        margin-bottom: 20px; }
+    .tarjeta h3 {
+        margin-top: 0;
+    }
 
-        .tipo-publicacion {
+    .tarjeta p,
+    section p {
+        line-height: 1.7;
+    }
+
+
+    /* =========================================================
+       PUBLICACIONES
+       ========================================================= */
+
+    .publicaciones {
+        width: 100%;
+    }
+
+    .publicacion {
+        display: grid;
+        grid-template-columns: 95px 1fr;
+        gap: 16px;
+        margin-bottom: 20px;
+    }
+
+    .tipo-publicacion {
         font-weight: normal;
         font-size: 0.82rem;
         line-height: 1.45;
-        }
+    }
 
-        .referencia {
+    .referencia {
         font-size: 0.86rem;
         line-height: 1.5;
+    }
+
+
+    /* =========================================================
+       CURRÍCULUM
+       ========================================================= */
+
+    #cv ul {
+        margin-top: 0;
+        margin-bottom: 32px;
+        padding-left: 22px;
+    }
+
+    #cv li {
+        font-size: 0.92rem;
+        line-height: 1.6;
+        margin-bottom: 20px;
+    }
+
+    #cv li strong {
+        font-weight: 500;
+    }
+
+
+    /* =========================================================
+       COMUNICACIONES Y PONENCIAS
+       ========================================================= */
+
+    .comunicaciones {
+        max-width: 900px;
+    }
+
+    .comunicacion {
+        margin-bottom: 22px;
+    }
+
+    .comunicacion-titulo {
+        font-size: 0.92rem;
+        line-height: 1.55;
+        font-weight: 500;
+    }
+
+    .comunicacion-evento {
+        font-size: 0.88rem;
+        line-height: 1.55;
+        color: #6f625b;
+    }
+
+
+    /* =========================================================
+       CARRUSEL / DESTACADOS
+       ========================================================= */
+
+    .carousel-container {
+        position: relative;
+        width: 100%;
+        height: 500px;
+        overflow: hidden;
+        background: #f5ede4;
+    }
+
+    .carousel-wrapper {
+        position: relative;
+        width: 100%;
+        height: 100%;
+    }
+
+    .carousel-slide {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        transition: opacity 1s ease-in-out;
+        pointer-events: none;
+    }
+
+    .carousel-slide.active {
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    .carousel-slide img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+    }
+
+    .carousel-controls {
+        position: absolute;
+        bottom: 20px;
+        right: 40px;
+        display: flex;
+        gap: 12px;
+        z-index: 10;
+    }
+
+    .carousel-dot {
+        width: 12px;
+        height: 12px;
+        border: 0;
+        padding: 0;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.5);
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    .carousel-dot.active {
+        background: #ffffff;
+    }
+
+    .carousel-dot:hover,
+    .carousel-dot:focus-visible {
+        background: rgba(255, 255, 255, 0.8);
+        outline: 2px solid rgba(255, 255, 255, 0.8);
+        outline-offset: 3px;
+    }
+
+
+    /* =========================================================
+       ENLACES Y ACCESIBILIDAD
+       ========================================================= */
+
+    a {
+        color: #5a4a42;
+    }
+
+    a:focus-visible {
+        outline: 2px solid #7a6a62;
+        outline-offset: 3px;
+        border-radius: 3px;
+    }
+
+
+    /* =========================================================
+       FOOTER
+       ========================================================= */
+
+    footer {
+        padding: 50px 12%;
+        text-align: center;
+        color: #7a6a62;
+        background: #ffffff;
+        border-top: 1px solid #e0d4c8;
+    }
+
+
+    /* =========================================================
+       RESPONSIVE — TABLET Y MÓVIL
+       ========================================================= */
+
+    @media (max-width: 800px) {
+
+        /* Cabecera */
+        .site-header {
+            padding: 25px 6% 15px;
         }
 
-        /* Currículum */ 
-        #cv ul {
-            margin-top: 0; 
-            margin-bottom: 32px; 
-            padding-left: 22px; } 
-        
-        #cv li { font-size: 0.91rem; 
-            line-height: 1.55; 
-            margin-bottom: 18px; } 
-        
-        #cv li strong { font-weight: 500; 
-            } 
-        
-        /* Comunicaciones y Ponencias */ 
-        #conferences + p { 
-            font-size: 0.91rem; 
-            line-height: 1.55; 
-            max-width: 900px; 
+        /* Navegación */
+        .navbar {
+            justify-content: flex-start;
         }
 
-        /* Carousel / Destacados */
-        .carousel-container {
-            position: relative;
-            width: 100%;
-            height: 500px;
-            overflow: hidden;
-            background: #f5ede4;
+        .navbar ul {
+            flex-wrap: wrap;
         }
 
-        .carousel-wrapper {
-            position: relative;
-            width: 100%;
-            height: 100%;
+        /* Presentación */
+        header {
+            padding: 30px 6% 40px;
         }
 
-        .carousel-slide {
-            position: absolute;
-            inset: 0;
-            width: 100%;
-            height: 100%;
-            opacity: 0;
-            transition: opacity 1s ease-in-out;
-            pointer-events: none;
-        }
-
-        .carousel-slide.active {
-            opacity: 1;
-            pointer-events: auto;
-        }
-
-        .carousel-slide img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-        }
-
-        .carousel-controls {
-            position: absolute;
-            bottom: 20px;
-            right: 40px;
-            display: flex;
-            gap: 12px;
-            z-index: 10;
-        }
-
-        .carousel-dot {
-            width: 12px;
-            height: 12px;
-            border: 0;
-            padding: 0;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.5);
-            cursor: pointer;
-            transition: 0.3s;
-        }
-
-        .carousel-dot.active {
-            background: #ffffff;
-        }
-
-        .carousel-dot:hover,
-        .carousel-dot:focus-visible {
-            background: rgba(255, 255, 255, 0.8);
-            outline: 2px solid rgba(255, 255, 255, 0.8);
-            outline-offset: 3px;
-        }
-
-        section {
-            padding: 80px 12%;
-        }
-
-        section:nth-child(odd) {
-            background: #ffffff;
-        }
-
-        section:nth-child(even) {
-            background: #faf8f3;
+        h1 {
+            font-size: 2.5rem;
         }
 
         h2 {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 2.5rem;
-            margin-bottom: 30px;
-            color: #2c2c2c;
+            font-size: 2.1rem;
         }
 
-        h3 {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.5rem;
-            margin-top: 30px;
-            margin-bottom: 15px;
-            color: #3d2817;
+        /* Secciones */
+        section {
+            padding: 40px 6%;
         }
 
-        .tarjetas {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
+        /* Carrusel */
+        .carousel-container {
+            height: 300px;
         }
 
-        .tarjeta {
-            background: #ffffff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
-            transition: 0.3s;
-            border: 1px solid #e0d4c8;
+        /* Publicaciones */
+        .publicacion {
+            grid-template-columns: 80px 1fr;
         }
 
-        .tarjeta:hover {
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
-            transform: translateY(-4px);
+        .tipo-publicacion {
+            font-size: 0.78rem;
         }
 
-        .tarjeta img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            border-radius: 6px;
-            margin-bottom: 15px;
-            display: block;
+        .referencia {
+            font-size: 0.82rem;
         }
 
-        .tarjeta h3 {
-            margin-top: 0;
-        }
-
-        .tarjeta p,
-        section p {
-            line-height: 1.7;
-        }
-
+        /* Footer */
         footer {
-            padding: 50px 12%;
-            text-align: center;
-            color: #7a6a62;
-            background: #ffffff;
-            border-top: 1px solid #e0d4c8;
+            padding: 40px 6%;
+        }
+    }
+
+
+    /* =========================================================
+       MÓVILES PEQUEÑOS
+       ========================================================= */
+
+    @media (max-width: 600px) {
+
+        /* Publicaciones en una sola columna */
+        .publicacion {
+            grid-template-columns: 1fr;
+            gap: 4px;
         }
 
-        a {
-            color: #5a4a42;
+        .tipo-publicacion {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
         }
 
-        a:focus-visible {
-            outline: 2px solid #7a6a62;
-            outline-offset: 3px;
-            border-radius: 3px;
+        /* Textos académicos */
+        .comunicacion-titulo {
+            font-size: 0.9rem;
         }
 
-        /* Responsive adjustments */
-        @media (max-width: 800px) {
-            .site-header {
-                padding: 25px 6% 15px 6%;
-            }
-
-            .navbar {
-                justify-content: flex-start;
-                overflow-x: auto;
-                padding-bottom: 5px;
-            }
-
-            .navbar ul {
-                gap: 4px;
-                flex-wrap: wrap;
-            }
-
-            .navbar a {
-                display: inline-block;
-                padding: 8px 9px;
-                font-size: 0.9rem;
-            }
-
-            .dropdown-content {
-                position: static;
-                min-width: 0;
-                margin-top: 4px;
-                box-shadow: none;
-            }
-
-            .publicacion {
-                grid-template-columns: 80px 1fr;
-                gap: 12px;
-                margin-bottom: 18px;
-            }
-
-            .tipo-publicacion {
-                font-size: 0.78rem;
-            }
-
-            .referencia {
-                font-size: 0.82rem;
-                line-height: 1.5;
-            }
-
-            #cv li {
-                font-size: 0.88rem;
-                line-height: 1.5;
-                margin-bottom: 16px;
-            }
-
-            header {
-                padding: 30px 6% 40px 6%;
-            }
-
-            section {
-                padding: 40px 6%;
-            }
-
-            h1 {
-                font-size: 2.5rem;
-            }
-
-            h2 {
-                font-size: 2.1rem;
-            }
-
-            .carousel-container {
-                height: 300px;
-            }
-
-            .carousel-controls {
-                right: 20px;
-                bottom: 15px;
-            }
+        .comunicacion-evento {
+            font-size: 0.84rem;
         }
 
-        @media (prefers-reduced-motion: reduce) {
-            .carousel-slide,
-            .tarjeta,
-            .navbar a,
-            .dropdown-content a {
-                transition: none;
-            }
+        /* Carrusel */
+        .carousel-controls {
+            right: 20px;
+            bottom: 15px;
         }
-    </style>
+    }
+
+
+    /* =========================================================
+       REDUCCIÓN DE MOVIMIENTO
+       ========================================================= */
+
+    @media (prefers-reduced-motion: reduce) {
+
+        *,
+        *::before,
+        *::after {
+            scroll-behavior: auto !important;
+            transition-duration: 0.01ms !important;
+            animation-duration: 0.01ms !important;
+            animation-iteration-count: 1 !important;
+        }
+    }
+
+</style>
+    
 </head>
 
+    
 <body>
 
     <header class="site-header">
@@ -785,7 +903,7 @@
         <div class="referencia">
             “Pérez Royo, Victoria: Cuerpos fuera de sí. Figuras de la inclinación en las artes vivas y las protestas sociales”.
             <em>Boletín de Arte</em>, (47), 166-167. Mahugo Amaro, Irene. 2026.
-            <a href="<https://doi.org/10.24310/ba.47.2025.21029" target="_blank" rel="noopener noreferrer">https://doi.org/10.24310/ba.47.2025.21029</a>
+            <a href="https://doi.org/10.24310/ba.47.2025.21029" target="_blank" rel="noopener noreferrer">https://doi.org/10.24310/ba.47.2025.21029</a>
         </div>
     </div>
 
@@ -879,97 +997,183 @@
 
 </div>
         
-        <h3 id="conferences">Comunicaciones y Ponencias</h3>
-        <p>
-            "Identidades enmascaradas: construcción, transformación y alterización del yo a través de la máscara. Diálogos entre la Antigüedad clásica y la contemporaneidad".
-            <em>Noche Europea de los Investigadores</em>. UNED, Madrid. 2026. (Futura).
-        </p>
+<h3 id="conferences">Comunicaciones y Ponencias</h3>
 
-        <p>
-            "Sin título". <em>Congreso Internacional XI CIJIET / IV Teatrales / III La máscara virtual</em>. Universidad de Alcalá, 2026. (Futura)
-        </p>
+<div class="comunicaciones">
 
-        <p>
-            "Sin título". <em>III Encuentro de Doctorandes: Anexos</em>. Facultad de Bellas Artes, UCLM, 2026.
-        </p>
+    <div class="comunicacion">
+        <div class="comunicacion-titulo">
+            "Identidades enmascaradas: construcción, transformación y alterización del yo a través de la máscara. Diálogos entre la Antigüedad clásica y la contemporaneidad"
+        </div>
+        <div class="comunicacion-evento">
+            <em>Noche Europea de los Investigadores</em>. UNED, Madrid, 2026. (Futura)
+        </div>
+    </div>
 
-        <p>
-            "Éxtasis quieto". <em>XXIV Jornadas de Filosofía: Filosofía y Locura, de la genialidad a la salud mental</em>. Facultad de Letras, Ciudad Real, 2025.
-        </p>
+    <div class="comunicacion">
+        <div class="comunicacion-titulo">
+            "Sin título"
+        </div>
+        <div class="comunicacion-evento">
+            <em>Congreso Internacional XI CIJIET / IV Teatrales / III La máscara virtual</em>. Universidad de Alcalá, 2026. (Futura)
+        </div>
+    </div>
 
-        <p>
-            “Revolución Horizontal: Un análisis queer/crip sobre las posibilidades de subvertir el capacitismo y la normatividad corporal desde las artes vivas”. 
+    <div class="comunicacion">
+        <div class="comunicacion-titulo">
+            "Sin título"
+        </div>
+        <div class="comunicacion-evento">
+            <em>III Encuentro de Doctorandes: Anexos</em>. Facultad de Bellas Artes, UCLM, 2026.
+        </div>
+    </div>
+
+    <div class="comunicacion">
+        <div class="comunicacion-titulo">
+            "Éxtasis quieto"
+        </div>
+        <div class="comunicacion-evento">
+            <em>XXIV Jornadas de Filosofía: Filosofía y Locura, de la genialidad a la salud mental</em>. Facultad de Letras, Ciudad Real, 2025.
+        </div>
+    </div>
+
+    <div class="comunicacion">
+        <div class="comunicacion-titulo">
+            “Revolución Horizontal: Un análisis queer/crip sobre las posibilidades de subvertir el capacitismo y la normatividad corporal desde las artes vivas”
+        </div>
+        <div class="comunicacion-evento">
             <em>XII Jornadas Doctorales de la UCLM</em>. Facultad de Bellas Artes, UCLM, 2025.
-        </p>
+        </div>
+    </div>
 
-        <p>
-            Sin título. <em>Encuentro de Doctorando/as en Investigación en Artes</em>. Facultad de Bellas Artes, UCLM, 2024.
-        </p>
+    <div class="comunicacion">
+        <div class="comunicacion-titulo">
+            Sin título
+        </div>
+        <div class="comunicacion-evento">
+            <em>Encuentro de Doctorando/as en Investigación en Artes</em>. Facultad de Bellas Artes, UCLM, 2024.
+        </div>
+    </div>
 
-        <p>
-            “Otros ritmos invisibles”. <em>Simposio NOSYMMETRIES</em>.  Organizado por el Grupo de investigación IMARTE de la Universitat de Barcelona e INTENSITAT, 
-            en el marco del programa europeo CARE ECOLOGIES. La Capella, Barcelona, 2024.
-        </p>
+    <div class="comunicacion">
+        <div class="comunicacion-titulo">
+            “Otros ritmos invisibles”
+        </div>
+        <div class="comunicacion-evento">
+            <em>Simposio NOSYMMETRIES</em>. Organizado por el Grupo de investigación IMARTE de la Universitat de Barcelona e INTENSITAT, en el marco del programa europeo CARE ECOLOGIES. La Capella, Barcelona, 2024.
+        </div>
+    </div>
 
-        <p>
-            "Te propones sin saber cómo serás recibido". <em>I Congreso Internacional de Investigación en Prácticas Escénicas y Cultura Visual</em>. Mahugo
-            Amaro, Irene; Casile, Romina; y Hung, Tzu-Han. Fundación Antonio Pérez y Facultad de Bellas Artes (UCLM), Cuenca. Junio 2024.
-        </p>
+    <div class="comunicacion">
+        <div class="comunicacion-titulo">
+            "Te propones sin saber cómo serás recibido"
+        </div>
+        <div class="comunicacion-evento">
+            <em>I Congreso Internacional de Investigación en Prácticas Escénicas y Cultura Visual</em>. Mahugo Amaro, Irene; Casile, Romina; y Hung, Tzu-Han. Fundación Antonio Pérez y Facultad de Bellas Artes (UCLM), Cuenca. Junio 2024.
+        </div>
+    </div>
 
-        <p>
-            <em>International Congress. Dramatic Architectures: Places of Power and Places of Freedom</em>. Escola Superior Artística do Porto (ESAP), Portugal, 2024. 
-            (Chair).
-        </p>
+    <div class="comunicacion">
+        <div class="comunicacion-titulo">
+            <em>International Congress. Dramatic Architectures: Places of Power and Places of Freedom</em>
+        </div>
+        <div class="comunicacion-evento">
+            Escola Superior Artística do Porto (ESAP), Portugal, 2024. (Chair)
+        </div>
+    </div>
 
-        <p>
-            “Prosthetics of Imagination: Stage as a space for rest and resilience”. <em>International Congress Dramatic Architectures: Places of Power and Places of 
-            Freedom</em>. Escola Superior Artística do Porto (ESAP), Portugal, 2024.
-        </p>
+    <div class="comunicacion">
+        <div class="comunicacion-titulo">
+            “Prosthetics of Imagination: Stage as a space for rest and resilience”
+        </div>
+        <div class="comunicacion-evento">
+            <em>International Congress Dramatic Architectures: Places of Power and Places of Freedom</em>. Escola Superior Artística do Porto (ESAP), Portugal, 2024.
+        </div>
+    </div>
 
-        <p>
-            “Un éxtasis quieto”. <em>Seminario de Investigación: Representación y performatividad de la enfermedad como síntoma de la vida contemporánea</em>. 
-            Organizado por Visiones del cuerpo enfermo en el cine y la fotografía: patologías físicas y psíquicas (1890-1920) (VICUEN) Universidad de Girona y 
-            Archivo Virtual de Artes Escénicas UCLM. Facultad de Bellas Artes, UCLM, 2024.
-        </p>
+    <div class="comunicacion">
+        <div class="comunicacion-titulo">
+            “Un éxtasis quieto”
+        </div>
+        <div class="comunicacion-evento">
+            <em>Seminario de Investigación: Representación y performatividad de la enfermedad como síntoma de la vida contemporánea</em>. Organizado por Visiones del cuerpo enfermo en el cine y la fotografía: patologías físicas y psíquicas (1890-1920) (VICUEN), Universidad de Girona y Archivo Virtual de Artes Escénicas UCLM. Facultad de Bellas Artes, UCLM, 2024.
+        </div>
+    </div>
 
-        <p>
-            “Rest is resistance”. <em>Encuentro de Doctorando/as en Investigación en Artes</em>. Proyecto de Innovación Docente “TRANSVERSAL”.  
-            Facultad de Bellas Artes, UCLM, 2024.
-        </p>
+    <div class="comunicacion">
+        <div class="comunicacion-titulo">
+            “Rest is resistance”
+        </div>
+        <div class="comunicacion-evento">
+            <em>Encuentro de Doctorando/as en Investigación en Artes</em>. Proyecto de Innovación Docente “TRANSVERSAL”. Facultad de Bellas Artes, UCLM, 2024.
+        </div>
+    </div>
 
-        <p>
-            “Conversatorio 3. Ecologías investigadoras, cuidados y perspectiva de género”. <em>Seminario El proyecto o la vida. Capitalismo académico e 
-            investigación en artes y humanidades</em>. Facultad de Bellas Artes, UCLM, 2023.
-        </p>
+    <div class="comunicacion">
+        <div class="comunicacion-titulo">
+            “Conversatorio 3. Ecologías investigadoras, cuidados y perspectiva de género”
+        </div>
+        <div class="comunicacion-evento">
+            <em>Seminario El proyecto o la vida. Capitalismo académico e investigación en artes y humanidades</em>. Facultad de Bellas Artes, UCLM, 2023.
+        </div>
+    </div>
 
-        <p>
-            “Representación artística en la virtualidad: Estudio desde los márgenes a partir de la red social TikTok”. <em>Congreso Internacional DESNORTADAS. 
-            Territorios del género en la creación artística contemporánea</em>. La Térmica, Málaga, 2023.
-        </p>
+    <div class="comunicacion">
+        <div class="comunicacion-titulo">
+            “Representación artística en la virtualidad: Estudio desde los márgenes a partir de la red social TikTok”
+        </div>
+        <div class="comunicacion-evento">
+            <em>Congreso Internacional DESNORTADAS. Territorios del género en la creación artística contemporánea</em>. La Térmica, Málaga, 2023.
+        </div>
+    </div>
 
-        <p>
-            “Revolución horizontal. Replantear la imagen del cuerpo plural en el espacio público: la revuelta, la fiesta y la representación performativa”. 
+    <div class="comunicacion">
+        <div class="comunicacion-titulo">
+            “Revolución horizontal. Replantear la imagen del cuerpo plural en el espacio público: la revuelta, la fiesta y la representación performativa”
+        </div>
+        <div class="comunicacion-evento">
             <em>CIBA 2023 III Congreso de Investigación en Bellas Artes. Conectando redes de conocimiento</em>. Facultad de Bellas Artes, UCM, 2023.
-        </p>
+        </div>
+    </div>
 
-        <p>
-            “Una revolución horizontal”. <em>Fugas e Interferencias: VII International Performance Art Conference</em>. Universidade de Vigo y Centro Galego de 
-            Arte Contemporánea (CGAC), 2023.
-        </p>
+    <div class="comunicacion">
+        <div class="comunicacion-titulo">
+            “Una revolución horizontal”
+        </div>
+        <div class="comunicacion-evento">
+            <em>Fugas e Interferencias: VII International Performance Art Conference</em>. Universidade de Vigo y Centro Galego de Arte Contemporánea (CGAC), 2023.
+        </div>
+    </div>
 
-        <p>
-            “Revueltas y tácticas horizontales”. <em>Encuentro de Investigación de Artes y Humanidades Construyendo nuevos espacios</em>. Proyecto de innovación: 
-            Propuestas metodológicas de aprendizaje compartido en Artes y Humanidades. Facultad de Bellas Artes, UCLM, 2022.
-        </p>
+    <div class="comunicacion">
+        <div class="comunicacion-titulo">
+            “Revueltas y tácticas horizontales”
+        </div>
+        <div class="comunicacion-evento">
+            <em>Encuentro de Investigación de Artes y Humanidades Construyendo nuevos espacios</em>. Proyecto de innovación: Propuestas metodológicas de aprendizaje compartido en Artes y Humanidades. Facultad de Bellas Artes, UCLM, 2022.
+        </div>
+    </div>
 
-        <p>
-            “Hacia mundos más animales”. <em>BIBLOS. Arte, investigación y saberes ecofeministas</em>. Facultad de Bellas Artes, UCM, 2022.
-        </p>
+    <div class="comunicacion">
+        <div class="comunicacion-titulo">
+            “Hacia mundos más animales”
+        </div>
+        <div class="comunicacion-evento">
+            <em>BIBLOS. Arte, investigación y saberes ecofeministas</em>. Facultad de Bellas Artes, UCM, 2022.
+        </div>
+    </div>
 
-        <p>
-            “Maneras de acercarnos: Repensar la ausencia, la presencia y la distancia”. <em>Congreso Internacional ESPACIAR 2021: La experimentación espacial en 
-            las instalaciones artísticas</em>. Organizado por el Grupo de Investigación ETSAVa/Universidad de Valladolid y Università IUAV di Venezia, 2021.
-        </p>
+    <div class="comunicacion">
+        <div class="comunicacion-titulo">
+            “Maneras de acercarnos: Repensar la ausencia, la presencia y la distancia”
+        </div>
+        <div class="comunicacion-evento">
+            <em>Congreso Internacional ESPACIAR 2021: La experimentación espacial en las instalaciones artísticas</em>. Organizado por el Grupo de Investigación ETSAVa/Universidad de Valladolid y Università IUAV di Venezia, 2021.
+        </div>
+    </div>
+
+</div>
+        
     </section>
 
     <section id="contacto">
