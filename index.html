@@ -135,22 +135,41 @@
         width: 100%;
         }
 
-        .publicacion {
-        display: grid;
-        grid-template-columns: 85px 1fr;
-        gap: 12px;
-        margin-bottom: 14px;
-        }
+        .publicacion { 
+        display: grid; 
+        grid-template-columns: 95px 1fr; 
+        gap: 16px; 
+        margin-bottom: 20px; }
 
         .tipo-publicacion {
         font-weight: normal;
-        font-size: 0.75rem;
-        line-height: 1.3;
+        font-size: 0.82rem;
+        line-height: 1.45;
         }
 
         .referencia {
-        font-size: 0.75rem;
-        line-height: 1.3;
+        font-size: 0.86rem;
+        line-height: 1.5;
+        }
+
+        /* Currículum */ 
+        #cv ul {
+            margin-top: 0; 
+            margin-bottom: 32px; 
+            padding-left: 22px; } 
+        
+        #cv li { font-size: 0.91rem; 
+            line-height: 1.55; 
+            margin-bottom: 18px; } 
+        
+        #cv li strong { font-weight: 500; 
+            } 
+        
+        /* Comunicaciones y Ponencias */ 
+        #conferences + p { 
+            font-size: 0.91rem; 
+            line-height: 1.55; 
+            max-width: 900px; 
         }
 
         /* Carousel / Destacados */
@@ -332,6 +351,27 @@
                 min-width: 0;
                 margin-top: 4px;
                 box-shadow: none;
+            }
+
+            .publicacion {
+                grid-template-columns: 80px 1fr;
+                gap: 12px;
+                margin-bottom: 18px;
+            }
+
+            .tipo-publicacion {
+                font-size: 0.78rem;
+            }
+
+            .referencia {
+                font-size: 0.82rem;
+                line-height: 1.5;
+            }
+
+            #cv li {
+                font-size: 0.88rem;
+                line-height: 1.5;
+                margin-bottom: 16px;
             }
 
             header {
@@ -838,7 +878,7 @@
         
         <h3 id="conferences">Comunicaciones y Ponencias</h3>
         <p>
-            "Te propones sin saber cómo serás recibido". <m>I Congreso Internacional de Investigación en Prácticas Escénicas y Cultura Visual</m>. Mahugo
+            "Te propones sin saber cómo serás recibido". <em>I Congreso Internacional de Investigación en Prácticas Escénicas y Cultura Visual</em>. Mahugo
             Amaro, Irene; Casile, Romina; y Hung, Tzu-Han. Fundación Antonio Pérez y Facultad de Bellas Artes, Cuenca. Junio 2024.
         </p>
     </section>
