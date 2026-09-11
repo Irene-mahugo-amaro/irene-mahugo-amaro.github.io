@@ -530,6 +530,347 @@
         }
     }
 
+/* =========================================================
+   VENTANA EMERGENTE DE PROYECTO
+   ========================================================= */
+
+.modal-proyecto {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 40px;
+
+    background: rgba(0, 0, 0, 0.72);
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition:
+        opacity 0.35s ease,
+        visibility 0.35s ease;
+}
+
+
+.modal-proyecto.activo {
+    opacity: 1;
+    visibility: visible;
+}
+
+
+/* Contenedor blanco */
+
+.modal-contenido {
+    position: relative;
+
+    width: min(1100px, 100%);
+    max-height: 90vh;
+
+    overflow-y: auto;
+
+    background: #fff;
+
+    padding: 50px;
+
+    transform: translateY(20px);
+
+    transition: transform 0.35s ease;
+}
+
+
+.modal-proyecto.activo .modal-contenido {
+    transform: translateY(0);
+}
+
+
+/* Botón cerrar */
+
+.modal-cerrar {
+    position: absolute;
+
+    top: 18px;
+    right: 22px;
+
+    width: 42px;
+    height: 42px;
+
+    border: none;
+    background: transparent;
+
+    font-size: 32px;
+    font-weight: 300;
+
+    line-height: 1;
+
+    cursor: pointer;
+
+    color: #222;
+
+    z-index: 2;
+}
+
+.modal-cerrar:hover {
+    opacity: 0.5;
+}
+
+
+/* Distribución interior */
+
+.modal-grid {
+    display: grid;
+
+    grid-template-columns: 1.2fr 1fr;
+
+    gap: 50px;
+
+    align-items: start;
+}
+
+
+/* Imagen principal */
+
+.modal-imagen-principal {
+    display: block;
+
+    width: 100%;
+    height: auto;
+
+    object-fit: cover;
+}
+
+
+/* Galería de miniaturas */
+
+.modal-galeria {
+    display: flex;
+
+    gap: 10px;
+
+    margin-top: 12px;
+
+    flex-wrap: wrap;
+}
+
+
+.modal-galeria img {
+    width: 80px;
+    height: 60px;
+
+    object-fit: cover;
+
+    cursor: pointer;
+
+    opacity: 0.65;
+
+    transition: opacity 0.2s ease;
+}
+
+
+.modal-galeria img:hover {
+    opacity: 1;
+}
+
+
+/* Texto */
+
+.modal-texto {
+    padding-top: 5px;
+}
+
+
+.modal-etiqueta {
+    margin: 0 0 15px;
+
+    font-family: "Inter", sans-serif;
+
+    font-size: 11px;
+
+    letter-spacing: 0.16em;
+
+    text-transform: uppercase;
+
+    color: #777;
+}
+
+
+.modal-texto h2 {
+    margin: 0 0 25px;
+
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: clamp(38px, 5vw, 58px);
+
+    font-weight: 400;
+
+    line-height: 0.95;
+}
+
+
+.modal-descripcion {
+    margin-bottom: 18px;
+
+    font-size: 15px;
+
+    line-height: 1.7;
+
+    color: #444;
+}
+
+
+/* Información */
+
+.modal-datos {
+    margin-top: 35px;
+
+    padding-top: 25px;
+
+    border-top: 1px solid #ddd;
+}
+
+
+.modal-datos div {
+    margin-bottom: 18px;
+}
+
+
+.modal-datos span {
+    display: block;
+
+    margin-bottom: 4px;
+
+    font-size: 10px;
+
+    letter-spacing: 0.14em;
+
+    text-transform: uppercase;
+
+    color: #888;
+}
+
+
+.modal-datos p {
+    margin: 0;
+
+    font-size: 14px;
+}
+
+
+/* Enlace */
+
+.modal-enlace {
+    display: inline-block;
+
+    margin-top: 25px;
+
+    font-size: 12px;
+
+    letter-spacing: 0.08em;
+
+    text-decoration: none;
+
+    color: #111;
+
+    border-bottom: 1px solid #111;
+
+    padding-bottom: 3px;
+}
+
+.modal-enlace:hover {
+    opacity: 0.5;
+}
+
+
+/* Botón de la tarjeta */
+
+.tarjeta-boton {
+    display: block;
+
+    width: 100%;
+
+    padding: 0;
+
+    margin: 0;
+
+    border: none;
+
+    background: none;
+
+    cursor: pointer;
+
+    text-align: left;
+}
+
+
+.tarjeta-boton img {
+    display: block;
+
+    width: 100%;
+
+    height: auto;
+
+    transition: transform 0.4s ease;
+}
+
+
+.tarjeta-boton:hover img {
+    transform: scale(1.015);
+}
+
+
+/* Evitar scroll de la página cuando el modal está abierto */
+
+body.modal-abierto {
+    overflow: hidden;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 800px) {
+
+    .modal-proyecto {
+        padding: 20px;
+    }
+
+    .modal-contenido {
+        padding: 35px 25px;
+    }
+
+    .modal-grid {
+        grid-template-columns: 1fr;
+
+        gap: 30px;
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .modal-proyecto {
+        padding: 0;
+    }
+
+    .modal-contenido {
+        width: 100%;
+        height: 100%;
+        max-height: 100vh;
+
+        padding: 60px 20px 30px;
+    }
+
+    .modal-cerrar {
+        top: 15px;
+        right: 15px;
+    }
+
+}
 
     /* =========================================================
        REDUCCIÓN DE MOVIMIENTO
@@ -688,9 +1029,9 @@
             </article>
 
             <article class="tarjeta">
-            <a href="https://www.casadevelazquez.org/es/que-pasa-en-la-casa/detalle/casaco-2" target="_blank" rel="noopener noreferrer">
-                <img src="images/casaco.JPG" alt="CASA &amp; CO">
-            </a>
+            <button class="tarjeta-boton" data-proyecto="casaco">
+                <img src="images/casaco.JPG" alt="CASA & CO">
+            </button>
                 <h3>CASA &amp; CO</h3>
                 <p>Exposición colectiva de artistas e investigadores residentes</p>
                 <p>Casa de Velázquez, Madrid</p>
@@ -1263,7 +1604,218 @@
         if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
             clearInterval(carouselInterval);
         }
+
+/* =========================================================
+   MODAL CASA & CO
+   ========================================================= */
+
+const botonCasaCo = document.querySelector(
+    '.tarjeta-boton[data-proyecto="casaco"]'
+);
+
+const modalCasaCo = document.getElementById('modal-casaco');
+
+const botonCerrarCasaCo = modalCasaCo.querySelector('.modal-cerrar');
+
+
+/* Abrir */
+
+botonCasaCo.addEventListener('click', () => {
+
+    modalCasaCo.classList.add('activo');
+
+    modalCasaCo.setAttribute('aria-hidden', 'false');
+
+    document.body.classList.add('modal-abierto');
+
+});
+
+
+/* Cerrar con botón */
+
+botonCerrarCasaCo.addEventListener('click', () => {
+
+    cerrarModalCasaCo();
+
+});
+
+
+/* Cerrar haciendo click fuera del contenido */
+
+modalCasaCo.addEventListener('click', (event) => {
+
+    if (event.target === modalCasaCo) {
+
+        cerrarModalCasaCo();
+
+    }
+
+});
+
+
+/* Cerrar con ESC */
+
+document.addEventListener('keydown', (event) => {
+
+    if (
+        event.key === 'Escape' &&
+        modalCasaCo.classList.contains('activo')
+    ) {
+
+        cerrarModalCasaCo();
+
+    }
+
+});
+
+
+/* Función para cerrar */
+
+function cerrarModalCasaCo() {
+
+    modalCasaCo.classList.remove('activo');
+
+    modalCasaCo.setAttribute('aria-hidden', 'true');
+
+    document.body.classList.remove('modal-abierto');
+
+}
+
+/* =========================================================
+   GALERÍA DE CASA & CO
+   ========================================================= */
+
+const imagenPrincipalCasaCo = modalCasaCo.querySelector(
+    '.modal-imagen-principal'
+);
+
+const miniaturasCasaCo = modalCasaCo.querySelectorAll(
+    '.modal-galeria img'
+);
+
+
+miniaturasCasaCo.forEach((miniatura) => {
+
+    miniatura.addEventListener('click', () => {
+
+        imagenPrincipalCasaCo.src = miniatura.src;
+
+        imagenPrincipalCasaCo.alt = miniatura.alt;
+
+    });
+
+});
+        
     </script>
 
+<!-- VENTANA EMERGENTE CASA & CO -->
+<div id="modal-casaco" class="modal-proyecto" aria-hidden="true">
+
+    <div class="modal-contenido">
+
+        <button class="modal-cerrar" aria-label="Cerrar ventana">
+            &times;
+        </button>
+
+        <div class="modal-grid">
+
+            <!-- IMÁGENES -->
+            <div class="modal-imagenes">
+
+                <img
+                    src="images/casaco.JPG"
+                    alt="CASA & CO"
+                    class="modal-imagen-principal"
+                >
+
+                <!--
+                Cuando quieras añadir más imágenes,
+                podremos ponerlas aquí.
+                -->
+
+                <div class="modal-galeria">
+
+                    <img
+                        src="images/casaco.JPG"
+                        alt="CASA & CO"
+                    >
+
+                    <!-- Ejemplo de futuras imágenes:
+                    <img
+                        src="images/casaco-2.jpg"
+                        alt="CASA & CO"
+                    >
+
+                    <img
+                        src="images/casaco-3.jpg"
+                        alt="CASA & CO"
+                    >
+                    -->
+
+                </div>
+
+            </div>
+
+
+            <!-- INFORMACIÓN -->
+            <div class="modal-texto">
+
+                <p class="modal-etiqueta">
+                    ACTIVIDAD ARTÍSTICA
+                </p>
+
+                <h2>CASA & CO</h2>
+
+                <p class="modal-descripcion">
+                    Aquí podrás escribir una descripción más extensa
+                    del proyecto, explicar el proceso de trabajo,
+                    el contexto y las cuestiones que aborda.
+                </p>
+
+                <p class="modal-descripcion">
+                    Este espacio puede contener varios párrafos,
+                    información sobre la investigación, la metodología,
+                    las colaboraciones y cualquier otro aspecto
+                    relevante del proyecto.
+                </p>
+
+
+                <div class="modal-datos">
+
+                    <div>
+                        <span>Año</span>
+                        <p>2024</p>
+                    </div>
+
+                    <div>
+                        <span>Lugar</span>
+                        <p>Casa de Velázquez</p>
+                    </div>
+
+                    <div>
+                        <span>Tipo</span>
+                        <p>Proyecto artístico</p>
+                    </div>
+
+                </div>
+
+
+                <a
+                    href="https://www.casadevelazquez.org/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="modal-enlace"
+                >
+                    VER PROYECTO EXTERNO →
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+    
 </body>
 </html>
