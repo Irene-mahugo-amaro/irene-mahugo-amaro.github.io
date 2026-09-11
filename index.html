@@ -1609,100 +1609,103 @@ body.modal-abierto {
    MODAL CASA & CO
    ========================================================= */
 
-const botonCasaCo = document.querySelector(
-    '.tarjeta-boton[data-proyecto="casaco"]'
-);
+document.addEventListener('DOMContentLoaded', () => {
 
-const modalCasaCo = document.getElementById('modal-casaco');
+    const botonCasaCo = document.querySelector(
+        '.tarjeta-boton[data-proyecto="casaco"]'
+    );
 
-const botonCerrarCasaCo = modalCasaCo.querySelector('.modal-cerrar');
+    const modalCasaCo = document.getElementById('modal-casaco');
 
+    if (!botonCasaCo || !modalCasaCo) return;
 
-/* Abrir */
+    const botonCerrarCasaCo =
+        modalCasaCo.querySelector('.modal-cerrar');
 
-botonCasaCo.addEventListener('click', () => {
+    const imagenPrincipalCasaCo =
+        modalCasaCo.querySelector('.modal-imagen-principal');
 
-    modalCasaCo.classList.add('activo');
-
-    modalCasaCo.setAttribute('aria-hidden', 'false');
-
-    document.body.classList.add('modal-abierto');
-
-});
+    const miniaturasCasaCo =
+        modalCasaCo.querySelectorAll('.modal-galeria img');
 
 
-/* Cerrar con botón */
+    /* Abrir */
 
-botonCerrarCasaCo.addEventListener('click', () => {
+    botonCasaCo.addEventListener('click', () => {
 
-    cerrarModalCasaCo();
+        modalCasaCo.classList.add('activo');
 
-});
+        modalCasaCo.setAttribute('aria-hidden', 'false');
 
-
-/* Cerrar haciendo click fuera del contenido */
-
-modalCasaCo.addEventListener('click', (event) => {
-
-    if (event.target === modalCasaCo) {
-
-        cerrarModalCasaCo();
-
-    }
-
-});
-
-
-/* Cerrar con ESC */
-
-document.addEventListener('keydown', (event) => {
-
-    if (
-        event.key === 'Escape' &&
-        modalCasaCo.classList.contains('activo')
-    ) {
-
-        cerrarModalCasaCo();
-
-    }
-
-});
-
-
-/* Función para cerrar */
-
-function cerrarModalCasaCo() {
-
-    modalCasaCo.classList.remove('activo');
-
-    modalCasaCo.setAttribute('aria-hidden', 'true');
-
-    document.body.classList.remove('modal-abierto');
-
-}
-
-/* =========================================================
-   GALERÍA DE CASA & CO
-   ========================================================= */
-
-const imagenPrincipalCasaCo = modalCasaCo.querySelector(
-    '.modal-imagen-principal'
-);
-
-const miniaturasCasaCo = modalCasaCo.querySelectorAll(
-    '.modal-galeria img'
-);
-
-
-miniaturasCasaCo.forEach((miniatura) => {
-
-    miniatura.addEventListener('click', () => {
-
-        imagenPrincipalCasaCo.src = miniatura.src;
-
-        imagenPrincipalCasaCo.alt = miniatura.alt;
+        document.body.classList.add('modal-abierto');
 
     });
+
+
+    /* Cerrar con botón */
+
+    botonCerrarCasaCo.addEventListener('click', () => {
+
+        cerrarModalCasaCo();
+
+    });
+
+
+    /* Cerrar haciendo click fuera */
+
+    modalCasaCo.addEventListener('click', (event) => {
+
+        if (event.target === modalCasaCo) {
+
+            cerrarModalCasaCo();
+
+        }
+
+    });
+
+
+    /* Cerrar con ESC */
+
+    document.addEventListener('keydown', (event) => {
+
+        if (
+            event.key === 'Escape' &&
+            modalCasaCo.classList.contains('activo')
+        ) {
+
+            cerrarModalCasaCo();
+
+        }
+
+    });
+
+
+    /* Cambiar imagen principal */
+
+    miniaturasCasaCo.forEach((miniatura) => {
+
+        miniatura.addEventListener('click', () => {
+
+            imagenPrincipalCasaCo.src = miniatura.src;
+
+            imagenPrincipalCasaCo.alt = miniatura.alt;
+
+        });
+
+    });
+
+
+    /* Función para cerrar */
+
+    function cerrarModalCasaCo() {
+
+        modalCasaCo.classList.remove('activo');
+
+        modalCasaCo.setAttribute('aria-hidden', 'true');
+
+        document.body.classList.remove('modal-abierto');
+
+    }
 
 });
         
