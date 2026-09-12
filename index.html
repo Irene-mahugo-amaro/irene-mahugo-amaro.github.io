@@ -986,20 +986,20 @@ body.modal-abierto {
             Mi investigación se sitúa en el cruce entre las <strong>artes vivas, la curaduría, la escritura y los estudios de la discapacidad</strong>, 
             desde un compromiso con el <strong>activismo anticapacitista</strong>. Trabajo desde el propio cuerpo y en relación con otros cuerpos para 
             explorar cómo la enfermedad, el trauma, la vulnerabilidad y la diferencia transforman nuestras formas de estar, participar, comunicarnos, 
-            movernos y producir (o no producir en absoluto). En este sentido, investigo las relaciones entre heridas, cicatrices, entornos y cuerpos, preguntándome 
-            cómo determinadas experiencias transforman nuestra manera de habitar el mundo y también de reflejarlo en las prácticas e investigaciones
-            artísticas. Me interesa explorar las tensiones entre presencia y ausencia, límite y posibilidad, dependencia y autonomía, encontrando espacios 
-            de resistencia, creación y transformación política.
+            movernos y producir (o no producir en absoluto). Investigo las relaciones entre heridas, cicatrices, entornos y vidas humanas y no humanas, 
+            preguntándome cómo las experiencias <em>crip</em>, lentas y entendidas como diferentes, transforman las formas de habitar el mundo y 
+            desbordan aquello que se presenta como <em>normal</em>. Me interesa cómo estas experiencias atraviesan y transforman las prácticas y las 
+            investigaciones artísticas abriendo espacios de resistencia, creación y transformación política.
         </p>
 
         <p class="descripcion">
-            A lo largo de estos años he ido reuniendo intuiciones, escrituras, movimientos, conversaciones y experiencias compartidas.
-            Trabajo desde metodologías situadas, colaborativas y experimentales, generando espacios donde diferentes cuerpos, capacidades
-            y formas de relación puedan encontrarse.
+           A lo largo de estos años he ido reuniendo <strong>intuiciones, escrituras, movimientos, conversaciones y experiencias compartidas</strong>, 
+            que han ido tomando forma en entornos más o menos convencionales, más o menos académicos, más o menos accesibles. Aquí puedes encontrar 
+            algunos de esos rastros.
         </p>
 
         <p class="keywords"> 
-            POLÍTICAS DEL CUERPO · TRANSFEMINISMOS · ESCRITURA · ARTES VIVAS · ANTICAPACITISMO 
+            POLÍTICAS DEL CUERPO · FEMINISMOS · ESCRITURA · ARTES VIVAS · ANTICAPACITISMO 
         </p>
     </section>
 
@@ -1630,7 +1630,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     /* Abrir */
-
     botonCasaCo.addEventListener('click', () => {
 
         modalCasaCo.classList.add('activo');
@@ -1638,50 +1637,39 @@ document.addEventListener('DOMContentLoaded', () => {
         modalCasaCo.setAttribute('aria-hidden', 'false');
 
         document.body.classList.add('modal-abierto');
-
     });
 
 
     /* Cerrar con botón */
-
     botonCerrarCasaCo.addEventListener('click', () => {
 
         cerrarModalCasaCo();
-
     });
 
 
     /* Cerrar haciendo click fuera */
-
     modalCasaCo.addEventListener('click', (event) => {
 
         if (event.target === modalCasaCo) {
 
             cerrarModalCasaCo();
-
         }
-
     });
 
 
     /* Cerrar con ESC */
-
     document.addEventListener('keydown', (event) => {
-
         if (
             event.key === 'Escape' &&
             modalCasaCo.classList.contains('activo')
         ) {
 
             cerrarModalCasaCo();
-
         }
-
     });
 
 
     /* Cambiar imagen principal */
-
     miniaturasCasaCo.forEach((miniatura) => {
 
         miniatura.addEventListener('click', () => {
@@ -1689,14 +1677,11 @@ document.addEventListener('DOMContentLoaded', () => {
             imagenPrincipalCasaCo.src = miniatura.src;
 
             imagenPrincipalCasaCo.alt = miniatura.alt;
-
         });
-
     });
 
 
     /* Función para cerrar */
-
     function cerrarModalCasaCo() {
 
         modalCasaCo.classList.remove('activo');
@@ -1704,42 +1689,32 @@ document.addEventListener('DOMContentLoaded', () => {
         modalCasaCo.setAttribute('aria-hidden', 'true');
 
         document.body.classList.remove('modal-abierto');
-
     }
-
 });
         
     </script>
 
 <!-- VENTANA EMERGENTE CASA & CO -->
 <div id="modal-casaco" class="modal-proyecto" aria-hidden="true">
-
     <div class="modal-contenido">
-
         <button class="modal-cerrar" aria-label="Cerrar ventana">
             &times;
         </button>
-
         <div class="modal-grid">
 
             <!-- IMÁGENES -->
             <div class="modal-imagenes">
-
                 <img
                     src="images/casaco.JPG"
                     alt="CASA & CO"
                     class="modal-imagen-principal"
                 >
-
                 <div class="modal-galeria">
-
                     <img
                         src="images/casaco-2.JPG"
                         alt="CASA & CO"
                     >
-
                 </div>
-
             </div>
 
 
@@ -1749,39 +1724,34 @@ document.addEventListener('DOMContentLoaded', () => {
                 <p class="modal-etiqueta">
                     ACTIVIDAD ARTÍSTICA
                 </p>
-
                 <h2>CASA & CO</h2>
-
                 <p class="modal-descripcion">
-                    Exposición de los artistas galardonados en el marco 
+                    Exposición de les artistas galardonades en el marco 
                     del programa de becas en colaboración 2023-2024.
                 </p>
-
                 <p class="modal-descripcion">
-                    CASA&CO celebra así los intercambios internacionales 
-                    y el rol fundamental que desempeñan las residencias artísticas en el desarrollo 
-                    profesional de los artistas. También pone el foco en la interdisciplinariedad así 
-                    como en la fusión entre los saberes tradicionales y la innovación contemporánea.
+                    En esta exposición colectiva se celebraron los intercambios internacionales
+                    gracias a las residencias artísticas desarrolladas en Casa de Velázquez y en
+                    colaboración con otros centros de arte.
+                    En mi caso, se expuso el proceso de trabajo llevado a cabo gracias a la beca
+                    de investigación curatorial ENCURA VI para la que conté con otres artistas
+                    residentes en Casa de Velázquez con les que conviví. 
                 </p>
 
 
                 <div class="modal-datos">
-
                     <div>
                         <span>Fecha</span>
                         <p>13 de noviembre de 2024 al 9 de febrero de 2025</p>
                     </div>
-
                     <div>
                         <span>Lugar</span>
                         <p>Casa de Velázquez</p>
                     </div>
-
                     <div>
                         <span>Tipo</span>
                         <p>Exposición colectiva</p>
                     </div>
-
                 </div>
 
 
@@ -1793,13 +1763,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 >
                     VER PROYECTO EXTERNO →
                 </a>
-
             </div>
-
         </div>
-
     </div>
-
 </div>
     
 </body>
