@@ -1019,9 +1019,9 @@ body.modal-abierto {
             </article>
 
             <article class="tarjeta">
-            <a href="https://blog.uclm.es/archivoartea/2026/07/04/nana-injerto-susurro-entre-el-sueno-y-la-vigilia/" target="_blank" rel="noopener noreferrer">
-                <img src="images/comunidades-sonantes.jpg" alt="Comunidades Sonantes">
-            </a>
+            <button class="tarjeta-boton" data-proyecto="nana">
+                <img src="images/comunidades-sonantes.jpg" alt="Nana, injerto, susurro: entre el sueño y la vigilia">
+            </button>
                 <h3>Nana, injerto, susurro: entre el sueño y la vigilia</h3>
                 <p>Irene Mahugo, Esther Rodríguez-Barbero y Tzu-Han Hung</p>
                 <p>Taller en el marco del <em>II Seminario de Investigación Experimenta: Comunidades Soñantes</em></p>
@@ -1606,6 +1606,110 @@ body.modal-abierto {
         }
 
 /* =========================================================
+   MODAL NANA, INJERTO, SUSURRO
+   ========================================================= */
+
+document.addEventListener('DOMContentLoaded', () => {
+
+    const botonNana = document.querySelector(
+        '.tarjeta-boton[data-proyecto="nana"]'
+    );
+
+    const modalNana = document.getElementById('modal-nana');
+
+    if (!botonNana || !modalNana) return;
+
+    const botonCerrarNana =
+        modalNana.querySelector('.modal-cerrar');
+
+    const imagenPrincipalNana =
+        modalNana.querySelector('.modal-imagen-principal');
+
+    const miniaturasNana =
+        modalNana.querySelectorAll('.modal-galeria img');
+
+
+    /* Abrir */
+
+    botonNana.addEventListener('click', () => {
+
+        modalNana.classList.add('activo');
+
+        modalNana.setAttribute('aria-hidden', 'false');
+
+        document.body.classList.add('modal-abierto');
+
+    });
+
+
+    /* Cerrar con botón */
+
+    botonCerrarNana.addEventListener('click', () => {
+
+        cerrarModalNana();
+
+    });
+
+
+    /* Cerrar haciendo click fuera */
+
+    modalNana.addEventListener('click', (event) => {
+
+        if (event.target === modalNana) {
+
+            cerrarModalNana();
+
+        }
+
+    });
+
+
+    /* Cerrar con ESC */
+
+    document.addEventListener('keydown', (event) => {
+
+        if (
+            event.key === 'Escape' &&
+            modalNana.classList.contains('activo')
+        ) {
+
+            cerrarModalNana();
+
+        }
+
+    });
+
+
+    /* Cambiar imagen principal */
+
+    miniaturasNana.forEach((miniatura) => {
+
+        miniatura.addEventListener('click', () => {
+
+            imagenPrincipalNana.src = miniatura.src;
+
+            imagenPrincipalNana.alt = miniatura.alt;
+
+        });
+
+    });
+
+
+    /* Función para cerrar */
+
+    function cerrarModalNana() {
+
+        modalNana.classList.remove('activo');
+
+        modalNana.setAttribute('aria-hidden', 'true');
+
+        document.body.classList.remove('modal-abierto');
+
+    }
+
+});
+        
+/* =========================================================
    MODAL CASA & CO
    ========================================================= */
 
@@ -1694,6 +1798,108 @@ document.addEventListener('DOMContentLoaded', () => {
         
     </script>
 
+<!-- VENTANA EMERGENTE NANA, INJERTO, SUSURRO -->
+<div id="modal-nana" class="modal-proyecto" aria-hidden="true">
+
+    <div class="modal-contenido">
+
+        <button class="modal-cerrar" aria-label="Cerrar ventana">
+            &times;
+        </button>
+
+        <div class="modal-grid">
+
+            <!-- IMÁGENES -->
+            <div class="modal-imagenes">
+
+                <img
+                    src="images/comunidades-sonantes.jpg"
+                    alt="Nana, injerto, susurro: entre el sueño y la vigilia"
+                    class="modal-imagen-principal"
+                >
+
+                <div class="modal-galeria">
+                    <img
+                        src="images/comunidades-sonantes.jpg"
+                        alt="Nana, injerto, susurro: entre el sueño y la vigilia"
+                    >
+                    <img
+                        src="images/nana-injerto-1.jpg"
+                        alt="Nana, injerto, susurro: entre el sueño y la vigilia"
+                    >
+                    <img
+                        src="images/nana-injerto-2.jpg"
+                        alt="Nana, injerto, susurro: entre el sueño y la vigilia"
+                    >
+                    <img
+                        src="images/nana-injerto-3.jpg"
+                        alt="Nana, injerto, susurro: entre el sueño y la vigilia"
+                    >
+                    <img
+                        src="images/nana-injerto-4.jpg"
+                        alt="Nana, injerto, susurro: entre el sueño y la vigilia"
+                    >
+                </div>
+
+            </div>
+
+
+            <!-- TEXTO -->
+            <div class="modal-texto">
+
+                <p class="modal-etiqueta">
+                    ACTIVIDAD ARTÍSTICA
+                </p>
+
+                <h2>
+                    Nana, injerto, susurro: entre el sueño y la vigilia
+                </h2>
+
+                <p class="modal-descripcion">
+                    Irene Mahugo, Esther Rodríguez-Barbero y Tzu-Han Hung.
+                </p>
+
+                <p class="modal-descripcion">
+                    Taller en el marco del
+                    <em>II Seminario de Investigación Experimenta: Comunidades Soñantes</em>.
+                </p>
+
+                <div class="modal-datos">
+
+                    <div>
+                        <span>Año</span>
+                        <p>2026</p>
+                    </div>
+
+                    <div>
+                        <span>Lugar</span>
+                        <p>Facultad de Bellas Artes, UCLM</p>
+                    </div>
+
+                    <div>
+                        <span>Tipo</span>
+                        <p>Taller</p>
+                    </div>
+
+                </div>
+
+                <a
+                    href="https://blog.uclm.es/archivoartea/2026/07/04/nana-injerto-susurro-entre-el-sueno-y-la-vigilia/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="modal-enlace"
+                >
+                    VER PROYECTO EXTERNO →
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+    
 <!-- VENTANA EMERGENTE CASA & CO -->
 <div id="modal-casaco" class="modal-proyecto" aria-hidden="true">
     <div class="modal-contenido">
