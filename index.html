@@ -1039,13 +1039,12 @@ body.modal-abierto {
             </article>
 
             <article class="tarjeta">
-            <a href="https://blog.uclm.es/archivoartea/2025/04/26/nenhures/" target="_blank" rel="noopener noreferrer">
+            <button class="tarjeta-boton" data-proyecto="nenhures">
                 <img src="images/nenhures.JPG" alt="Nenhures">
-            </a>
+            </button>
                 <h3>Nenhures</h3>
-                <p>Lectura performativa</p>
-                <p><em>Experimenta: I Seminario de investigación</em></p>
-                <p>Fundación Antonio Pérez, Cuenca, 2025</p>
+                <p>Proyecto artístico.</p>
+                <p>UCLM, 2026</p>
             </article>
 
             <article class="tarjeta">
@@ -1795,6 +1794,143 @@ document.addEventListener('DOMContentLoaded', () => {
         document.body.classList.remove('modal-abierto');
     }
 });
+
+/* =========================================================
+   MODAL NENHURES
+   ========================================================= */
+
+document.addEventListener('DOMContentLoaded', () => {
+
+    const botonNenhures = document.querySelector(
+        '.tarjeta-boton[data-proyecto="nenhures"]'
+    );
+
+    const modalNenhures =
+        document.getElementById('modal-nenhures');
+
+
+    if (!botonNenhures || !modalNenhures) return;
+
+
+    const botonCerrarNenhures =
+        modalNenhures.querySelector('.modal-cerrar');
+
+
+    const imagenPrincipalNenhures =
+        modalNenhures.querySelector(
+            '.modal-imagen-principal'
+        );
+
+
+    const miniaturasNenhures =
+        modalNenhures.querySelectorAll(
+            '.modal-galeria img'
+        );
+
+
+    /* =====================================================
+       ABRIR
+       ===================================================== */
+
+    botonNenhures.addEventListener('click', () => {
+
+        modalNenhures.classList.add('activo');
+
+        modalNenhures.setAttribute(
+            'aria-hidden',
+            'false'
+        );
+
+        document.body.classList.add(
+            'modal-abierto'
+        );
+
+    });
+
+
+    /* =====================================================
+       CERRAR CON BOTÓN
+       ===================================================== */
+
+    botonCerrarNenhures.addEventListener('click', () => {
+
+        cerrarModalNenhures();
+
+    });
+
+
+    /* =====================================================
+       CERRAR HACIENDO CLICK FUERA
+       ===================================================== */
+
+    modalNenhures.addEventListener('click', (event) => {
+
+        if (event.target === modalNenhures) {
+
+            cerrarModalNenhures();
+
+        }
+
+    });
+
+
+    /* =====================================================
+       CERRAR CON ESC
+       ===================================================== */
+
+    document.addEventListener('keydown', (event) => {
+
+        if (
+            event.key === 'Escape' &&
+            modalNenhures.classList.contains('activo')
+        ) {
+
+            cerrarModalNenhures();
+
+        }
+
+    });
+
+
+    /* =====================================================
+       CAMBIAR IMAGEN PRINCIPAL
+       ===================================================== */
+
+    miniaturasNenhures.forEach((miniatura) => {
+
+        miniatura.addEventListener('click', () => {
+
+            imagenPrincipalNenhures.src =
+                miniatura.src;
+
+            imagenPrincipalNenhures.alt =
+                miniatura.alt;
+
+        });
+
+    });
+
+
+    /* =====================================================
+       FUNCIÓN PARA CERRAR
+       ===================================================== */
+
+    function cerrarModalNenhures() {
+
+        modalNenhures.classList.remove('activo');
+
+        modalNenhures.setAttribute(
+            'aria-hidden',
+            'true'
+        );
+
+        document.body.classList.remove(
+            'modal-abierto'
+        );
+
+    }
+
+});
         
     </script>
 
@@ -1860,14 +1996,19 @@ document.addEventListener('DOMContentLoaded', () => {
                 </p>
 
                 <p class="modal-descripcion">
-                    Taller en el marco del
                     <em>II Seminario de Investigación Experimenta: Comunidades Soñantes</em>.
+                </p>
+
+                <p class="modal-descripcion">
+                Se propone un recorrido colectivo en el que experimentar a través de la escucha, el contagio y el movimiento por el espacio. 
+                Desplegamos ritmos, voces, lenguajes y memorias que nos transportan a estados vulnerables, sin estructura, sin temporalidad, suspendidos entre
+                el sueño y la vigilia. Prestamos atención a aquello que emerge y se censura en los sueños, entendiendo elementos como la nana como portadora de saberes ocultos.
                 </p>
 
                 <div class="modal-datos">
 
                     <div>
-                        <span>Año</span>
+                        <span>Fecha</span>
                         <p>2026</p>
                     </div>
 
@@ -1937,11 +2078,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 </p>
                 <p class="modal-descripcion">
                     En esta exposición colectiva se celebraron los intercambios internacionales
-                    gracias a las residencias artísticas desarrolladas en Casa de Velázquez y en
+                    realizados a partir de las residencias artísticas en Casa de Velázquez y en
                     colaboración con otros centros de arte.
-                    En mi caso, se expuso el proceso de trabajo llevado a cabo gracias a la beca
-                    de investigación curatorial ENCURA VI para la que conté con otres artistas
-                    residentes en Casa de Velázquez con les que conviví. 
+                </p>
+                <p class="modal descripcion">
+                    Expuse el proceso de trabajo de investigación curatorial desarrollado a partir
+                    de la beca ENCURA VI y en la que trabajé con otres artistas residentes en
+                    Casa de Velázquez.
                 </p>
 
 
@@ -1972,6 +2115,135 @@ document.addEventListener('DOMContentLoaded', () => {
             </div>
         </div>
     </div>
+</div>
+
+<!-- =========================================================
+     VENTANA EMERGENTE NENHURES
+     ========================================================= -->
+
+<div id="modal-nenhures" class="modal-proyecto" aria-hidden="true">
+
+    <div class="modal-contenido">
+
+        <button
+            class="modal-cerrar"
+            aria-label="Cerrar ventana"
+        >
+            &times;
+        </button>
+
+
+        <div class="modal-grid">
+
+
+            <!-- =================================================
+                 IMÁGENES
+                 ================================================= -->
+
+            <div class="modal-imagenes">
+
+                <img
+                    src="images/nenhures.JPG"
+                    alt="Nenhures"
+                    class="modal-imagen-principal"
+                >
+
+
+                <div class="modal-galeria">
+
+                    <img
+                        src="images/nenhures.JPG"
+                        alt="Nenhures"
+                    >
+
+                    <img
+                        src="images/nenhures-2.jpg"
+                        alt="Nenhures"
+                    >
+
+                    <img
+                        src="images/nenhures-3.jpg"
+                        alt="Nenhures"
+                    >
+
+                    <img
+                        src="images/nenhures-4.jpg"
+                        alt="Nenhures"
+                    >
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 TEXTO
+                 ================================================= -->
+
+            <div class="modal-texto">
+
+                <p class="modal-etiqueta">
+                    ACTIVIDAD ARTÍSTICA
+                </p>
+
+
+                <h2>
+                    Nenhures
+                </h2>
+
+
+                <p class="modal-descripcion">
+                    Irene Mahugo.
+                </p>
+
+
+                <p class="modal-descripcion">
+                    Proyecto artístico.
+                </p>
+
+
+                <div class="modal-datos">
+
+                    <div>
+                        <span>Año</span>
+                        <p>
+                            2025
+                        </p>
+                    </div>
+
+
+                    <div>
+                        <span>Lugar</span>
+                        <p>
+                            Fundación Antonio Pérez, Cuenca
+                        </p>
+                    </div>
+
+
+                    <div>
+                        <span>Tipo</span>
+                        <p>
+                            Lectura performativa
+                        </p>
+                    </div>
+                </div>
+
+
+                <a
+                    href="https://blog.uclm.es/archivoartea/2025/04/26/nenhures/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="modal-enlace"
+                >
+                    VER PROYECTO EXTERNO →
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
 </div>
     
 </body>
