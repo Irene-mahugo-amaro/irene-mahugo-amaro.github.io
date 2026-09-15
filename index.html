@@ -1042,7 +1042,7 @@ body.modal-abierto {
             </button>
                 <h3>Nenhures</h3>
                 <p>Lectura performativa en el marco del <em>Seminario internacional de investigación EXPERIMENTA</em><br>
-                Fundación Antonio Pérez, Cuenca, 2026</p>
+                Fundación Antonio Pérez, Cuenca, 2025</p>
             </article>
 
             <article class="tarjeta">
@@ -1559,816 +1559,308 @@ body.modal-abierto {
     </footer>
 
     <script>
-        // Carousel functionality
-        let currentSlide = 0;
 
-        const slides = document.querySelectorAll('.carousel-slide');
-        const dots = document.querySelectorAll('.carousel-dot');
+    /* =========================================================
+       CARRUSEL
+       ========================================================= */
 
-        function showSlide(n) {
-            if (!slides.length) return;
+    let currentSlide = 0;
 
-            currentSlide = (n + slides.length) % slides.length;
+    const slides = document.querySelectorAll('.carousel-slide');
+    const dots = document.querySelectorAll('.carousel-dot');
 
-            slides.forEach((slide, index) => {
-                slide.classList.toggle('active', index === currentSlide);
-            });
+    function showSlide(n) {
 
-            dots.forEach((dot, index) => {
-                const isActive = index === currentSlide;
-                dot.classList.toggle('active', isActive);
-                dot.setAttribute('aria-current', isActive ? 'true' : 'false');
-            });
-        }
+        if (!slides.length) return;
 
-        function nextSlide() {
-            showSlide(currentSlide + 1);
-        }
+        currentSlide = (n + slides.length) % slides.length;
 
-        // Auto-rotate every 5 seconds
-        let carouselInterval = setInterval(nextSlide, 5000);
+        slides.forEach((slide, index) => {
 
-        // Click dots to navigate
+            slide.classList.toggle(
+                'active',
+                index === currentSlide
+            );
+
+        });
+
         dots.forEach((dot, index) => {
-            dot.addEventListener('click', () => {
-                showSlide(index);
 
-                clearInterval(carouselInterval);
-                carouselInterval = setInterval(nextSlide, 5000);
-            });
+            const isActive = index === currentSlide;
+
+            dot.classList.toggle(
+                'active',
+                isActive
+            );
+
+            dot.setAttribute(
+                'aria-current',
+                isActive ? 'true' : 'false'
+            );
+
         });
 
-        // Respect users who prefer reduced motion
-        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    }
+
+
+    function nextSlide() {
+
+        showSlide(currentSlide + 1);
+
+    }
+
+
+    let carouselInterval =
+        setInterval(nextSlide, 5000);
+
+
+    dots.forEach((dot, index) => {
+
+        dot.addEventListener('click', () => {
+
+            showSlide(index);
+
             clearInterval(carouselInterval);
-        }
 
-<!-- =========================================================
-     MODAL LA POÉTICA DEL AGUA
-     ========================================================= -->
-
-<script>
-
-document.addEventListener('DOMContentLoaded', () => {
-
-    const botonAgua = document.querySelector(
-        '.tarjeta-boton[data-proyecto="agua"]'
-    );
-
-    const modalAgua =
-        document.getElementById('modal-agua');
-
-    if (!botonAgua || !modalAgua) return;
-
-
-    const botonCerrarAgua =
-        modalAgua.querySelector('.modal-cerrar');
-
-
-    const imagenPrincipalAgua =
-        modalAgua.querySelector(
-            '.modal-imagen-principal'
-        );
-
-
-    const miniaturasAgua =
-        modalAgua.querySelectorAll(
-            '.modal-galeria img'
-        );
-
-
-    /* =====================================================
-       ABRIR
-       ===================================================== */
-
-    botonAgua.addEventListener('click', () => {
-
-        modalAgua.classList.add('activo');
-
-        modalAgua.setAttribute(
-            'aria-hidden',
-            'false'
-        );
-
-        document.body.classList.add(
-            'modal-abierto'
-        );
-
-    });
-
-
-    /* =====================================================
-       CERRAR CON BOTÓN
-       ===================================================== */
-
-    botonCerrarAgua.addEventListener('click', () => {
-
-        cerrarModalAgua();
-
-    });
-
-
-    /* =====================================================
-       CERRAR HACIENDO CLICK FUERA
-       ===================================================== */
-
-    modalAgua.addEventListener('click', (event) => {
-
-        if (event.target === modalAgua) {
-
-            cerrarModalAgua();
-
-        }
-
-    });
-
-
-    /* =====================================================
-       CERRAR CON ESC
-       ===================================================== */
-
-    document.addEventListener('keydown', (event) => {
-
-        if (
-            event.key === 'Escape' &&
-            modalAgua.classList.contains('activo')
-        ) {
-
-            cerrarModalAgua();
-
-        }
-
-    });
-
-
-    /* =====================================================
-       CAMBIAR IMAGEN PRINCIPAL
-       ===================================================== */
-
-    miniaturasAgua.forEach((miniatura) => {
-
-        miniatura.addEventListener('click', () => {
-
-            imagenPrincipalAgua.src =
-                miniatura.src;
-
-            imagenPrincipalAgua.alt =
-                miniatura.alt;
+            carouselInterval =
+                setInterval(nextSlide, 5000);
 
         });
 
     });
-
-
-    /* =====================================================
-       FUNCIÓN PARA CERRAR
-       ===================================================== */
-
-    function cerrarModalAgua() {
-
-        modalAgua.classList.remove('activo');
-
-        modalAgua.setAttribute(
-            'aria-hidden',
-            'true'
-        );
-
-        document.body.classList.remove(
-            'modal-abierto'
-        );
-
-    }
-
-});
-
-</script>
-        
-/* =========================================================
-   MODAL NANA, INJERTO, SUSURRO
-   ========================================================= */
-
-document.addEventListener('DOMContentLoaded', () => {
-
-    const botonNana = document.querySelector(
-        '.tarjeta-boton[data-proyecto="nana"]'
-    );
-
-    const modalNana = document.getElementById('modal-nana');
-
-    if (!botonNana || !modalNana) return;
-
-    const botonCerrarNana =
-        modalNana.querySelector('.modal-cerrar');
-
-    const imagenPrincipalNana =
-        modalNana.querySelector('.modal-imagen-principal');
-
-    const miniaturasNana =
-        modalNana.querySelectorAll('.modal-galeria img');
-
-
-    /* Abrir */
-
-    botonNana.addEventListener('click', () => {
-
-        modalNana.classList.add('activo');
-
-        modalNana.setAttribute('aria-hidden', 'false');
-
-        document.body.classList.add('modal-abierto');
-
-    });
-
-
-    /* Cerrar con botón */
-
-    botonCerrarNana.addEventListener('click', () => {
-
-        cerrarModalNana();
-
-    });
-
-
-    /* Cerrar haciendo click fuera */
-
-    modalNana.addEventListener('click', (event) => {
-
-        if (event.target === modalNana) {
-
-            cerrarModalNana();
-
-        }
-
-    });
-
-
-    /* Cerrar con ESC */
-
-    document.addEventListener('keydown', (event) => {
-
-        if (
-            event.key === 'Escape' &&
-            modalNana.classList.contains('activo')
-        ) {
-
-            cerrarModalNana();
-
-        }
-
-    });
-
-
-    /* Cambiar imagen principal */
-
-    miniaturasNana.forEach((miniatura) => {
-
-        miniatura.addEventListener('click', () => {
-
-            imagenPrincipalNana.src = miniatura.src;
-
-            imagenPrincipalNana.alt = miniatura.alt;
-
-        });
-
-    });
-
-
-    /* Función para cerrar */
-
-    function cerrarModalNana() {
-
-        modalNana.classList.remove('activo');
-
-        modalNana.setAttribute('aria-hidden', 'true');
-
-        document.body.classList.remove('modal-abierto');
-
-    }
-
-});
-        
-/* =========================================================
-   MODAL CASA & CO
-   ========================================================= */
-
-document.addEventListener('DOMContentLoaded', () => {
-
-    const botonCasaCo = document.querySelector(
-        '.tarjeta-boton[data-proyecto="casaco"]'
-    );
-
-    const modalCasaCo = document.getElementById('modal-casaco');
-
-    if (!botonCasaCo || !modalCasaCo) return;
-
-    const botonCerrarCasaCo =
-        modalCasaCo.querySelector('.modal-cerrar');
-
-    const imagenPrincipalCasaCo =
-        modalCasaCo.querySelector('.modal-imagen-principal');
-
-    const miniaturasCasaCo =
-        modalCasaCo.querySelectorAll('.modal-galeria img');
-
-
-    /* Abrir */
-    botonCasaCo.addEventListener('click', () => {
-
-        modalCasaCo.classList.add('activo');
-
-        modalCasaCo.setAttribute('aria-hidden', 'false');
-
-        document.body.classList.add('modal-abierto');
-    });
-
-
-    /* Cerrar con botón */
-    botonCerrarCasaCo.addEventListener('click', () => {
-
-        cerrarModalCasaCo();
-    });
-
-
-    /* Cerrar haciendo click fuera */
-    modalCasaCo.addEventListener('click', (event) => {
-
-        if (event.target === modalCasaCo) {
-
-            cerrarModalCasaCo();
-        }
-    });
-
-
-    /* Cerrar con ESC */
-    document.addEventListener('keydown', (event) => {
-        if (
-            event.key === 'Escape' &&
-            modalCasaCo.classList.contains('activo')
-        ) {
-
-            cerrarModalCasaCo();
-        }
-    });
-
-
-    /* Cambiar imagen principal */
-    miniaturasCasaCo.forEach((miniatura) => {
-
-        miniatura.addEventListener('click', () => {
-
-            imagenPrincipalCasaCo.src = miniatura.src;
-
-            imagenPrincipalCasaCo.alt = miniatura.alt;
-        });
-    });
-
-
-    /* Función para cerrar */
-    function cerrarModalCasaCo() {
-
-        modalCasaCo.classList.remove('activo');
-
-        modalCasaCo.setAttribute('aria-hidden', 'true');
-
-        document.body.classList.remove('modal-abierto');
-    }
-});
-
-/* =========================================================
-   MODAL NENHURES
-   ========================================================= */
-
-document.addEventListener('DOMContentLoaded', () => {
-
-    const botonNenhures = document.querySelector(
-        '.tarjeta-boton[data-proyecto="nenhures"]'
-    );
-
-    const modalNenhures =
-        document.getElementById('modal-nenhures');
-
-
-    if (!botonNenhures || !modalNenhures) return;
-
-
-    const botonCerrarNenhures =
-        modalNenhures.querySelector('.modal-cerrar');
-
-
-    const imagenPrincipalNenhures =
-        modalNenhures.querySelector(
-            '.modal-imagen-principal'
-        );
-
-
-    const miniaturasNenhures =
-        modalNenhures.querySelectorAll(
-            '.modal-galeria img'
-        );
-
-
-    /* =====================================================
-       ABRIR
-       ===================================================== */
-
-    botonNenhures.addEventListener('click', () => {
-
-        modalNenhures.classList.add('activo');
-
-        modalNenhures.setAttribute(
-            'aria-hidden',
-            'false'
-        );
-
-        document.body.classList.add(
-            'modal-abierto'
-        );
-
-    });
-
-
-    /* =====================================================
-       CERRAR CON BOTÓN
-       ===================================================== */
-
-    botonCerrarNenhures.addEventListener('click', () => {
-
-        cerrarModalNenhures();
-
-    });
-
-
-    /* =====================================================
-       CERRAR HACIENDO CLICK FUERA
-       ===================================================== */
-
-    modalNenhures.addEventListener('click', (event) => {
-
-        if (event.target === modalNenhures) {
-
-            cerrarModalNenhures();
-
-        }
-
-    });
-
-
-    /* =====================================================
-       CERRAR CON ESC
-       ===================================================== */
-
-    document.addEventListener('keydown', (event) => {
-
-        if (
-            event.key === 'Escape' &&
-            modalNenhures.classList.contains('activo')
-        ) {
-
-            cerrarModalNenhures();
-
-        }
-
-    });
-
-
-    /* =====================================================
-       CAMBIAR IMAGEN PRINCIPAL
-       ===================================================== */
-
-    miniaturasNenhures.forEach((miniatura) => {
-
-        miniatura.addEventListener('click', () => {
-
-            imagenPrincipalNenhures.src =
-                miniatura.src;
-
-            imagenPrincipalNenhures.alt =
-                miniatura.alt;
-
-        });
-
-    });
-
-
-    /* =====================================================
-       FUNCIÓN PARA CERRAR
-       ===================================================== */
-
-    function cerrarModalNenhures() {
-
-        modalNenhures.classList.remove('activo');
-
-        modalNenhures.setAttribute(
-            'aria-hidden',
-            'true'
-        );
-
-        document.body.classList.remove(
-            'modal-abierto'
-        );
-
-    }
-
-});
-
-/* =========================================================
-   MODAL ARCHIVAR EL GESTO
-   ========================================================= */
-
-document.addEventListener('DOMContentLoaded', () => {
-
-    const botonArchivar = document.querySelector(
-        '.tarjeta-boton[data-proyecto="archivar"]'
-    );
-
-    const modalArchivar =
-        document.getElementById('modal-archivar');
-
-
-    if (!botonArchivar || !modalArchivar) return;
-
-
-    const botonCerrarArchivar =
-        modalArchivar.querySelector('.modal-cerrar');
-
-
-    const imagenPrincipalArchivar =
-        modalArchivar.querySelector(
-            '.modal-imagen-principal'
-        );
-
-
-    const miniaturasArchivar =
-        modalArchivar.querySelectorAll(
-            '.modal-galeria img'
-        );
-
-
-    /* =====================================================
-       ABRIR
-       ===================================================== */
-
-    botonArchivar.addEventListener('click', () => {
-
-        modalArchivar.classList.add('activo');
-
-        modalArchivar.setAttribute(
-            'aria-hidden',
-            'false'
-        );
-
-        document.body.classList.add(
-            'modal-abierto'
-        );
-
-    });
-
-
-    /* =====================================================
-       CERRAR CON BOTÓN
-       ===================================================== */
-
-    botonCerrarArchivar.addEventListener('click', () => {
-
-        cerrarModalArchivar();
-
-    });
-
-
-    /* =====================================================
-       CERRAR HACIENDO CLICK FUERA
-       ===================================================== */
-
-    modalArchivar.addEventListener('click', (event) => {
-
-        if (event.target === modalArchivar) {
-
-            cerrarModalArchivar();
-
-        }
-
-    });
-
-
-    /* =====================================================
-       CERRAR CON ESC
-       ===================================================== */
-
-    document.addEventListener('keydown', (event) => {
-
-        if (
-            event.key === 'Escape' &&
-            modalArchivar.classList.contains('activo')
-        ) {
-
-            cerrarModalArchivar();
-
-        }
-
-    });
-
-
-    /* =====================================================
-       CAMBIAR IMAGEN PRINCIPAL
-       ===================================================== */
-
-    miniaturasArchivar.forEach((miniatura) => {
-
-        miniatura.addEventListener('click', () => {
-
-            imagenPrincipalArchivar.src =
-                miniatura.src;
-
-            imagenPrincipalArchivar.alt =
-                miniatura.alt;
-
-        });
-
-    });
-
-
-    /* =====================================================
-       FUNCIÓN PARA CERRAR
-       ===================================================== */
-
-    function cerrarModalArchivar() {
-
-        modalArchivar.classList.remove('activo');
-
-        modalArchivar.setAttribute(
-            'aria-hidden',
-            'true'
-        );
-
-        document.body.classList.remove(
-            'modal-abierto'
-        );
-
-    }
-
-});
-
-/* =========================================================
-   MODAL REVOLUCIÓN HORIZONTAL II
-   ========================================================= */
-
-document.addEventListener('DOMContentLoaded', () => {
-
-    const botonRevolucionHorizontalII = document.querySelector(
-        '.tarjeta-boton[data-proyecto="revolucionhorizontalii"]'
-    );
-
-    const modalRevolucionHorizontalII =
-        document.getElementById('modal-revolucion-horizontal-ii');
 
 
     if (
-        !botonRevolucionHorizontalII ||
-        !modalRevolucionHorizontalII
-    ) return;
+        window.matchMedia(
+            '(prefers-reduced-motion: reduce)'
+        ).matches
+    ) {
+
+        clearInterval(carouselInterval);
+
+    }
 
 
-    const botonCerrarRevolucionHorizontalII =
-        modalRevolucionHorizontalII.querySelector(
-            '.modal-cerrar'
-        );
+
+    /* =========================================================
+       FUNCIÓN GENERAL PARA LOS MODALES
+       ========================================================= */
+
+    function configurarModal(
+        nombreProyecto,
+        idModal
+    ) {
+
+        const boton =
+            document.querySelector(
+                `.tarjeta-boton[data-proyecto="${nombreProyecto}"]`
+            );
+
+        const modal =
+            document.getElementById(idModal);
 
 
-    const imagenPrincipalRevolucionHorizontalII =
-        modalRevolucionHorizontalII.querySelector(
-            '.modal-imagen-principal'
-        );
+        if (!boton || !modal) return;
 
 
-    const miniaturasRevolucionHorizontalII =
-        modalRevolucionHorizontalII.querySelectorAll(
-            '.modal-galeria img'
-        );
+        const botonCerrar =
+            modal.querySelector('.modal-cerrar');
 
 
-    /* =====================================================
-       ABRIR
-       ===================================================== */
-
-    botonRevolucionHorizontalII.addEventListener('click', () => {
-
-        modalRevolucionHorizontalII.classList.add('activo');
-
-        modalRevolucionHorizontalII.setAttribute(
-            'aria-hidden',
-            'false'
-        );
-
-        document.body.classList.add(
-            'modal-abierto'
-        );
-
-    });
+        const imagenPrincipal =
+            modal.querySelector(
+                '.modal-imagen-principal'
+            );
 
 
-    /* =====================================================
-       CERRAR CON BOTÓN
-       ===================================================== */
-
-    botonCerrarRevolucionHorizontalII.addEventListener(
-        'click',
-        () => {
-
-            cerrarModalRevolucionHorizontalII();
-
-        }
-    );
+        const miniaturas =
+            modal.querySelectorAll(
+                '.modal-galeria img'
+            );
 
 
-    /* =====================================================
-       CERRAR HACIENDO CLICK FUERA
-       ===================================================== */
+        /* =====================================================
+           ABRIR MODAL
+           ===================================================== */
 
-    modalRevolucionHorizontalII.addEventListener(
-        'click',
-        (event) => {
+        boton.addEventListener('click', () => {
 
-            if (
-                event.target ===
-                modalRevolucionHorizontalII
-            ) {
+            modal.classList.add('activo');
 
-                cerrarModalRevolucionHorizontalII();
+            modal.setAttribute(
+                'aria-hidden',
+                'false'
+            );
+
+            document.body.classList.add(
+                'modal-abierto'
+            );
+
+        });
+
+
+        /* =====================================================
+           CERRAR CON BOTÓN
+           ===================================================== */
+
+        botonCerrar.addEventListener(
+            'click',
+            () => {
+
+                cerrarModal();
 
             }
+        );
+
+
+        /* =====================================================
+           CERRAR HACIENDO CLICK FUERA
+           ===================================================== */
+
+        modal.addEventListener(
+            'click',
+            (event) => {
+
+                if (
+                    event.target === modal
+                ) {
+
+                    cerrarModal();
+
+                }
+
+            }
+        );
+
+
+        /* =====================================================
+           CAMBIAR IMAGEN PRINCIPAL
+           ===================================================== */
+
+        miniaturas.forEach(
+            (miniatura) => {
+
+                miniatura.addEventListener(
+                    'click',
+                    () => {
+
+                        imagenPrincipal.src =
+                            miniatura.src;
+
+                        imagenPrincipal.alt =
+                            miniatura.alt;
+
+                    }
+                );
+
+            }
+        );
+
+
+        /* =====================================================
+           FUNCIÓN PARA CERRAR
+           ===================================================== */
+
+        function cerrarModal() {
+
+            modal.classList.remove(
+                'activo'
+            );
+
+            modal.setAttribute(
+                'aria-hidden',
+                'true'
+            );
+
+            document.body.classList.remove(
+                'modal-abierto'
+            );
 
         }
+
+    }
+
+
+
+    /* =========================================================
+       CONFIGURAR MODALES
+       ========================================================= */
+
+    configurarModal(
+        'agua',
+        'modal-agua'
     );
 
 
-    /* =====================================================
-       CERRAR CON ESC
-       ===================================================== */
+    configurarModal(
+        'nana',
+        'modal-nana'
+    );
 
-    document.addEventListener('keydown', (event) => {
 
-        if (
-            event.key === 'Escape' &&
-            modalRevolucionHorizontalII.classList.contains(
+    configurarModal(
+        'casaco',
+        'modal-casaco'
+    );
+
+
+    configurarModal(
+        'nenhures',
+        'modal-nenhures'
+    );
+
+
+    configurarModal(
+        'archivar',
+        'modal-archivar'
+    );
+
+
+    configurarModal(
+        'revolucionhorizontalii',
+        'modal-revolucion-horizontal-ii'
+    );
+
+
+
+    /* =========================================================
+       CERRAR CUALQUIER MODAL CON ESC
+       ========================================================= */
+
+    document.addEventListener(
+        'keydown',
+        (event) => {
+
+            if (event.key !== 'Escape') return;
+
+
+            const modalActivo =
+                document.querySelector(
+                    '.modal-proyecto.activo'
+                );
+
+
+            if (!modalActivo) return;
+
+
+            modalActivo.classList.remove(
                 'activo'
-            )
-        ) {
+            );
 
-            cerrarModalRevolucionHorizontalII();
+            modalActivo.setAttribute(
+                'aria-hidden',
+                'true'
+            );
 
-        }
-
-    });
-
-
-    /* =====================================================
-       CAMBIAR IMAGEN PRINCIPAL
-       ===================================================== */
-
-    miniaturasRevolucionHorizontalII.forEach(
-        (miniatura) => {
-
-            miniatura.addEventListener(
-                'click',
-                () => {
-
-                    imagenPrincipalRevolucionHorizontalII.src =
-                        miniatura.src;
-
-                    imagenPrincipalRevolucionHorizontalII.alt =
-                        miniatura.alt;
-
-                }
+            document.body.classList.remove(
+                'modal-abierto'
             );
 
         }
     );
 
-
-    /* =====================================================
-       FUNCIÓN PARA CERRAR
-       ===================================================== */
-
-    function cerrarModalRevolucionHorizontalII() {
-
-        modalRevolucionHorizontalII.classList.remove(
-            'activo'
-        );
-
-        modalRevolucionHorizontalII.setAttribute(
-            'aria-hidden',
-            'true'
-        );
-
-        document.body.classList.remove(
-            'modal-abierto'
-        );
-
-    }
-
-});
+</script>
         
-    </script>
 
 <!-- =========================================================
      VENTANA EMERGENTE LA POÉTICA DEL AGUA
@@ -3034,13 +2526,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 </div>
 
                 <a
-                    href="https://hangar.org/es/agenda-hangar/revolucion-horizontal-ii-conjurar-el-vinculo/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="modal-enlace"
-                >
-                    VER PROYECTO EXTERNO →
-                </a>
+    href="https://hangar.org/es/agenda-hangar/revolucion-horizontal-ii-conjurar-el-vinculo/"
+    target="_blank"
+    rel="noopener noreferrer"
+    class="modal-enlace"
+>
+    VER PROYECTO EXTERNO →
+</a>
 
 
             </div>
