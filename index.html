@@ -1558,309 +1558,7 @@ body.modal-abierto {
         © Irene Mahugo Amaro
     </footer>
 
-    <script>
-
-    /* =========================================================
-       CARRUSEL
-       ========================================================= */
-
-    let currentSlide = 0;
-
-    const slides = document.querySelectorAll('.carousel-slide');
-    const dots = document.querySelectorAll('.carousel-dot');
-
-    function showSlide(n) {
-
-        if (!slides.length) return;
-
-        currentSlide = (n + slides.length) % slides.length;
-
-        slides.forEach((slide, index) => {
-
-            slide.classList.toggle(
-                'active',
-                index === currentSlide
-            );
-
-        });
-
-        dots.forEach((dot, index) => {
-
-            const isActive = index === currentSlide;
-
-            dot.classList.toggle(
-                'active',
-                isActive
-            );
-
-            dot.setAttribute(
-                'aria-current',
-                isActive ? 'true' : 'false'
-            );
-
-        });
-
-    }
-
-
-    function nextSlide() {
-
-        showSlide(currentSlide + 1);
-
-    }
-
-
-    let carouselInterval =
-        setInterval(nextSlide, 5000);
-
-
-    dots.forEach((dot, index) => {
-
-        dot.addEventListener('click', () => {
-
-            showSlide(index);
-
-            clearInterval(carouselInterval);
-
-            carouselInterval =
-                setInterval(nextSlide, 5000);
-
-        });
-
-    });
-
-
-    if (
-        window.matchMedia(
-            '(prefers-reduced-motion: reduce)'
-        ).matches
-    ) {
-
-        clearInterval(carouselInterval);
-
-    }
-
-
-
-    /* =========================================================
-       FUNCIÓN GENERAL PARA LOS MODALES
-       ========================================================= */
-
-    function configurarModal(
-        nombreProyecto,
-        idModal
-    ) {
-
-        const boton =
-            document.querySelector(
-                `.tarjeta-boton[data-proyecto="${nombreProyecto}"]`
-            );
-
-        const modal =
-            document.getElementById(idModal);
-
-
-        if (!boton || !modal) return;
-
-
-        const botonCerrar =
-            modal.querySelector('.modal-cerrar');
-
-
-        const imagenPrincipal =
-            modal.querySelector(
-                '.modal-imagen-principal'
-            );
-
-
-        const miniaturas =
-            modal.querySelectorAll(
-                '.modal-galeria img'
-            );
-
-
-        /* =====================================================
-           ABRIR MODAL
-           ===================================================== */
-
-        boton.addEventListener('click', () => {
-
-            modal.classList.add('activo');
-
-            modal.setAttribute(
-                'aria-hidden',
-                'false'
-            );
-
-            document.body.classList.add(
-                'modal-abierto'
-            );
-
-        });
-
-
-        /* =====================================================
-           CERRAR CON BOTÓN
-           ===================================================== */
-
-        botonCerrar.addEventListener(
-            'click',
-            () => {
-
-                cerrarModal();
-
-            }
-        );
-
-
-        /* =====================================================
-           CERRAR HACIENDO CLICK FUERA
-           ===================================================== */
-
-        modal.addEventListener(
-            'click',
-            (event) => {
-
-                if (
-                    event.target === modal
-                ) {
-
-                    cerrarModal();
-
-                }
-
-            }
-        );
-
-
-        /* =====================================================
-           CAMBIAR IMAGEN PRINCIPAL
-           ===================================================== */
-
-        miniaturas.forEach(
-            (miniatura) => {
-
-                miniatura.addEventListener(
-                    'click',
-                    () => {
-
-                        imagenPrincipal.src =
-                            miniatura.src;
-
-                        imagenPrincipal.alt =
-                            miniatura.alt;
-
-                    }
-                );
-
-            }
-        );
-
-
-        /* =====================================================
-           FUNCIÓN PARA CERRAR
-           ===================================================== */
-
-        function cerrarModal() {
-
-            modal.classList.remove(
-                'activo'
-            );
-
-            modal.setAttribute(
-                'aria-hidden',
-                'true'
-            );
-
-            document.body.classList.remove(
-                'modal-abierto'
-            );
-
-        }
-
-    }
-
-
-
-    /* =========================================================
-       CONFIGURAR MODALES
-       ========================================================= */
-
-    configurarModal(
-        'agua',
-        'modal-agua'
-    );
-
-
-    configurarModal(
-        'nana',
-        'modal-nana'
-    );
-
-
-    configurarModal(
-        'casaco',
-        'modal-casaco'
-    );
-
-
-    configurarModal(
-        'nenhures',
-        'modal-nenhures'
-    );
-
-
-    configurarModal(
-        'archivar',
-        'modal-archivar'
-    );
-
-
-    configurarModal(
-        'revolucionhorizontalii',
-        'modal-revolucion-horizontal-ii'
-    );
-
-
-
-    /* =========================================================
-       CERRAR CUALQUIER MODAL CON ESC
-       ========================================================= */
-
-    document.addEventListener(
-        'keydown',
-        (event) => {
-
-            if (event.key !== 'Escape') return;
-
-
-            const modalActivo =
-                document.querySelector(
-                    '.modal-proyecto.activo'
-                );
-
-
-            if (!modalActivo) return;
-
-
-            modalActivo.classList.remove(
-                'activo'
-            );
-
-            modalActivo.setAttribute(
-                'aria-hidden',
-                'true'
-            );
-
-            document.body.classList.remove(
-                'modal-abierto'
-            );
-
-        }
-    );
-
-</script>
-        
+   
 
 <!-- =========================================================
      VENTANA EMERGENTE LA POÉTICA DEL AGUA
@@ -2542,6 +2240,315 @@ body.modal-abierto {
     </div>
 
 </div>
+
+
+ <script>
+
+    /* =========================================================
+       CARRUSEL
+       ========================================================= */
+
+    let currentSlide = 0;
+
+    const slides = document.querySelectorAll('.carousel-slide');
+    const dots = document.querySelectorAll('.carousel-dot');
+
+    function showSlide(n) {
+
+        if (!slides.length) return;
+
+        currentSlide = (n + slides.length) % slides.length;
+
+        slides.forEach((slide, index) => {
+
+            slide.classList.toggle(
+                'active',
+                index === currentSlide
+            );
+
+        });
+
+        dots.forEach((dot, index) => {
+
+            const isActive = index === currentSlide;
+
+            dot.classList.toggle(
+                'active',
+                isActive
+            );
+
+            dot.setAttribute(
+                'aria-current',
+                isActive ? 'true' : 'false'
+            );
+
+        });
+
+    }
+
+
+    function nextSlide() {
+
+        showSlide(currentSlide + 1);
+
+    }
+
+
+    let carouselInterval =
+        setInterval(nextSlide, 5000);
+
+
+    dots.forEach((dot, index) => {
+
+        dot.addEventListener('click', () => {
+
+            showSlide(index);
+
+            clearInterval(carouselInterval);
+
+            carouselInterval =
+                setInterval(nextSlide, 5000);
+
+        });
+
+    });
+
+
+    if (
+        window.matchMedia(
+            '(prefers-reduced-motion: reduce)'
+        ).matches
+    ) {
+
+        clearInterval(carouselInterval);
+
+    }
+
+
+
+    /* =========================================================
+       FUNCIÓN GENERAL PARA LOS MODALES
+       ========================================================= */
+
+    function configurarModal(
+        nombreProyecto,
+        idModal
+    ) {
+
+        const boton =
+            document.querySelector(
+                `.tarjeta-boton[data-proyecto="${nombreProyecto}"]`
+            );
+
+        const modal =
+            document.getElementById(idModal);
+
+
+        if (!boton || !modal) return;
+
+
+        const botonCerrar =
+            modal.querySelector('.modal-cerrar');
+
+
+        const imagenPrincipal =
+            modal.querySelector(
+                '.modal-imagen-principal'
+            );
+
+
+        const miniaturas =
+            modal.querySelectorAll(
+                '.modal-galeria img'
+            );
+
+
+        /* =====================================================
+           ABRIR MODAL
+           ===================================================== */
+
+        boton.addEventListener('click', () => {
+
+            modal.classList.add('activo');
+
+            modal.setAttribute(
+                'aria-hidden',
+                'false'
+            );
+
+            document.body.classList.add(
+                'modal-abierto'
+            );
+
+        });
+
+
+        /* =====================================================
+           CERRAR CON BOTÓN
+           ===================================================== */
+
+        botonCerrar.addEventListener(
+            'click',
+            () => {
+
+                cerrarModal();
+
+            }
+        );
+
+
+        /* =====================================================
+           CERRAR HACIENDO CLICK FUERA
+           ===================================================== */
+
+        modal.addEventListener(
+            'click',
+            (event) => {
+
+                if (
+                    event.target === modal
+                ) {
+
+                    cerrarModal();
+
+                }
+
+            }
+        );
+
+
+        /* =====================================================
+           CAMBIAR IMAGEN PRINCIPAL
+           ===================================================== */
+
+        miniaturas.forEach(
+            (miniatura) => {
+
+                miniatura.addEventListener(
+                    'click',
+                    () => {
+
+                        imagenPrincipal.src =
+                            miniatura.src;
+
+                        imagenPrincipal.alt =
+                            miniatura.alt;
+
+                    }
+                );
+
+            }
+        );
+
+
+        /* =====================================================
+           FUNCIÓN PARA CERRAR
+           ===================================================== */
+
+        function cerrarModal() {
+
+            modal.classList.remove(
+                'activo'
+            );
+
+            modal.setAttribute(
+                'aria-hidden',
+                'true'
+            );
+
+            document.body.classList.remove(
+                'modal-abierto'
+            );
+
+        }
+
+    }
+
+
+
+    /* =========================================================
+       CONFIGURAR MODALES
+       ========================================================= */
+
+    configurarModal(
+        'agua',
+        'modal-agua'
+    );
+
+
+    configurarModal(
+        'nana',
+        'modal-nana'
+    );
+
+
+    configurarModal(
+        'casaco',
+        'modal-casaco'
+    );
+
+
+    configurarModal(
+        'nenhures',
+        'modal-nenhures'
+    );
+
+
+    configurarModal(
+        'archivar',
+        'modal-archivar'
+    );
+
+
+    configurarModal(
+        'revolucionhorizontalii',
+        'modal-revolucion-horizontal-ii'
+    );
+
+    configurarModal(
+        'revolucionhorizontal',
+        'modal-revolucion-horizontal'
+    );
+
+    /* =========================================================
+       CERRAR CUALQUIER MODAL CON ESC
+       ========================================================= */
+
+    document.addEventListener(
+        'keydown',
+        (event) => {
+
+            if (event.key !== 'Escape') return;
+
+
+            const modalActivo =
+                document.querySelector(
+                    '.modal-proyecto.activo'
+                );
+
+
+            if (!modalActivo) return;
+
+
+            modalActivo.classList.remove(
+                'activo'
+            );
+
+            modalActivo.setAttribute(
+                'aria-hidden',
+                'true'
+            );
+
+            document.body.classList.remove(
+                'modal-abierto'
+            );
+
+        }
+    );
+
+</script>
+        
+
 
 </body>
 </html>
