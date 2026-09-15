@@ -1009,13 +1009,17 @@ body.modal-abierto {
         <div class="tarjetas">
 
            <article class="tarjeta">
-            <a href="https://radio.lacasaencendida.es/episodios/la-poetica-del-agua-un-experimento-sonoro/" target="_blank" rel="noopener noreferrer">
-                <img src="images/la-poetica-del-agua.jpg" alt="La poética del agua">
-            </a>
-                <h3>La poética del agua, un experimento sonoro</h3>
-                <p>Podcast en <em>Radio Experimenta (ReX)</em><br>
-                La Casa Encendida, Madrid, 2026</p>
-            </article>
+
+    <button class="tarjeta-boton" data-proyecto="agua">
+        <img
+            src="images/la-poetica-del-agua.JPG"
+            alt="La poética del agua"
+        >
+        </button>
+        <h3>La poética del agua, un experimento sonoro</h3>
+        <p>Episodio de podcast en <em>Radio Experimenta (ReX)</em><br>
+             La Casa Encendida, Madrid, 2026</p>
+        </article>
 
             <article class="tarjeta">
             <button class="tarjeta-boton" data-proyecto="nana">
@@ -1602,6 +1606,146 @@ body.modal-abierto {
             clearInterval(carouselInterval);
         }
 
+<!-- =========================================================
+     MODAL LA POÉTICA DEL AGUA
+     ========================================================= -->
+
+<script>
+
+document.addEventListener('DOMContentLoaded', () => {
+
+    const botonAgua = document.querySelector(
+        '.tarjeta-boton[data-proyecto="agua"]'
+    );
+
+    const modalAgua =
+        document.getElementById('modal-agua');
+
+    if (!botonAgua || !modalAgua) return;
+
+
+    const botonCerrarAgua =
+        modalAgua.querySelector('.modal-cerrar');
+
+
+    const imagenPrincipalAgua =
+        modalAgua.querySelector(
+            '.modal-imagen-principal'
+        );
+
+
+    const miniaturasAgua =
+        modalAgua.querySelectorAll(
+            '.modal-galeria img'
+        );
+
+
+    /* =====================================================
+       ABRIR
+       ===================================================== */
+
+    botonAgua.addEventListener('click', () => {
+
+        modalAgua.classList.add('activo');
+
+        modalAgua.setAttribute(
+            'aria-hidden',
+            'false'
+        );
+
+        document.body.classList.add(
+            'modal-abierto'
+        );
+
+    });
+
+
+    /* =====================================================
+       CERRAR CON BOTÓN
+       ===================================================== */
+
+    botonCerrarAgua.addEventListener('click', () => {
+
+        cerrarModalAgua();
+
+    });
+
+
+    /* =====================================================
+       CERRAR HACIENDO CLICK FUERA
+       ===================================================== */
+
+    modalAgua.addEventListener('click', (event) => {
+
+        if (event.target === modalAgua) {
+
+            cerrarModalAgua();
+
+        }
+
+    });
+
+
+    /* =====================================================
+       CERRAR CON ESC
+       ===================================================== */
+
+    document.addEventListener('keydown', (event) => {
+
+        if (
+            event.key === 'Escape' &&
+            modalAgua.classList.contains('activo')
+        ) {
+
+            cerrarModalAgua();
+
+        }
+
+    });
+
+
+    /* =====================================================
+       CAMBIAR IMAGEN PRINCIPAL
+       ===================================================== */
+
+    miniaturasAgua.forEach((miniatura) => {
+
+        miniatura.addEventListener('click', () => {
+
+            imagenPrincipalAgua.src =
+                miniatura.src;
+
+            imagenPrincipalAgua.alt =
+                miniatura.alt;
+
+        });
+
+    });
+
+
+    /* =====================================================
+       FUNCIÓN PARA CERRAR
+       ===================================================== */
+
+    function cerrarModalAgua() {
+
+        modalAgua.classList.remove('activo');
+
+        modalAgua.setAttribute(
+            'aria-hidden',
+            'true'
+        );
+
+        document.body.classList.remove(
+            'modal-abierto'
+        );
+
+    }
+
+});
+
+</script>
+        
 /* =========================================================
    MODAL NANA, INJERTO, SUSURRO
    ========================================================= */
@@ -2069,6 +2213,142 @@ document.addEventListener('DOMContentLoaded', () => {
         
     </script>
 
+<!-- =========================================================
+     VENTANA EMERGENTE LA POÉTICA DEL AGUA
+     ========================================================= -->
+
+<div
+    id="modal-agua"
+    class="modal-proyecto"
+    aria-hidden="true"
+>
+
+    <div class="modal-contenido">
+
+        <button
+            class="modal-cerrar"
+            aria-label="Cerrar ventana"
+        >
+            &times;
+        </button>
+
+
+        <div class="modal-grid">
+
+
+            <!-- =================================================
+                 IMÁGENES
+                 ================================================= -->
+
+            <div class="modal-imagenes">
+
+                <img
+                    src="images/la-poetica-del-agua.JPG"
+                    alt="La poética del agua"
+                    class="modal-imagen-principal"
+                >
+
+
+                <div class="modal-galeria">
+
+                    <img
+                        src="images/la-poetica-del-agua-2.JPEG"
+                        alt="La poética del agua"
+                    >
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 TEXTO
+                 ================================================= -->
+
+            <div class="modal-texto">
+
+                <p class="modal-etiqueta">
+                    ACTIVIDAD ARTÍSTICA
+                </p>
+
+
+                <h2>
+                    La poética del agua, un experimento sonoro
+                </h2>
+
+
+                <p class="modal-descripcion">
+                    <em>Radio Experimenta (ReX)</em>
+                </p>
+                <p class="modal-descripcion">
+                Entrelazando en un flujo sonoro mediante la composición en vivo con diferentes grabaciones de campo. 
+                Convocamos las voces de distintas complicidades para resaltar su carácter polifónico, de palabras e imaginarios que nos traen Astrida Neimanis, 
+                la lluvia incesante de Taipéi y de Cardiff, Zhuangzi, Berta García Faet, el río Paraná, el Manzanares, Irma Pelatan, Clara Obligado, las piscinas, 
+                el río Júcar, el Huécar, el Taff, Perla Zúñiga, Tania Puente, Laía Argüelles Folch, Roma Vaquero Díaz, Ming-Yi Wu, Aimé Fehleisen, 
+                Sara M. Domínguez, Jiawei Dai.
+                </p>
+
+
+                <div class="modal-datos">
+
+                    <div>
+
+                        <span>
+                            Año
+                        </span>
+
+                        <p>
+                            2026
+                        </p>
+
+                    </div>
+
+
+                    <div>
+
+                        <span>
+                            Lugar
+                        </span>
+
+                        <p>
+                            La Casa Encendida
+                        </p>
+
+                    </div>
+
+
+                    <div>
+
+                        <span>
+                            Tipo
+                        </span>
+
+                        <p>
+                            Episodio de Podcast
+                        </p>
+
+                    </div>
+
+                    <a
+                    href="https://radio.lacasaencendida.es/episodios/la-poetica-del-agua-un-experimento-sonoro/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="modal-enlace"
+                >
+                    VER PROYECTO EXTERNO →
+                </a>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
 <!-- VENTANA EMERGENTE NANA, INJERTO, SUSURRO -->
 <div id="modal-nana" class="modal-proyecto" aria-hidden="true">
     <div class="modal-contenido">
@@ -2184,7 +2464,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <!-- IMÁGENES -->
             <div class="modal-imagenes">
                 <img
-                    src="images/casaco-3.png"
+                    src="images/casaco-3.jpg"
                     alt="CASA & CO"
                     class="modal-imagen-principal"
                 >
@@ -2425,13 +2705,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 </p>
 
                 <p class="modal-descripcion">
-                    Lectura performativa en el marco de <em>Acción Spring(t)</em>, VII Congreso de Arte de Acción
+                    Lectura performativa en el marco del VII Congreso de Arte de Acción <em>Acción Spring(t)</em>
                 </p>
 
 
                 <p class="modal-descripcion">
-                    Leímos un texto escrito para ser leído a tres voces, pero también para dos o para sumar 
-                    todas las que se deseen; con la intención de que la reflexión en torno al archivar siga mutando y multiplicándose.
+                    Mostramos un texto escrito para ser leído a tres voces, pero también para dos o para sumar 
+                    todas las que se deseen; con la intención de que la reflexión en torno al archivar siga mutando y multiplicándose. A lo largo
+                    de esa lectura, nos acompañaba la imagen constante del Archivo Virtual de Artes Escénicas, proyectándose en el aula.
                 </p>
 
 
