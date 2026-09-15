@@ -1045,10 +1045,13 @@ body.modal-abierto {
             </article>
 
             <article class="tarjeta">
-                <img src="images/accion-sprint.JPG" alt="Accion Sprint">
+            <button class="tarjeta-boton" data-proyecto="archivar">
+                <img src="images/accion-sprint.JPG" alt="Archivar el gesto">
+            </button>
                 <h3>Archivar el gesto</h3>
                 <p>Lectura performativa en el marco de <em>Acción Spring(t)</em><br>
-                Facultad de Bellas Artes, UCM, 2024</p>
+                Facultad de Bellas Artes, UCM, 2024
+                </p>
             </article>
 
             <article class="tarjeta">
@@ -1926,6 +1929,143 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
 });
+
+/* =========================================================
+   MODAL ARCHIVAR EL GESTO
+   ========================================================= */
+
+document.addEventListener('DOMContentLoaded', () => {
+
+    const botonArchivar = document.querySelector(
+        '.tarjeta-boton[data-proyecto="archivar"]'
+    );
+
+    const modalArchivar =
+        document.getElementById('modal-archivar');
+
+
+    if (!botonArchivar || !modalArchivar) return;
+
+
+    const botonCerrarArchivar =
+        modalArchivar.querySelector('.modal-cerrar');
+
+
+    const imagenPrincipalArchivar =
+        modalArchivar.querySelector(
+            '.modal-imagen-principal'
+        );
+
+
+    const miniaturasArchivar =
+        modalArchivar.querySelectorAll(
+            '.modal-galeria img'
+        );
+
+
+    /* =====================================================
+       ABRIR
+       ===================================================== */
+
+    botonArchivar.addEventListener('click', () => {
+
+        modalArchivar.classList.add('activo');
+
+        modalArchivar.setAttribute(
+            'aria-hidden',
+            'false'
+        );
+
+        document.body.classList.add(
+            'modal-abierto'
+        );
+
+    });
+
+
+    /* =====================================================
+       CERRAR CON BOTÓN
+       ===================================================== */
+
+    botonCerrarArchivar.addEventListener('click', () => {
+
+        cerrarModalArchivar();
+
+    });
+
+
+    /* =====================================================
+       CERRAR HACIENDO CLICK FUERA
+       ===================================================== */
+
+    modalArchivar.addEventListener('click', (event) => {
+
+        if (event.target === modalArchivar) {
+
+            cerrarModalArchivar();
+
+        }
+
+    });
+
+
+    /* =====================================================
+       CERRAR CON ESC
+       ===================================================== */
+
+    document.addEventListener('keydown', (event) => {
+
+        if (
+            event.key === 'Escape' &&
+            modalArchivar.classList.contains('activo')
+        ) {
+
+            cerrarModalArchivar();
+
+        }
+
+    });
+
+
+    /* =====================================================
+       CAMBIAR IMAGEN PRINCIPAL
+       ===================================================== */
+
+    miniaturasArchivar.forEach((miniatura) => {
+
+        miniatura.addEventListener('click', () => {
+
+            imagenPrincipalArchivar.src =
+                miniatura.src;
+
+            imagenPrincipalArchivar.alt =
+                miniatura.alt;
+
+        });
+
+    });
+
+
+    /* =====================================================
+       FUNCIÓN PARA CERRAR
+       ===================================================== */
+
+    function cerrarModalArchivar() {
+
+        modalArchivar.classList.remove('activo');
+
+        modalArchivar.setAttribute(
+            'aria-hidden',
+            'true'
+        );
+
+        document.body.classList.remove(
+            'modal-abierto'
+        );
+
+    }
+
+});
         
     </script>
 
@@ -2164,7 +2304,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 </h2>
 
                 <p class="modal-descripcion">
-                    <m>Seminario internacional de investigación EXPERIMENTA</m>
+                    <em>Seminario internacional de investigación EXPERIMENTA</em>
                 </p>
                 <p class="modal-descripcion">
                     ¿Qué imaginarios de lo enfermo y lo sano operan en los espacios que habitamos? 
@@ -2218,6 +2358,117 @@ document.addEventListener('DOMContentLoaded', () => {
     </div>
 
 </div>
-    
+
+<!-- =========================================================
+     VENTANA EMERGENTE ARCHIVAR EL GESTO
+     ========================================================= -->
+
+<div id="modal-archivar" class="modal-proyecto" aria-hidden="true">
+
+    <div class="modal-contenido">
+
+        <button
+            class="modal-cerrar"
+            aria-label="Cerrar ventana"
+        >
+            &times;
+        </button>
+
+
+        <div class="modal-grid">
+
+
+            <!-- =================================================
+                 IMÁGENES
+                 ================================================= -->
+
+            <div class="modal-imagenes">
+
+                <img
+                    src="images/accion-sprint.JPG"
+                    alt="Archivar el gesto"
+                    class="modal-imagen-principal"
+                >
+
+                <div class="modal-galeria">
+
+                    <img
+                        src="images/accion-sprint-2.JPG"
+                        alt="Archivar el gesto"
+                    >
+                    <img
+                        src="images/accion-sprint-3.JPG"
+                        alt="Archivar el gesto"
+                    >
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 TEXTO
+                 ================================================= -->
+
+            <div class="modal-texto">
+
+                <p class="modal-etiqueta">
+                    ACTIVIDAD ARTÍSTICA
+                </p>
+
+
+                <h2>
+                    Archivar el gesto
+                </h2>
+
+                <p class="modal-descripcion">
+                    Irene Mahugo, Romina Casile y Tzu-Han Hung
+                </p>
+
+                <p class="modal-descripcion">
+                    Lectura performativa en el marco de <em>Acción Spring(t)</em>, VII Congreso de Arte de Acción
+                </p>
+
+
+                <p class="modal-descripcion">
+                    Leímos un texto escrito para ser leído a tres voces, pero también para dos o para sumar 
+                    todas las que se deseen; con la intención de que la reflexión en torno al archivar siga mutando y multiplicándose.
+                </p>
+
+
+                <div class="modal-datos">
+
+                    <div>
+                        <span>Año</span>
+                        <p>
+                            2024
+                        </p>
+                    </div>
+
+
+                    <div>
+                        <span>Lugar</span>
+                        <p>
+                            Facultad de Bellas Artes, UCM
+                        </p>
+                    </div>
+
+
+                    <div>
+                        <span>Tipo</span>
+                        <p>
+                            Lectura performativa
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
 </body>
 </html>
