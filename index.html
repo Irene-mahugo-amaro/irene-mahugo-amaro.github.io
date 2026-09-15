@@ -2207,6 +2207,166 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
 });
+
+/* =========================================================
+   MODAL REVOLUCIÓN HORIZONTAL II
+   ========================================================= */
+
+document.addEventListener('DOMContentLoaded', () => {
+
+    const botonRevolucionHorizontalII = document.querySelector(
+        '.tarjeta-boton[data-proyecto="revolucionhorizontalii"]'
+    );
+
+    const modalRevolucionHorizontalII =
+        document.getElementById('modal-revolucion-horizontal-ii');
+
+
+    if (
+        !botonRevolucionHorizontalII ||
+        !modalRevolucionHorizontalII
+    ) return;
+
+
+    const botonCerrarRevolucionHorizontalII =
+        modalRevolucionHorizontalII.querySelector(
+            '.modal-cerrar'
+        );
+
+
+    const imagenPrincipalRevolucionHorizontalII =
+        modalRevolucionHorizontalII.querySelector(
+            '.modal-imagen-principal'
+        );
+
+
+    const miniaturasRevolucionHorizontalII =
+        modalRevolucionHorizontalII.querySelectorAll(
+            '.modal-galeria img'
+        );
+
+
+    /* =====================================================
+       ABRIR
+       ===================================================== */
+
+    botonRevolucionHorizontalII.addEventListener('click', () => {
+
+        modalRevolucionHorizontalII.classList.add('activo');
+
+        modalRevolucionHorizontalII.setAttribute(
+            'aria-hidden',
+            'false'
+        );
+
+        document.body.classList.add(
+            'modal-abierto'
+        );
+
+    });
+
+
+    /* =====================================================
+       CERRAR CON BOTÓN
+       ===================================================== */
+
+    botonCerrarRevolucionHorizontalII.addEventListener(
+        'click',
+        () => {
+
+            cerrarModalRevolucionHorizontalII();
+
+        }
+    );
+
+
+    /* =====================================================
+       CERRAR HACIENDO CLICK FUERA
+       ===================================================== */
+
+    modalRevolucionHorizontalII.addEventListener(
+        'click',
+        (event) => {
+
+            if (
+                event.target ===
+                modalRevolucionHorizontalII
+            ) {
+
+                cerrarModalRevolucionHorizontalII();
+
+            }
+
+        }
+    );
+
+
+    /* =====================================================
+       CERRAR CON ESC
+       ===================================================== */
+
+    document.addEventListener('keydown', (event) => {
+
+        if (
+            event.key === 'Escape' &&
+            modalRevolucionHorizontalII.classList.contains(
+                'activo'
+            )
+        ) {
+
+            cerrarModalRevolucionHorizontalII();
+
+        }
+
+    });
+
+
+    /* =====================================================
+       CAMBIAR IMAGEN PRINCIPAL
+       ===================================================== */
+
+    miniaturasRevolucionHorizontalII.forEach(
+        (miniatura) => {
+
+            miniatura.addEventListener(
+                'click',
+                () => {
+
+                    imagenPrincipalRevolucionHorizontalII.src =
+                        miniatura.src;
+
+                    imagenPrincipalRevolucionHorizontalII.alt =
+                        miniatura.alt;
+
+                }
+            );
+
+        }
+    );
+
+
+    /* =====================================================
+       FUNCIÓN PARA CERRAR
+       ===================================================== */
+
+    function cerrarModalRevolucionHorizontalII() {
+
+        modalRevolucionHorizontalII.classList.remove(
+            'activo'
+        );
+
+        modalRevolucionHorizontalII.setAttribute(
+            'aria-hidden',
+            'true'
+        );
+
+        document.body.classList.remove(
+            'modal-abierto'
+        );
+
+    }
+
+});
         
     </script>
 
@@ -2739,6 +2899,140 @@ document.addEventListener('DOMContentLoaded', () => {
                     </div>
 
                 </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- =========================================================
+     VENTANA EMERGENTE REVOLUCIÓN HORIZONTAL II
+     ========================================================= -->
+
+<div
+    id="modal-revolucion-horizontal-ii"
+    class="modal-proyecto"
+    aria-hidden="true"
+>
+
+    <div class="modal-contenido">
+
+        <button
+            class="modal-cerrar"
+            aria-label="Cerrar ventana"
+        >
+            &times;
+        </button>
+
+
+        <div class="modal-grid">
+
+
+            <!-- =================================================
+                 IMÁGENES
+                 ================================================= -->
+
+            <div class="modal-imagenes">
+
+                <img
+                    src="images/revolucion-horizontal-ii.JPG"
+                    alt="Revolución Horizontal II: Conjurar el vínculo"
+                    class="modal-imagen-principal"
+                >
+
+
+                <div class="modal-galeria">
+
+                    <img
+                        src="images/revolucion-horizontal-ii.JPG"
+                        alt="Revolución Horizontal II: Conjurar el vínculo"
+                    >
+                    <img
+                        src="images/revolucion-horizontal-ii-2.JPG"
+                        alt="Revolución Horizontal II: Conjurar el vínculo"
+                    >
+                    <img
+                        src="images/revolucion-horizontal-ii-3.JPG"
+                        alt="Revolución Horizontal II: Conjurar el vínculo"
+                    >
+                    <img
+                        src="images/revolucion-horizontal-ii-4.JPG"
+                        alt="Revolución Horizontal II: Conjurar el vínculo"
+                    >
+                    <img
+                        src="images/revolucion-horizontal-ii-5.JPG"
+                        alt="Revolución Horizontal II: Conjurar el vínculo"
+                    >
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 TEXTO
+                 ================================================= -->
+
+            <div class="modal-texto">
+
+                <p class="modal-etiqueta">
+                    ACTIVIDAD ARTÍSTICA
+                </p>
+
+
+                <h2>
+                    Revolución Horizontal II: Conjurar el vínculo
+                </h2>
+
+
+                <p class="modal-descripcion">
+                    Investigación curatorial y muestra pública
+                </p>
+
+
+                <p class="modal-descripcion">
+                    Compartí los avances de la residencia de investigación curatorial como beneficiaria de la beca Encura VI. Tras la apertura en Hangar, 
+                    esta segunda fase se concibe como una etapa de mutación y exploración colectiva en un nuevo entorno junto a otrxs artistas.<br> 
+                    La apertura del proceso de investigación adoptará un enfoque performativo y poético, con la participación de Romina Casile, Lucía Depaoli, 
+                    Olivia Funes Lastra, Laure Julien, Marta P. Campo, Estibaliz Sádaba Murguía y Camille Zéhenne; seguido de un taller coordinado por 
+                    Costa Badía y Clara López.
+                </p>
+
+
+                <div class="modal-datos">
+                    <div>
+                        <span>
+                            Año
+                        </span>
+                        <p>
+                            2024
+                        </p>
+                    </div>
+
+
+                    <div>
+                        <span>
+                            Lugar
+                        </span>
+                        <p>
+                            Casa de Velázquez, Madrid
+                        </p>
+                    </div>
+
+
+                    <div>
+                        <span>
+                            Tipo
+                        </span>
+                        <p>
+                            Investigación curatorial y muestra pública
+                        </p>
+                    </div>
+                </div>
+
 
             </div>
 
