@@ -1107,9 +1107,9 @@ body.modal-abierto {
             </article>
 
             <article class="tarjeta">
-            <a href="https://hangar.org/es/news/podcast-revolucion-horizontal/" target="_blank" rel="noopener noreferrer">
+            <button class="tarjeta-boton" data-proyecto="grabacion">
                 <img src="images/grabacion.JPG" alt="Revolución Horizontal Audio">
-            </a>
+             </button>
                 <h3>Revolución Horizontal: pista de audio</h3>
                 <p>Registro sonoro del proceso de investigación curatorial<br>
                 Hangar y Casa de Velázquez, 2024 - 2025</p>
@@ -2416,6 +2416,102 @@ body.modal-abierto {
 </div>
 
 <!-- =========================================================
+     VENTANA EMERGENTE REVOLUCIÓN HORIZONTAL AUDIO
+     ========================================================= -->
+
+<div
+    id="modal-revolucion-horizontal-audio"
+    class="modal-proyecto"
+    aria-hidden="true"
+>
+
+    <div class="modal-contenido">
+
+        <button
+            class="modal-cerrar"
+            aria-label="Cerrar ventana"
+        >
+            &times;
+        </button>
+
+        <div class="modal-grid">
+
+            <!-- IMÁGENES -->
+
+            <div class="modal-imagenes">
+
+                <img
+                    src="images/grabacion.JPG"
+                    alt="Revolución Horizontal Audio"
+                    class="modal-imagen-principal"
+                >
+
+            </div>
+
+
+            <!-- TEXTO -->
+
+            <div class="modal-texto">
+
+                <p class="modal-etiqueta">
+                    ACTIVIDAD ARTÍSTICA
+                </p>
+
+                <h2>
+                    Revolución Horizontal: pista de audio
+                </h2>
+
+                <p class="modal-descripcion">
+                    Beca ENCURA VI
+                </p>
+
+                <p class="modal-descripcion">
+                    En esta pista de audio se exploran estrategias para una Revolución Horizontal. Junto a otres artistes e investigadores, se reflexiona sobre la 
+                    enfermedad, la vulnerabilidad y el reposo desde el pensamiento creativo, las prácticas artísticas y el compartir experiencias como 
+                    herramientas para desafiar el sistema capacitista.<br>
+                    Se reúnen conversaciones sobre accesibilidad y <em>crip time</em> con Asun Pié Balaguer y Antonio Centeno, y diversas intervenciones artísticas 
+                    que se realizaron en las aperturas públicas en Hangar y Casa de Velázquez, entre las que encontramos la lectura performativa de Romina Casile y Olivia 
+                    Funes Lastra, y el "Manifiesto tranquilo" resultado del taller de Costa Badía y Clara López, leído de forma colaborativa por les participantes. 
+                    Todo esto se entrelaza con fragmentos del concierto de Bella Báguena y, en total, es mixeado/postproducido por Lucía Depaoli.
+                </p>
+
+                <div class="modal-datos">
+
+                    <div>
+                        <span>Año</span>
+                        <p>2024 - 2025</p>
+                    </div>
+
+                    <div>
+                        <span>Lugar</span>
+                        <p>Hangar y Casa de Velázquez</p>
+                    </div>
+
+                    <div>
+                        <span>Tipo</span>
+                        <p>Registro sonoro/p>
+                    </div>
+
+                </div>
+
+                <a
+                    href="https://hangar.org/es/news/podcast-revolucion-horizontal/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="modal-enlace"
+                >
+                    VER PROYECTO EXTERNO →
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- =========================================================
      VENTANA EMERGENTE MATERIA OSCURA
      ========================================================= -->
 
@@ -2803,6 +2899,11 @@ body.modal-abierto {
     configurarModal(
         'revolucionhorizontal',
         'modal-revolucion-horizontal'
+    );
+
+    configurarModal(
+        'revolucionhorizontalaudio',
+        'modal-revolucion-horizontal-audio'
     );
 
     configurarModal(
