@@ -358,6 +358,31 @@
         display: block;
     }
 
+/* =========================================================
+   MARCA DE AGUA — FOTOGRAFÍA
+   ========================================================= */
+
+.marca-agua {
+    position: absolute;
+
+    right: 24px;
+    bottom: 24px;
+
+    z-index: 5;
+
+    font-family: 'Inter', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 400;
+    letter-spacing: 0.04em;
+
+    color: rgba(255, 255, 255, 0.85);
+
+    text-shadow:
+        0 1px 3px rgba(0, 0, 0, 0.45);
+
+    pointer-events: none;
+}
+
     .carousel-controls {
         position: absolute;
         bottom: 20px;
@@ -528,7 +553,17 @@
             right: 20px;
             bottom: 15px;
         }
+
+        @media (max-width: 600px) {
+
+    .marca-agua {
+        right: 15px;
+        bottom: 15px;
+        font-size: 0.68rem;
     }
+
+}
+}
 
 /* =========================================================
    VENTANA EMERGENTE DE PROYECTO
@@ -944,21 +979,27 @@ body.modal-abierto {
     <div class="carousel-container" aria-label="Proyectos destacados">
         <div class="carousel-wrapper">
 
-            <div class="carousel-slide active">
-                <img src="images/destacado-1.JPG" alt="Destacado 1">
-            </div>
+<div class="carousel-slide active">
+    <img src="images/destacado-1.JPG" alt="Destacado 1">
+    <span class="marca-agua">@nea_sgv</span>
+</div>
 
-            <div class="carousel-slide">
-                <img src="images/destacado-2.JPG" alt="Destacado 2">
-            </div>
+<div class="carousel-slide">
+    <img src="images/destacado-2.JPG" alt="Destacado 2">
+    <span class="marca-agua">@nea_sgv</span>
+</div>
 
-            <div class="carousel-slide">
-                <img src="images/destacado-3.JPG" alt="Destacado 3">
-            </div>
+<div class="carousel-slide">
+    <img src="images/destacado-3.JPG" alt="Destacado 3">
+    <span class="marca-agua">@nea_sgv</span>
+</div>
 
-            <div class="carousel-slide">
-                <img src="images/destacado-4.JPG" alt="Destacado 4">
-            </div>
+<div class="carousel-slide">
+    <img src="images/destacado-4.JPG" alt="Destacado 4">
+    <span class="marca-agua">@nea_sgv</span>
+</div>
+
+
 
         </div>
 
@@ -1372,7 +1413,7 @@ body.modal-abierto {
 
     <div class="comunicacion">
         <div class="comunicacion-titulo">
-            Sin título
+            "El tacto como método: discapacidad y crítica institucional"
         </div>
         <div class="comunicacion-evento">
             <em>Congreso Internacional XI CIJIET / IV Teatrales / III La máscara virtual</em>. Universidad de Alcalá, 2026. (Futura)
@@ -1816,15 +1857,6 @@ body.modal-abierto {
         class="modal-imagen-principal"
     >
 
-    <div class="modal-galeria">
-
-        <img
-            src="images/casaco-2.JPG"
-            alt="CASA & CO"
-        >
-
-    </div>
-
 </div>
 
 
@@ -1946,11 +1978,11 @@ body.modal-abierto {
                 </p>
                 <p class="modal-descripcion">
                     ¿Qué imaginarios de lo enfermo y lo sano operan en los espacios que habitamos? 
-                    ¿Cómo imaginar un diseño queer–crip que valore las especies más allá de su productividad o sus 
+                    ¿Cómo imaginar un diseño <em>queer–crip</em> que valore las especies más allá de su productividad o sus 
                     capacidades? ¿Qué mecanismos invisibilizan lo árido, lo enfermo, lo que escapa a la norma de nuestros ecosistemas?<br>
                     Entendiendo la ciudad como un proceso continuo de negociación —de fronteras, centralidades, invisibilidades y espacios 
                     sobrantes (o nenhures)—, se proponen mapas somáticos donde la escucha, la escritura y la oralidad se entrelazan, generando 
-                    reflexiones hacia una ecología crip, que nos permite reimaginar el espacio que habitamos.
+                    reflexiones hacia una ecología <em>crip</em>, que nos permite reimaginar el espacio que habitamos.
                 </p>
 
                 <div class="modal-datos">
@@ -2063,14 +2095,14 @@ body.modal-abierto {
                 </p>
 
                 <p class="modal-descripcion">
-                    Lectura performativa en el marco del VII Congreso de Arte de Acción <em>Acción Spring(t)</em>
+                    VII Congreso de Arte de Acción <em>Acción Spring(t)</em>
                 </p>
 
 
                 <p class="modal-descripcion">
                     Mostramos un texto escrito para ser leído a tres voces, pero también para dos o para sumar 
                     todas las que se deseen; con la intención de que la reflexión en torno al archivar siga mutando y multiplicándose. A lo largo
-                    de esa lectura, nos acompañaba la imagen constante del Archivo Virtual de Artes Escénicas, proyectándose en el aula.
+                    de esa lectura, nos acompañaba la imagen constante del Archivo Virtual de Artes Escénicas de ARTEA, proyectándose en el aula.
                 </p>
 
 
@@ -2100,6 +2132,15 @@ body.modal-abierto {
                     </div>
 
                 </div>
+
+                <a
+                    href="https://arte-conocimiento.com/actividades/accion-springt-vii-congreso-de-arte-en-accion/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="modal-enlace"
+                >
+                    VER PROYECTO EXTERNO →
+                </a>
 
             </div>
 
@@ -2190,13 +2231,13 @@ body.modal-abierto {
 
 
                 <p class="modal-descripcion">
-                    Investigación curatorial y muestra pública
+                    Beca ENCURA VI
                 </p>
 
 
                 <p class="modal-descripcion">
-                    Se compartieron los avances de la residencia de investigación curatorial como beneficiaria de la beca Encura VI. Tras la apertura en Hangar, 
-                    esta segunda fase se concibe como una etapa de mutación y exploración colectiva en un nuevo entorno junto a otrxs artistas.<br> 
+                    Se compartieron los avances de la residencia de investigación curatorial. Segunda fase del proceso que se concibe como una etapa de 
+                    mutación y exploración colectiva en un nuevo entorno junto a otrxs artistas.<br> 
                     La apertura adoptó un enfoque performativo y poético, con la participación de Romina Casile, Lucía Depaoli, 
                     Olivia Funes Lastra, Laure Julien, Marta P. Campo, Estibaliz Sádaba Murguía y Camille Zéhenne; seguido de un taller coordinado por 
                     Costa Badía y Clara López.
@@ -2209,7 +2250,7 @@ body.modal-abierto {
                             Año
                         </span>
                         <p>
-                            2024
+                            2024 - 2025
                         </p>
                     </div>
 
@@ -2323,12 +2364,11 @@ body.modal-abierto {
                 </h2>
 
                 <p class="modal-descripcion">
-                    Investigación curatorial y muestra pública
+                    Beca ENCURA VI
                 </p>
 
                 <p class="modal-descripcion">
-                    Primera fase de la investigación curatorial
-                    desarrollada en el marco de ENCURA VI.
+                    Primera fase de la investigación curatorial.
                     <em>Revolución Horizontal</em> explora las
                     posibilidades de subvertir las formas
                     capacitistas y normativas de entender el cuerpo,
@@ -2448,7 +2488,8 @@ body.modal-abierto {
                 </h2>
 
                 <p class="modal-descripcion">
-                    Lectura performativa
+                    <em>El Poder: Live-Theater der Spanischen
+                    Prostituierten</em>
                 </p>
 
                 <p class="modal-descripcion">
@@ -2456,7 +2497,9 @@ body.modal-abierto {
                     <em>El Poder: Live-Theater der Spanischen
                     Prostituierten</em>, comisariado por el
                     Colectivo Desgarradura (Víctor Longás y Lucas Ares).<br>
-                    Proyecto realizado en el marco de las Ayudas INJUVE para la Creación Joven.
+                    Proyecto realizado en el marco de las Ayudas INJUVE para la Creación Joven.<br>
+                    Se realiza un recorrido por toda la escenografía alterando las salas. El público sigue
+                    este paseo acompañado de imágenes y músicas.
                 </p>
 
                 <div class="modal-datos">
