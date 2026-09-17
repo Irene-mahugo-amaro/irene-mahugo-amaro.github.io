@@ -430,6 +430,37 @@
         outline-offset: 3px;
     }
 
+/* =========================================================
+   IDIOMA - SOBRE MÍ ABOUT ME
+   ========================================================= */
+
+.idioma-tabs{
+    display:flex;
+    gap:8px;
+    margin-bottom:30px;
+}
+
+.idioma-tabs button{
+    border:1px solid #e0d4c8;
+    background:white;
+    padding:6px 12px;
+    cursor:pointer;
+    color:#5a4a42;
+    font-size:0.85rem;
+}
+
+.idioma-tabs button.tab-activa{
+    background:#e8dcd1;
+}
+
+.idioma-contenido{
+    display:none;
+}
+
+.idioma-contenido.activo{
+    display:block;
+}
+
     /* =========================================================
    CONTACTO
    ========================================================= */
@@ -1030,6 +1061,14 @@ body.modal-abierto {
     <section id="sobremi">
         <h2>Sobre mí</h2>
 
+        <div class="idioma-tabs">
+            <button class="tab-activa" data-lang="es">ES</button>
+            <button data-lang="en">EN</button>
+        </div>
+
+        <!-- ESPAÑOL -->
+<div class="bio-es idioma-contenido activo">
+
         <p class="descripcion">
             Soy investigadora predoctoral en la Facultad de Bellas Artes de Cuenca (UCLM) y formo parte del grupo de investigación 
             <a href="https://blog.uclm.es/artea/somos/" target="_blank" rel="noopener noreferrer">ARTEA</a>.
@@ -1056,7 +1095,24 @@ body.modal-abierto {
         <p class="keywords"> 
             POLÍTICAS DEL CUERPO · FEMINISMOS · ESCRITURA · ARTES VIVAS · ANTICAPACITISMO 
         </p>
-    </section>
+</div>
+        <!-- INGLÉS -->
+        <div class="bio-en idioma-contenido">
+            <p class="descripcion">I am a predoctoral researcher at the Faculty of Fine Arts...
+            </p>
+
+            <p class="descripcion">My research is situated at the intersection of live arts...
+            </p>
+ 
+            <p class="descripcion">Throughout these years I have gathered intuitions...
+            </p>
+            
+            <p class="keywords">
+            BODY POLITICS · FEMINISMS · WRITING · LIVE ARTS · ANTI-ABLEISM
+            </p>
+</div>
+
+</section>
 
     <section id="artistica">
         <h2>Actividad Artística</h2>
@@ -2968,6 +3024,24 @@ body.modal-abierto {
         }
     );
 
+const tabs = document.querySelectorAll('.idioma-tabs button');
+
+tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+
+        tabs.forEach(t => t.classList.remove('tab-activa'));
+        tab.classList.add('tab-activa');
+
+        document
+            .querySelectorAll('.idioma-contenido')
+            .forEach(c => c.classList.remove('activo'));
+
+        document
+            .querySelector('.bio-' + tab.dataset.lang)
+            .classList.add('activo');
+    });
+});
+     
 </script>
         
 
