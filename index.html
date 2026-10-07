@@ -1,223 +1,1212 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Irene Mahugo Amaro</title>
-    <meta name="description" content="Personal website" />
-    <meta property="og:title" content="Irene Mahugo Amaro | Personal website" />
-    <meta property="og:description" content="Personal website" />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://irene-mahugo-amaro.github.io/" />
-    <link rel="icon" type="image/png" href="images/ojo.png" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="styles.css" />
-  </head>
+    
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <body>
-    <a class="skip-link" href="#main-content">Saltar al contenido</a>
+    <title>Irene Mahugo Amaro</title>
+
+    <link rel="icon" type="image/png" href="images/ojo.png">
+
+    <meta name="description"
+          content="Personal website">
+
+    <meta property="og:title"
+          content="Irene Mahugo Amaro | Personal website">
+
+    <meta property="og:description"
+          content="Personal website">
+
+    <meta property="og:type" content="website">
+
+    <meta property="og:url"
+          content="https://irene-mahugo-amaro.github.io/">
+
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+    /* =========================================================
+       BASE
+       ========================================================= */
+
+    body {
+        margin: 0;
+        font-family: 'Inter', sans-serif;
+        background: #ffffff;
+        color: #2c2c2c;
+    }
+
+
+    /* =========================================================
+       NAVEGACIÓN
+       ========================================================= */
+
+    .site-header {
+        padding: 40px 12% 20px;
+        background: #ffffff;
+        border-bottom: 1px solid #e0d4c8;
+    }
+
+    .navbar {
+        display: flex;
+        gap: 18px;
+        align-items: center;
+        justify-content: flex-end;
+        margin-bottom: 18px;
+    }
+
+    .navbar ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        gap: 12px;
+        align-items: center;
+    }
+
+    .navbar a {
+        text-decoration: none;
+        color: #5a4a42;
+        padding: 8px 12px;
+        border-radius: 6px;
+        font-weight: 500;
+        transition: 0.2s;
+    }
+
+    .navbar a:hover,
+    .navbar a:focus-visible {
+        background: #e8dcd1;
+        color: #3d2817;
+    }
+
+    .nav-item {
+        position: relative;
+    }
+
+    .navbar .archivo-crip {
+    border-bottom: 1px solid #5a4a42;
+    }
+    
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        top: calc(100% + 6px);
+        left: 0;
+        background: #ffffff;
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        padding: 8px 6px;
+        min-width: 220px;
+        z-index: 100;
+        border: 1px solid #e0d4c8;
+    }
+
+    .dropdown-content a {
+        display: block;
+        padding: 10px 14px;
+        color: #5a4a42;
+        transition: 0.2s;
+    }
+
+    .dropdown-content a:hover,
+    .dropdown-content a:focus-visible {
+        background: #f5ede4;
+        color: #3d2817;
+    }
+
+    .nav-item:hover .dropdown-content,
+    .nav-item:focus-within .dropdown-content {
+        display: block;
+    }
+
+
+    /* =========================================================
+       CABECERA / PRESENTACIÓN
+       ========================================================= */
+
+    header {
+        padding: 40px 12% 60px;
+        background: #ffffff;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+
+    h1 {
+        font-family: 'Cormorant Garamond', serif;
+        font-size: 3.5rem;
+        font-weight: 600;
+        margin: 20px 0 10px;
+        color: #2c2c2c;
+    }
+
+    .subtitulo {
+        font-size: 1.15rem;
+        color: #7a6a62;
+        margin-bottom: 24px;
+        font-weight: 300;
+    }
+
+    .descripcion {
+        max-width: 700px;
+        font-size: 1rem;
+        line-height: 1.8;
+        margin-bottom: 24px;
+        color: #4a4a4a;
+    }
+
+    .keywords {
+        max-width: 700px;
+        font-size: 0.9rem;
+        color: #7a6a62;
+        margin-bottom: 24px;
+        line-height: 1.6;
+        font-weight: 300;
+    }
+
+
+    /* =========================================================
+       SECCIONES
+       ========================================================= */
+
+    section {
+        padding: 80px 12%;
+    }
+
+    section:nth-child(odd) {
+        background: #ffffff;
+    }
+
+    section:nth-child(even) {
+        background: #faf8f3;
+    }
+
+    h2 {
+        font-family: 'Cormorant Garamond', serif;
+        font-size: 2.5rem;
+        margin-bottom: 30px;
+        color: #2c2c2c;
+    }
+
+    h3 {
+        font-family: 'Cormorant Garamond', serif;
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin-top: 42px;
+        margin-bottom: 20px;
+        color: #3d2817;
+    }
+
+    section p {
+        line-height: 1.7;
+    }
+
+    /*
+       Anchura de lectura para textos académicos.
+       Evita que los textos se extiendan demasiado
+       en pantallas grandes.
+    */
+    section > p,
+    #cv ul,
+    .publicaciones,
+    .comunicaciones {
+        max-width: 900px;
+    }
+
+
+    /* =========================================================
+       PRESENTACIÓN / TEXTO
+       ========================================================= */
+
+    /* =========================================================
+   TARJETAS — ACTIVIDAD ARTÍSTICA
+   ========================================================= */
+
+.tarjetas {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 32px;
+}
+
+.tarjeta { 
+    background: #ffffff; 
+    border: 1px solid #e0d4c8; 
+    border-radius: 8px; 
+    overflow: hidden; 
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05); 
+    transition: 0.3s; padding: 0; 
+}
+
+.tarjeta:hover { 
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.09); 
+    transform: translateY(-2px); 
+} 
+
+.tarjeta img { 
+    width: 100%; 
+    height: 250px; 
+    object-fit: cover; 
+    display: block; 
+    border-radius: 0; 
+    margin: 0; 
+} 
+    
+.tarjeta h3 { 
+    margin: 22px 24px 10px; 
+    font-size: 1.45rem; 
+} 
+    
+.tarjeta p { 
+    margin: 0 24px 24px; 
+    font-size: 0.9rem; 
+    line-height: 1.7; 
+    color: #4a4a4a; 
+}
+
+    /* =========================================================
+       PUBLICACIONES
+       ========================================================= */
+
+    .publicaciones {
+        width: 100%;
+    }
+
+    .publicacion {
+        display: grid;
+        grid-template-columns: 95px 1fr;
+        gap: 16px;
+        margin-bottom: 20px;
+    }
+
+    .tipo-publicacion {
+        font-weight: normal;
+        font-size: 0.82rem;
+        line-height: 1.45;
+    }
+
+    .referencia {
+        font-size: 0.86rem;
+        line-height: 1.5;
+    }
+
+
+    /* =========================================================
+       CURRÍCULUM
+       ========================================================= */
+
+    #cv ul {
+        margin-top: 0;
+        margin-bottom: 32px;
+        padding-left: 22px;
+    }
+
+    #cv li {
+        font-size: 0.92rem;
+        line-height: 1.6;
+        margin-bottom: 20px;
+    }
+
+    #cv li strong {
+        font-weight: 500;
+    }
+
+
+    /* =========================================================
+       COMUNICACIONES Y PONENCIAS
+       ========================================================= */
+
+    .comunicaciones {
+        max-width: 900px;
+    }
+
+    .comunicacion {
+        margin-bottom: 22px;
+    }
+
+    .comunicacion-titulo {
+        font-size: 0.92rem;
+        line-height: 1.55;
+        font-weight: 500;
+    }
+
+    .comunicacion-evento {
+        font-size: 0.88rem;
+        line-height: 1.55;
+        color: #6f625b;
+    }
+
+
+    /* =========================================================
+       CARRUSEL / DESTACADOS
+       ========================================================= */
+
+    .carousel-container {
+        position: relative;
+        width: 100%;
+        height: 500px;
+        overflow: hidden;
+        background: #f5ede4;
+    }
+
+    .carousel-wrapper {
+        position: relative;
+        width: 100%;
+        height: 100%;
+    }
+
+    .carousel-slide {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        transition: opacity 1s ease-in-out;
+        pointer-events: none;
+    }
+
+    .carousel-slide.active {
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    .carousel-slide img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+    }
+
+/* =========================================================
+   MARCA DE AGUA — FOTOGRAFÍA
+   ========================================================= */
+
+.marca-agua {
+    position: absolute;
+
+    left: 24px;
+    bottom: 24px;
+
+    z-index: 5;
+
+    font-family: 'Inter', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 400;
+    letter-spacing: 0.04em;
+
+    color: rgba(255, 255, 255, 0.85);
+
+    text-shadow:
+        0 1px 3px rgba(0, 0, 0, 0.45);
+
+    pointer-events: none;
+}
+
+    .carousel-controls {
+        position: absolute;
+        bottom: 20px;
+        right: 40px;
+        display: flex;
+        gap: 12px;
+        z-index: 10;
+    }
+
+    .carousel-dot {
+        width: 12px;
+        height: 12px;
+        border: 0;
+        padding: 0;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.5);
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    .carousel-dot.active {
+        background: #ffffff;
+    }
+
+    .carousel-dot:hover,
+    .carousel-dot:focus-visible {
+        background: rgba(255, 255, 255, 0.8);
+        outline: 2px solid rgba(255, 255, 255, 0.8);
+        outline-offset: 3px;
+    }
+
+/* =========================================================
+   IDIOMA - SOBRE MÍ ABOUT ME
+   ========================================================= */
+
+.idioma-tabs{
+    display:flex;
+    gap:8px;
+    margin-bottom:30px;
+}
+
+.idioma-tabs button{
+    border:1px solid #e0d4c8;
+    background:white;
+    padding:6px 12px;
+    cursor:pointer;
+    color:#5a4a42;
+    font-size:0.85rem;
+}
+
+.idioma-tabs button.tab-activa{
+    background:#e8dcd1;
+}
+
+.idioma-contenido{
+    display:none;
+}
+
+.idioma-contenido.activo{
+    display:block;
+}
+
+    /* =========================================================
+   CONTACTO
+   ========================================================= */
+
+#contacto {
+    text-align: center;
+}
+
+#contacto p {
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 1rem;
+    line-height: 1.7;
+}
+
+    /* =========================================================
+       ENLACES Y ACCESIBILIDAD
+       ========================================================= */
+
+    a {
+        color: #5a4a42;
+    }
+
+    a:focus-visible {
+        outline: 2px solid #7a6a62;
+        outline-offset: 3px;
+        border-radius: 3px;
+    }
+
+
+    /* =========================================================
+       FOOTER
+       ========================================================= */
+
+    footer {
+        padding: 50px 12%;
+        text-align: center;
+        color: #7a6a62;
+        background: #ffffff;
+        border-top: 1px solid #e0d4c8;
+    }
+
+
+    /* =========================================================
+       RESPONSIVE — TABLET Y MÓVIL
+       ========================================================= */
+
+    @media (max-width: 800px) {
+
+        /* Cabecera */
+        .site-header {
+            padding: 25px 6% 15px;
+        }
+
+        /* Navegación */
+        .navbar {
+            justify-content: flex-start;
+        }
+
+        .navbar ul {
+            flex-wrap: wrap;
+        }
+
+        /* Presentación */
+        header {
+            padding: 30px 6% 40px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+        }
+
+        h2 {
+            font-size: 2.1rem;
+        }
+
+        /* Secciones */
+        section {
+            padding: 40px 6%;
+        }
+
+        /* Carrusel */
+        .carousel-container {
+            height: 300px;
+        }
+
+        /* Publicaciones */
+        .publicacion {
+            grid-template-columns: 80px 1fr;
+        }
+
+        .tipo-publicacion {
+            font-size: 0.78rem;
+        }
+
+        .referencia {
+            font-size: 0.82rem;
+        }
+
+        /* Footer */
+        footer {
+            padding: 40px 6%;
+        }
+    }
+
+
+    /* =========================================================
+       MÓVILES PEQUEÑOS
+       ========================================================= */
+
+    @media (max-width: 600px) {
+
+        /* Publicaciones en una sola columna */
+        .publicacion {
+            grid-template-columns: 1fr;
+            gap: 4px;
+        }
+
+        .tipo-publicacion {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+        }
+
+        /* Textos académicos */
+        .comunicacion-titulo {
+            font-size: 0.9rem;
+        }
+
+        .comunicacion-evento {
+            font-size: 0.84rem;
+        }
+
+        /* Carrusel */
+        .carousel-controls {
+            right: 20px;
+            bottom: 15px;
+        }
+
+        @media (max-width: 600px) {
+
+    .marca-agua {
+        left: 15px;
+        bottom: 15px;
+        font-size: 0.68rem;
+    }
+
+}
+}
+
+/* =========================================================
+   VENTANA EMERGENTE DE PROYECTO
+   ========================================================= */
+
+.modal-proyecto {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 40px;
+
+    background: rgba(0, 0, 0, 0.72);
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition:
+        opacity 0.35s ease,
+        visibility 0.35s ease;
+}
+
+
+.modal-proyecto.activo {
+    opacity: 1;
+    visibility: visible;
+}
+
+
+/* Contenedor blanco */
+
+.modal-contenido {
+    position: relative;
+
+    width: min(1100px, 100%);
+    max-height: 90vh;
+
+    overflow-y: auto;
+
+    background: #fff;
+
+    padding: 50px;
+
+    transform: translateY(20px);
+
+    transition: transform 0.35s ease;
+}
+
+
+.modal-proyecto.activo .modal-contenido {
+    transform: translateY(0);
+}
+
+
+/* Botón cerrar */
+
+.modal-cerrar {
+    position: absolute;
+
+    top: 18px;
+    right: 22px;
+
+    width: 42px;
+    height: 42px;
+
+    border: none;
+    background: transparent;
+
+    font-size: 32px;
+    font-weight: 300;
+
+    line-height: 1;
+
+    cursor: pointer;
+
+    color: #222;
+
+    z-index: 2;
+}
+
+.modal-cerrar:hover {
+    opacity: 0.5;
+}
+
+
+/* Distribución interior */
+
+.modal-grid {
+    display: grid;
+
+    grid-template-columns: 1.2fr 1fr;
+
+    gap: 50px;
+
+    align-items: start;
+}
+
+
+/* Imagen principal */
+
+.modal-imagen-principal {
+    display: block;
+
+    width: 100%;
+    height: auto;
+
+    object-fit: cover;
+}
+
+
+/* Galería de miniaturas */
+
+.modal-galeria {
+    display: flex;
+
+    gap: 10px;
+
+    margin-top: 12px;
+
+    flex-wrap: wrap;
+}
+
+
+.modal-galeria img {
+    width: 80px;
+    height: 60px;
+
+    object-fit: cover;
+
+    cursor: pointer;
+
+    opacity: 0.65;
+
+    transition: opacity 0.2s ease;
+}
+
+
+.modal-galeria img:hover {
+    opacity: 1;
+}
+
+
+/* Texto */
+
+.modal-texto {
+    padding-top: 5px;
+}
+
+
+.modal-etiqueta {
+    margin: 0 0 15px;
+
+    font-family: "Inter", sans-serif;
+
+    font-size: 11px;
+
+    letter-spacing: 0.16em;
+
+    text-transform: uppercase;
+
+    color: #777;
+}
+
+
+.modal-texto h2 {
+    margin: 0 0 25px;
+
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: clamp(38px, 5vw, 58px);
+
+    font-weight: 400;
+
+    line-height: 0.95;
+}
+
+
+.modal-descripcion {
+    margin-bottom: 18px;
+
+    font-size: 15px;
+
+    line-height: 1.7;
+
+    color: #444;
+}
+
+
+/* Información */
+
+.modal-datos {
+    margin-top: 35px;
+
+    padding-top: 25px;
+
+    border-top: 1px solid #ddd;
+}
+
+
+.modal-datos div {
+    margin-bottom: 18px;
+}
+
+
+.modal-datos span {
+    display: block;
+
+    margin-bottom: 4px;
+
+    font-size: 10px;
+
+    letter-spacing: 0.14em;
+
+    text-transform: uppercase;
+
+    color: #888;
+}
+
+
+.modal-datos p {
+    margin: 0;
+
+    font-size: 14px;
+}
+
+
+/* Enlace */
+
+.modal-enlace {
+    display: inline-block;
+
+    margin-top: 25px;
+
+    font-size: 12px;
+
+    letter-spacing: 0.08em;
+
+    text-decoration: none;
+
+    color: #111;
+
+    border-bottom: 1px solid #111;
+
+    padding-bottom: 3px;
+}
+
+.modal-enlace:hover {
+    opacity: 0.5;
+}
+
+
+/* Botón de la tarjeta */
+
+.tarjeta-boton {
+    display: block;
+
+    width: 100%;
+
+    padding: 0;
+
+    margin: 0;
+
+    border: none;
+
+    background: none;
+
+    cursor: pointer;
+
+    text-align: left;
+}
+
+
+.tarjeta-boton img {
+    display: block;
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+
+.tarjeta-boton:hover img {
+    transform: scale(1.015);
+}
+
+
+/* Evitar scroll de la página cuando el modal está abierto */
+
+body.modal-abierto {
+    overflow: hidden;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 800px) {
+
+    .modal-proyecto {
+        padding: 20px;
+    }
+
+    .modal-contenido {
+        padding: 35px 25px;
+    }
+
+    .modal-grid {
+        grid-template-columns: 1fr;
+
+        gap: 30px;
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .modal-proyecto {
+        padding: 0;
+    }
+
+    .modal-contenido {
+        width: 100%;
+        height: 100%;
+        max-height: 100vh;
+
+        padding: 60px 20px 30px;
+    }
+
+    .modal-cerrar {
+        top: 15px;
+        right: 15px;
+    }
+
+}
+
+    /* =========================================================
+       REDUCCIÓN DE MOVIMIENTO
+       ========================================================= */
+
+    @media (prefers-reduced-motion: reduce) {
+
+        *,
+        *::before,
+        *::after {
+            scroll-behavior: auto !important;
+            transition-duration: 0.01ms !important;
+            animation-duration: 0.01ms !important;
+            animation-iteration-count: 1 !important;
+        }
+    }
+
+</style>
+    
+</head>
+
+    
+<body>
 
     <header class="site-header">
-      <nav class="navbar" aria-label="Navegación principal">
-        <ul>
-          <li class="nav-item"><a href="#sobremi">Sobre mí / About me</a></li>
-          <li class="nav-item"><a href="#artistica">Actividad Artística</a></li>
-          <li class="nav-item">
-            <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true">CV ▾</button>
-            <div class="dropdown-content" role="menu" aria-label="CV subsecciones">
-              <a href="#education" role="menuitem">Formación</a>
-              <a href="#project-organization" role="menuitem">Organización y Gestión de Proyectos</a>
-              <a href="#awards" role="menuitem">Premios y Estancias de Investigación</a>
-              <a href="#teaching" role="menuitem">Docencia</a>
-            </div>
-          </li>
-          <li class="nav-item"><a href="#publicaciones">Publicaciones</a></li>
-          <li class="nav-item"><a href="#comunicaciones">Comunicaciones</a></li>
-          <li class="nav-item"><a href="#contacto">Contacto</a></li>
-        </ul>
-      </nav>
+
+        <nav class="navbar" aria-label="Navegación principal">
+            <ul>
+                <li class="nav-item">
+                    <a href="#sobremi">Sobre mí / About me</a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="#artistica">Actividad Artística</a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="#cv" aria-haspopup="true">CV ▾</a>
+                    <div class="dropdown-content" role="menu" aria-label="CV subsecciones">
+                        <a href="#education" role="menuitem">Formación</a>
+                        <a href="#project-organization" role="menuitem">Organización y Gestión de Proyectos</a>
+                        <a href="#awards" role="menuitem">Premios y Estancias de Investigación</a>
+                        <a href="#teaching" role="menuitem">Docencia</a>
+                    </div>
+                </li>
+
+                <li class="nav-item">
+                    <a href="#publicaciones">Publicaciones</a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="#comunicaciones">Comunicaciones</a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="#contacto">Contacto</a>
+                </li>
+            </ul>
+        </nav>
     </header>
 
-    <header class="masthead">
-      <div class="masthead-content">
+    <header>
         <h1>Irene Mahugo Amaro</h1>
         <div class="subtitulo">Artist researcher · visual culture · performance and material practices</div>
-        <p class="descripcion">
-          I work across artistic practice, research, and cultural analysis. My practice explores how materials, bodies,
-          memory, and institutions shape contemporary visual narratives.
-        </p>
-        <p class="keywords">
-          performance | visual arts | material studies | artistic research | critical writing | collaborative projects
-        </p>
-      </div>
+        <p class="descripcion">I work across artistic practice, research, and cultural analysis. My practice explores how materials, bodies, memory, and institutions shape contemporary visual narratives.</p>
+        <p class="keywords">performance | visual arts | material studies | artistic research | critical writing | collaborative projects</p>
     </header>
 
-    <main id="main-content">
-      <section id="sobremi">
-        <div class="idioma-tabs" aria-label="Selector de idioma">
-          <button type="button" class="tab-activa" data-target="es" aria-selected="true">ES</button>
-          <button type="button" data-target="en" aria-selected="false">EN</button>
-        </div>
+    <main>
+        <section id="sobremi">
+            <div class="idioma-tabs">
+                <button type="button" class="tab-activa" data-tab="es">ES</button>
+                <button type="button" data-tab="en">EN</button>
+            </div>
 
-        <div id="es" class="idioma-contenido activo" aria-live="polite">
-          <h2>Sobre mí</h2>
-          <p>
-            Mi trabajo se sitúa en la intersección entre arte, investigación y pensamiento crítico. Investigo cómo los
-            materiales, las imágenes y los procesos colectivos producen conocimiento y experiencia.
-          </p>
-          <p>
-            A través de proyectos, escritos y colaboraciones, exploro la relación entre estética, memoria y lenguaje,
-            buscando formas de hacer visible lo que suele quedar oculto en los discursos institucionales.
-          </p>
-        </div>
+            <div id="es" class="idioma-contenido activo">
+                <h2>Sobre mí</h2>
+                <p>Mi trabajo se sitúa en la intersección entre arte, investigación y pensamiento crítico. Investigo cómo los materiales, las imágenes y los procesos colectivos producen conocimiento y experiencia.</p>
+                <p>A través de proyectos, escritos y colaboraciones, exploro la relación entre estética, memoria y lenguaje, buscando formas de hacer visible lo que suele quedar oculto en los discursos institucionales.</p>
+            </div>
 
-        <div id="en" class="idioma-contenido" hidden>
-          <h2>About me</h2>
-          <p>
-            My work sits at the intersection of art, research, and critical thinking. I investigate how materials,
-            images, and collective processes generate knowledge and lived experience.
-          </p>
-          <p>
-            Through projects, writing, and collaborations, I explore the relationship between aesthetics, memory, and
-            language, seeking ways to make visible what often remains hidden within institutional discourse.
-          </p>
-        </div>
-      </section>
+            <div id="en" class="idioma-contenido">
+                <h2>About me</h2>
+                <p>My work sits at the intersection of art, research, and critical thinking. I investigate how materials, images, and collective processes generate knowledge and lived experience.</p>
+                <p>Through projects, writing, and collaborations, I explore the relationship between aesthetics, memory, and language, seeking ways to make visible what often remains hidden within institutional discourse.</p>
+            </div>
+        </section>
 
-      <section id="artistica">
-        <h2>Actividad Artística</h2>
-        <div class="tarjetas">
-          <article class="tarjeta">
-            <button class="tarjeta-boton" type="button" aria-label="Abrir proyecto Material Traces">
-              <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=80" alt="Proyecto Material Traces" loading="lazy" />
-            </button>
-            <h3>Material Traces</h3>
-            <p>Un proyecto centrado en la huella, la materia y la memoria física como dispositivo de investigación estética.</p>
-          </article>
+        <section id="artistica">
+            <h2>Actividad Artística</h2>
+            <div class="tarjetas">
+                <article class="tarjeta">
+                    <button class="tarjeta-boton" type="button" aria-label="Abrir proyecto Material Traces">
+                        <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=80" alt="Material Traces">
+                    </button>
+                    <h3>Material Traces</h3>
+                    <p>Un proyecto centrado en la huella, la materia y la memoria física como dispositivo de investigación estética.</p>
+                </article>
 
-          <article class="tarjeta">
-            <button class="tarjeta-boton" type="button" aria-label="Abrir proyecto Ink Experiments">
-              <img src="https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?auto=format&fit=crop&w=1200&q=80" alt="Proyecto Ink Experiments" loading="lazy" />
-            </button>
-            <h3>Ink Experiments</h3>
-            <p>Investigación visual sobre pigmentos, flujo, superficie y transformación a partir de procedimientos materiales.</p>
-          </article>
+                <article class="tarjeta">
+                    <button class="tarjeta-boton" type="button" aria-label="Abrir proyecto Ink Experiments">
+                        <img src="https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?auto=format&fit=crop&w=1200&q=80" alt="Ink Experiments">
+                    </button>
+                    <h3>Ink Experiments</h3>
+                    <p>Investigación visual sobre pigmentos, flujo, superficie y transformación a partir de procedimientos materiales.</p>
+                </article>
 
-          <article class="tarjeta">
-            <button class="tarjeta-boton" type="button" aria-label="Abrir proyecto Research Archive">
-              <img src="https://images.unsplash.com/photo-1493246507139-91e8fad9978e?auto=format&fit=crop&w=1200&q=80" alt="Proyecto Research Archive" loading="lazy" />
-            </button>
-            <h3>Research Archive</h3>
-            <p>Archivo visual y documental que recoge procesos, registros y observaciones de trabajo de laboratorio y estudio.</p>
-          </article>
-        </div>
-      </section>
+                <article class="tarjeta">
+                    <button class="tarjeta-boton" type="button" aria-label="Abrir proyecto Research Archive">
+                        <img src="https://images.unsplash.com/photo-1493246507139-91e8fad9978e?auto=format&fit=crop&w=1200&q=80" alt="Research Archive">
+                    </button>
+                    <h3>Research Archive</h3>
+                    <p>Archivo visual y documental que recoge procesos, registros y observaciones de trabajo de laboratorio y estudio.</p>
+                </article>
+            </div>
+        </section>
 
-      <section id="cv">
-        <h2>CV</h2>
-        <ul>
-          <li><strong>Formación</strong> — Maestría y formación avanzada en arte, investigación y teoría visual.</li>
-          <li id="education"><strong>Educación</strong> — Estudios de arte contemporáneo con enfoque en materialidad, performance y documentación.</li>
-          <li id="project-organization"><strong>Organización y gestión de proyectos</strong> — Desarrollo de procesos colaborativos, producción y curaduría de iniciativas artísticas y culturales.</li>
-          <li id="awards"><strong>Premios y estancias</strong> — Participación en residencias y proyectos de investigación con enfoque crítico y experimental.</li>
-          <li id="teaching"><strong>Docencia</strong> — Impartición de talleres, seminarios y actividades de acompañamiento a grupos de estudio y práctica artística.</li>
-        </ul>
-      </section>
+        <section id="cv">
+            <h2>CV</h2>
+            <ul>
+                <li><strong>Formación</strong> — Maestría y formación avanzada en arte, investigación y teoría visual.</li>
+                <li id="education"><strong>Educación</strong> — Estudios de arte contemporáneo con enfoque en materialidad, performance y documentación.</li>
+                <li id="project-organization"><strong>Organización y gestión de proyectos</strong> — Desarrollo de procesos colaborativos, producción y curaduría de iniciativas artísticas y culturales.</li>
+                <li id="awards"><strong>Premios y estancias</strong> — Participación en residencias y proyectos de investigación con enfoque crítico y experimental.</li>
+                <li id="teaching"><strong>Docencia</strong> — Impartición de talleres, seminarios y actividades de acompañamiento a grupos de estudio y práctica artística.</li>
+            </ul>
+        </section>
 
-      <section id="publicaciones">
-        <h2>Publicaciones</h2>
-        <div class="publicaciones">
-          <div class="publicacion">
-            <div class="tipo-publicacion">Artículo</div>
-            <div class="referencia">Mahugo Amaro, Irene. “Materialidades de la memoria en la práctica artística contemporánea.” Revista de Arte y Pensamiento, 2023.</div>
-          </div>
-          <div class="publicacion">
-            <div class="tipo-publicacion">Capítulo</div>
-            <div class="referencia">Mahugo Amaro, Irene. “Rastros, huellas y archivo: formas de narrar la experiencia.” En <em>Arte y documentación</em>, 2022.</div>
-          </div>
-          <div class="publicacion">
-            <div class="tipo-publicacion">Ensayo</div>
-            <div class="referencia">Mahugo Amaro, Irene. “Sobre la relación entre cuerpo, imagen y material.” Journal of Visual Practice, 2021.</div>
-          </div>
-        </div>
-      </section>
+        <section id="publicaciones">
+            <h2>Publicaciones</h2>
+            <div class="publicaciones">
+                <div class="publicacion">
+                    <div class="tipo-publicacion">Artículo</div>
+                    <div class="referencia">Mahugo Amaro, Irene. “Materialidades de la memoria en la práctica artística contemporánea.” Revista de Arte y Pensamiento, 2023.</div>
+                </div>
+                <div class="publicacion">
+                    <div class="tipo-publicacion">Capítulo</div>
+                    <div class="referencia">Mahugo Amaro, Irene. “Rastros, huellas y archivo: formas de narrar la experiencia.” En <em>Arte y documentación</em>, 2022.</div>
+                </div>
+                <div class="publicacion">
+                    <div class="tipo-publicacion">Ensayo</div>
+                    <div class="referencia">Mahugo Amaro, Irene. “Sobre la relación entre cuerpo, imagen y material.” Journal of Visual Practice, 2021.</div>
+                </div>
+            </div>
+        </section>
 
-      <section id="comunicaciones">
-        <h2>Comunicaciones y ponencias</h2>
-        <div class="comunicaciones">
-          <div class="comunicacion">
-            <div class="comunicacion-titulo">“Material traces and collective memory”</div>
-            <div class="comunicacion-evento">Conference on Contemporary Art Practices, 2024.</div>
-          </div>
-          <div class="comunicacion">
-            <div class="comunicacion-titulo">“The archive in motion”</div>
-            <div class="comunicacion-evento">Seminario de investigación visual, 2023.</div>
-          </div>
-          <div class="comunicacion">
-            <div class="comunicacion-titulo">“Writing with the body”</div>
-            <div class="comunicacion-evento">Taller interdisciplinar de arte y teoría, 2022.</div>
-          </div>
-        </div>
-      </section>
+        <section id="comunicaciones">
+            <h2>Comunicaciones y ponencias</h2>
+            <div class="comunicaciones">
+                <div class="comunicacion">
+                    <div class="comunicacion-titulo">“Material traces and collective memory”</div>
+                    <div class="comunicacion-evento">Conference on Contemporary Art Practices, 2024.</div>
+                </div>
+                <div class="comunicacion">
+                    <div class="comunicacion-titulo">“The archive in motion”</div>
+                    <div class="comunicacion-evento">Seminario de investigación visual, 2023.</div>
+                </div>
+                <div class="comunicacion">
+                    <div class="comunicacion-titulo">“Writing with the body”</div>
+                    <div class="comunicacion-evento">Taller interdisciplinar de arte y teoría, 2022.</div>
+                </div>
+            </div>
+        </section>
 
-      <section id="contacto">
-        <h2>Contacto</h2>
-        <p>
-          Para consultas, colaboraciones, proyectos o propuestas de investigación, puedes contactar conmigo a través de mi
-          correo electrónico o seguir mi trabajo en redes y publicaciones.
-        </p>
-      </section>
+        <section id="contacto">
+            <h2>Contacto</h2>
+            <p>Para consultas, colaboraciones, proyectos o propuestas de investigación, puedes contactar conmigo a través de mi correo electrónico o seguir mi trabajo en redes y publicaciones.</p>
+        </section>
     </main>
 
     <footer>
-      <p>© Irene Mahugo Amaro</p>
+        <p>© Irene Mahugo Amaro</p>
     </footer>
 
     <div class="modal-proyecto" aria-hidden="true">
-      <div class="modal-contenido" role="dialog" aria-modal="true" aria-labelledby="modal-titulo">
-        <button class="modal-cerrar" type="button" aria-label="Cerrar modal">×</button>
-        <div class="modal-grid">
-          <div>
-            <img class="modal-imagen-principal" src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=80" alt="Proyecto destacado" />
-            <div class="modal-galeria">
-              <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=300&q=80" alt="Detalle 1" loading="lazy" />
-              <img src="https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?auto=format&fit=crop&w=300&q=80" alt="Detalle 2" loading="lazy" />
-              <img src="https://images.unsplash.com/photo-1493246507139-91e8fad9978e?auto=format&fit=crop&w=300&q=80" alt="Detalle 3" loading="lazy" />
+        <div class="modal-contenido" role="dialog" aria-modal="true">
+            <button class="modal-cerrar" type="button" aria-label="Cerrar modal">×</button>
+            <div class="modal-grid">
+                <div>
+                    <img class="modal-imagen-principal" src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=80" alt="Proyecto destacado">
+                    <div class="modal-galeria">
+                        <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=300&q=80" alt="Detalle 1">
+                        <img src="https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?auto=format&fit=crop&w=300&q=80" alt="Detalle 2">
+                        <img src="https://images.unsplash.com/photo-1493246507139-91e8fad9978e?auto=format&fit=crop&w=300&q=80" alt="Detalle 3">
+                    </div>
+                </div>
+
+                <div class="modal-texto">
+                    <p class="modal-etiqueta">Project</p>
+                    <h2>Material Traces</h2>
+                    <p class="modal-descripcion">A project exploring how memory is inscribed in materials and transformed through repetitive, embodied processes. It combines visual documentation, material studies, and research practice to map the traces left by time, gesture, and context.</p>
+
+                    <div class="modal-datos">
+                        <div>
+                            <span>Year</span>
+                            <p>2024</p>
+                        </div>
+                        <div>
+                            <span>Medium</span>
+                            <p>Installation, documentation, research archive</p>
+                        </div>
+                        <div>
+                            <span>Context</span>
+                            <p>Artistic research and collaborative practice</p>
+                        </div>
+                    </div>
+
+                    <a class="modal-enlace" href="#artistica">Volver a la galería</a>
+                </div>
             </div>
-          </div>
-
-          <div class="modal-texto">
-            <p class="modal-etiqueta">Project</p>
-            <h2 id="modal-titulo">Material Traces</h2>
-            <p class="modal-descripcion">
-              A project exploring how memory is inscribed in materials and transformed through repetitive, embodied processes.
-              It combines visual documentation, material studies, and research practice to map the traces left by time, gesture,
-              and context.
-            </p>
-
-            <div class="modal-datos">
-              <div>
-                <span>Year</span>
-                <p>2024</p>
-              </div>
-              <div>
-                <span>Medium</span>
-                <p>Installation, documentation, research archive</p>
-              </div>
-              <div>
-                <span>Context</span>
-                <p>Artistic research and collaborative practice</p>
-              </div>
-            </div>
-
-            <a class="modal-enlace" href="#artistica">Volver a la galería</a>
-          </div>
         </div>
-      </div>
     </div>
 
-    <script src="script.js" defer></script>
-  </body>
+    <script>
+        const tabs = document.querySelectorAll('.idioma-tabs button');
+        const panels = document.querySelectorAll('.idioma-contenido');
+
+        tabs.forEach((button) => {
+            button.addEventListener('click', () => {
+                const target = button.dataset.tab;
+
+                tabs.forEach((btn) => btn.classList.toggle('tab-activa', btn === button));
+                panels.forEach((panel) => {
+                    const active = panel.id === target;
+                    panel.classList.toggle('activo', active);
+                    panel.style.display = active ? 'block' : 'none';
+                });
+            });
+        });
+
+        const modal = document.querySelector('.modal-proyecto');
+        const closeBtn = document.querySelector('.modal-cerrar');
+        const projectButtons = document.querySelectorAll('.tarjeta-boton');
+
+        projectButtons.forEach((button) => {
+            button.addEventListener('click', () => {
+                modal.classList.add('activo');
+                document.body.classList.add('modal-abierto');
+            });
+        });
+
+        closeBtn.addEventListener('click', () => {
+            modal.classList.remove('activo');
+            document.body.classList.remove('modal-abierto');
+        });
+
+        modal.addEventListener('click', (event) => {
+            if (event.target === modal) {
+                modal.classList.remove('activo');
+                document.body.classList.remove('modal-abierto');
+            }
+        });
+    </script>
+</body>
 </html>
